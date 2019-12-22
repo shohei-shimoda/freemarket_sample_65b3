@@ -1,0 +1,327 @@
+$sectionclor: #f5f5f5;
+$sectionclor1: white;
+html, body {
+  height: 100%;
+  background-color: $sectionclor;
+}
+
+.mainbox {
+  width: 700px;
+  margin: 40px auto 0;  
+}
+
+.itembox {
+  padding: 24px 40px 40px;
+  height: 1250px;
+  background-color: $sectionclor1;
+  &__name {
+    height: 66px;
+    font-size: 24px;
+    background-color: $sectionclor1;
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-
+  }
+  &__main {
+    height: 420px;
+    margin: 16px 0px 0px;
+    background-color:$sectionclor1;
+    display: flex;
+    justify-content: space-between;
+    &__photo {
+      width: 300px;
+      height: 375px;
+      background-color: $sectionclor1;
+    }
+    &__detailtable {
+      width: 300px;
+      height: 420px;
+      font-size: 12px;
+      box-sizing: border-box;
+    }
+  }
+  &__price {
+    height: 65px;
+    margin: 24px 0px 0px;
+    text-align: center;
+    background-color: $sectionclor1;
+    &__bold {
+      font-size: 50px;
+      font-weight: 600;
+    }
+    &__tax {
+      font-size: 10px;
+    }
+    &__shipping {
+      font-size: 16px;
+    }
+  }
+  &__buy {
+    height: 60px;
+    margin: 16px 0px 0px;
+    text-align: center;
+    &--btn {
+      font-size: 24px;
+      line-height: 60px;
+      display: block;
+      margin-top: 16px;
+      background: #ea352d;
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+    }
+  }
+  &__description {
+    height: 486px;
+    padding: 32px 0px 0px;
+    background-color: $sectionclor1;
+  }
+  &__button {
+    height: 33px;
+    margin: 16px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+    &__left {
+      float: left;
+      display: flex;
+      &__like {      
+        color: #333;       
+        background-color: #f5f5f5;
+        width: 125px;
+        height: 33px;
+        padding-top: 9.5px;
+        border-radius: 15px;
+        margin-right: 5px;
+      }
+      &__flag {       
+        background-color: #f5f5f5;
+        width: 179px;
+        height: 33px;
+        padding-top: 9.5px;
+        padding-left: 18.5px;
+        border-radius: 15px;
+        &--btn {
+          text-decoration: none;
+          color: #333;
+        }
+
+      }
+    }
+    &__right {
+      background-color: #f5f5f5;
+      width: 260px;
+      height: 33px;
+      padding-top: 9.5px;
+      padding-left: 10.5px;
+      border-radius: 15px;
+      &__all {
+        text-decoration: none;
+        color: #0099e8;       
+      }
+    }
+  }
+}
+
+.messagecontent {
+  margin-top: 10px;
+  padding: 24px;
+  height: 263px;
+  background-color:$sectionclor1;
+  border-top: black;
+  &__attention {
+    padding: 8px;
+    font-size: 14px;
+    background: #fff6de;
+  }
+  &__text {
+    background-color: $sectionclor1;
+    margin: 8px 0 0;
+    &--file {
+      display: block;
+      width: 97%;
+      max-width: 100%;
+      min-height: 104px;
+      padding: 10px;
+      border: 1px solid rgb(207, 205, 205);
+      background: #fff;
+      font-size: 16px;
+      line-height: 1.5;     
+    }
+  }
+  &__submit {
+    width: 100%;
+    margin: 8px 0 0;
+    font-size: 0;  
+    &--btn {
+      width: 652px;
+      height: 50px;
+      text-align: center
+    }
+  }
+}
+
+
+.navitemlink {
+  margin: 24px auto 0;
+  height: 20px;
+  background-color: $sectionclor;
+  justify-content: space-between;
+  display: flex;
+  &__prev {    
+    &__first {
+      text-decoration: none;
+      color: #0099e8;
+      &--btn {
+        text-decoration: none;
+        color: #0099e8;
+      }
+    }
+  }
+  &__next {
+    &__first {
+      text-decoration: none;
+      color: #0099e8;
+      &--btn {
+        text-decoration: none;
+        color: #0099e8;
+      }
+    }
+  }
+}
+
+.itemsocialmedia {
+  margin: 24px auto;
+  padding: 32px 0 24px;
+  height: 138px;
+  background-color: $sectionclor1;
+  &__center {
+    text-align: center;
+    height: 14px;
+    width: 100%;
+    background-color: $sectionclor1;
+  }
+  &__box {
+    margin: 16px 0 0;
+    text-align: center;
+    &__facebook {
+      &--btn {
+        width: 44px;
+        height: 44px;
+        color: #fff;
+        background: #385185;
+        border-radius: 4px;
+        line-height: 44px;
+        font-size: 26px;        
+      }
+    }
+    &__twitter {
+      &--btn {
+        width: 44px;
+        height: 44px;
+        color: #fff;
+        background: #0099e8;
+        border-radius: 4px;
+        line-height: 44px;
+        font-size: 26px;
+      }
+    }
+    &__line {
+      &--btn {
+        width: 44px;
+        height: 44px;
+        color: #fff;
+        background: #00c137;
+        border-radius: 4px;
+        line-height: 44px;
+        font-size: 26px;
+      }
+    }
+    &__pinterest {
+      &--btn {
+        width: 44px;
+        height: 44px;
+        color: #fff;
+        background: #aa262a;
+        border-radius: 4px;
+        line-height: 44px;
+        font-size: 26px;
+      }
+    }
+  }
+}
+
+
+
+.itemsboxperson {
+  height: 738px;
+  background-color: $sectionclor;
+  &__head {
+    font-size: 22px;
+    margin: 24px 0 8px;
+    &--btn {
+      color: #0099e8;
+      text-decoration: none;
+    }
+  }
+  &__content {
+    width: auto;
+    margin: 0 20px 20px 0;
+    width: 220px;
+    float: left;
+    background-color: $sectionclor1;
+    &__body {
+      padding: 16px;
+      height: 110px;
+      margin: 0;
+      &__name {
+        font-weight: 400;
+        height: 3em;
+        line-height: 1.5;
+        word-break: break-word;
+        white-space: normal;
+      }
+      &__price {
+        justify-content: space-between;
+        display: flex;
+        &__font {
+          font-size: 16px;
+          font-weight: 600;
+          color: #333;
+        }
+        &__like {
+          font-size: 16px;
+          font-weight: 400;
+          color: #333;
+        }
+      }
+    }   
+  }
+}
+
+
+
+.itemsboxgenre {
+  height: 700px;
+  background-color: $sectionclor;
+}
+
+
+
+
+.genrelist {
+  height: 49px;
+  padding: 16px 0;
+  background-color: $sectionclor;
+  display: flex;
+  border-top: 1px solid rgb(211, 209, 209);
+  padding-left: 170px;
+  &__right {
+    margin-right: 5px;
+    &__mercari {
+      text-decoration: none;
+      color: black;
+    }
+  }
+  &__left {
+    font-weight: 600;
+  }
+}
+

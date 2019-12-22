@@ -1,0 +1,165 @@
+.mainbox
+  .itembox
+    .itembox__name
+      %h1 正規品エレキギター　アンプ・スタンド付き　某有名芸人と同じタイプ
+    .itembox__main
+      .itembox__main__photo
+        %img.owl-lazy{:src => "https://images.unsplash.com/photo-1550985616-10810253b84d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE1ODB9", :width => "300", :height => "300"}/
+      .itembox__main__detailtable
+        %table{:border => "1", :bordercolor => "#f0eaea", :cellpadding => "5", :cellspacing => "0", :width => "300"}
+          %tr
+            %th{:bgcolor => "#f5f5f5", :width => "117", :height => "70"}
+              %font{:color => "black"} 出品者
+            %td{:bgcolor => "white", :width => "182", :height => "70"}
+              %font{:color => "black"} 福沢諭吉
+          %tr
+            %th{:bgcolor => "#f5f5f5", :width => "117", :height => "73"}
+              %font{:color => "black"} カテゴリー
+            %td{:bgcolor => "white", :width => "182", :height => "73"}
+              %font{:color => "black"} 楽器
+          %tr
+            %th{:bgcolor => "#f5f5f5", :width => "117", :height => "46"}
+              %font{:color => "black"} ブランド
+            %td{:bgcolor => "white", :width => "182", :height => "46"}
+              %font{:color => "black"} 不明
+          %tr
+            %th{:bgcolor => "#f5f5f5", :width => "117", :height => "46"}
+              %font{:color => "black"} 商品の状態
+            %td{:bgcolor => "white", :width => "182", :height => "46"}
+              %font{:color => "black"} ボロボロ
+          %tr
+            %th{:bgcolor => "#f5f5f5", :width => "117", :height => "46"}
+              %font{:color => "black"} 配送寮の負担
+            %td{:bgcolor => "white", :width => "182", :height => "46"}
+              %font{:color => "black"} 送料込み（出品者負担）
+          %tr
+            %th{:bgcolor => "#f5f5f5", :width => "117", :height => "46"}
+              %font{:color => "black"} 配送の方法
+            %td{:bgcolor => "white", :width => "182", :height => "46"}
+              %font{:color => "black"} 未定
+          %tr
+            %th{:bgcolor => "#f5f5f5", :width => "117", :height => "46"}
+              %font{:color => "black"} 配送元地域
+            %td{:bgcolor => "white", :width => "182", :height => "46"}
+              %font{:color => "black"} 東京都
+          %tr
+            %th{:bgcolor => "#f5f5f5", :width => "117", :height => "46"}
+              %font{:color => "black"} 発送日の目安
+            %td{:bgcolor => "white", :width => "182", :height => "46"}
+              %font{:color => "black"} 4~7日で発送
+    .itembox__price
+      %span{:class => "itembox__price__bold"}¥14,200
+      %span{:class => "itembox__price__tax"}（税込）
+      %span{:class => "itembox__price__shipping"}送料込み
+    .itembox__buy
+      %a{:href => "#", :class => "itembox__buy--btn"}商品購入画面に進む
+    .itembox__description
+      %p ハワイで購入しました。定価は4万近かったと思います。とても可愛いのですが、ギターを使う機会が少ないため出品します。チェーンは外せるのでミニバッグとしても持てます。斜め掛けもできる紐の長さになります。
+    .itembox__button
+      .itembox__button__left
+        .itembox__button__left__like
+          %button{:class => "itembox__button__left__like--btn"}
+            = icon('far', 'heart', class: "itembox__button__left__like--btn")
+          %span いいね!
+          %span.fade-in-down{"data-num" => "like"} 100
+        .itembox__button__left__flag
+          %a{:href => "#",:class => "itembox__button__left__flag--btn"}
+            = icon('far', 'flag', class: "itembox__button__left__flag--btn")
+            %span 不適切な商品の報告
+      .itembox__button__right
+        %a{:href => "#", :class => "itembox__button__right__all"}
+          = icon('fas', 'lock', class: "itembox__button__right__all--btn")
+          %span あんしん・あんぜんへの取り組み
+
+
+
+
+  .messagecontent
+    
+    .messagecontent__attention
+      %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    .messagecontent__text
+      %textarea{:name => "body", :type => "text", :value => "", :class => "messagecontent__text--file"}
+    .messagecontent__submit
+      %button{:type => "submit", :class => "messagecontent__submit--btn", :value => ""}コメントする
+      
+
+
+
+
+  .navitemlink
+    .navitemlink__prev
+      %a{:href => "#", :class => "navitemlink__prev__first"}
+        = icon('fas', 'chevron-left', class: "navitemlink__prev__first--btn")
+        %span 艦これ 劇場版 二週目特典
+    .navitemlink__next
+      %a{:href => "#", :class => "navitemlink__next__first"}
+        %span 本田様専用＊冷蔵庫横マグネットラック   
+        = icon('fas', 'chevron-right', class: "navitemlink__next__first--btn")
+      
+
+
+
+  .itemsocialmedia
+    .itemsocialmedia__center
+    .itemsocialmedia__box
+      %span{:class => "itemsocialmedia__box__facebook"}
+        %a{:href => "https://www.facebook.com/"}
+          = icon('fab', 'facebook-square', class: "itemsocialmedia__box__facebook--btn")
+          %span<>
+      %span{:class => "itemsocialmedia__box__twitter"}
+        %a{:href => "https://twitter.com/shimo_engineers"}
+          = icon('fab', 'twitter-square', class: "itemsocialmedia__box__twitter--btn")
+          %span<>
+      %span{:class => "itemsocialmedia__box__line"}
+        %a{:href => "https://line.me/ja/"}
+          = icon('fab', 'line', class: "itemsocialmedia__box__line--btn")
+          %span<>
+      %span{:class => "itemsocialmedia__box__pinterest"}
+        %a{:href => "https://www.pinterest.jp/"}
+          = icon('fab', 'pinterest-square', class: "itemsocialmedia__box__pinterest--btn")
+  
+  .itemsboxperson  
+    .itemsboxperson__head
+      %a{:href => "#", :class => "itemsboxperson__head--btn"}アンジェさんのその他の出品
+    .itemsboxperson__content
+      .itemsboxperson__content__img
+        %img{:width => "220", :height => "220",:class => "temsboxperson__content__itembox__photo", :src => "https://images.unsplash.com/photo-1545293527-e26058c5b48b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE1ODB9"}
+      .itemsboxperson__content__body
+        .itemsboxperson__content__body__name
+          グランドピアノ
+        .itemsboxperson__content__body__price
+          .itemsboxperson__content__body__price__font
+            ￥10,000
+          .itemsboxperson__content__body__price__like
+            %button{:class => "itembox__button__left__like--btn"}
+              = icon('far', 'heart', class: "itembox__button__left__like--btn")
+            %span 3
+
+
+
+  .itemsboxgenre
+    -#  <!-- itemsboxpersonとitemsboxgenreの構造は同じです。リンク先だけ変更する予定です。  -->
+    .itemsboxperson__head
+      %a{:href => "#", :class => "itemsboxperson__head--btn"}エレキギター その他の商品
+    .itemsboxperson__content
+      .itemsboxperson__content__img
+        %img{:width => "220", :height => "220",:class => "temsboxperson__content__itembox__photo", :src => "https://images.unsplash.com/photo-1556449895-a33c9dba33dd?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE1ODB9"}
+      .itemsboxperson__content__body
+        .itemsboxperson__content__body__name
+          エレキギター
+        .itemsboxperson__content__body__price
+          .itemsboxperson__content__body__price__font
+            ￥1,000,000
+          .itemsboxperson__content__body__price__like
+            %button{:class => "itembox__button__left__like--btn"}
+              = icon('far', 'heart', class: "itembox__button__left__like--btn")
+            %span 16
+
+.genrelist
+  .genrelist__right
+    %a{:href => "#", :class => "genrelist__right__mercari"}
+      %span メルカリ  
+      = icon('fas', 'chevron-right', class: "genrelist__right__mercari")
+  .genrelist__left
+    %p 正規品ギター　ショルダーバッグ　ミニバッグ　ポシェット
