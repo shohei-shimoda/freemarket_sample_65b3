@@ -1,3 +1,7 @@
+.main
+  .submain
+    .header
+      = render partial: "/items/header"
 .contents
   = render partial: "menu_head"
   .center
@@ -59,3 +63,8 @@
           = image_tag 'logo_gray.svg', alt: 'イメージ', height: '150', width: '150', class: 'bottom-notice'
           .bottom-list
             取引中の商品はありません
+
+.main
+  .submain
+    .footer
+      = render partial: "/items/footer" 
