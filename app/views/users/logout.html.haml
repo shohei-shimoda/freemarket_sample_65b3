@@ -1,0 +1,18 @@
+.main
+  .submain
+    .header
+      = render partial: "/items/header"
+.contents
+  = render partial: "menu_head"
+  .center
+    = render partial: "left"
+    .logout
+      .logout__in
+        = link_to "#", class: "logout__in--btn" do
+          ログアウト
+
+
+.main
+  .submain
+    .footer
+      = render partial: "/items/footer" 
