@@ -1,0 +1,108 @@
+.single-header {
+  text-align: center;
+  padding: 40px 0 0;
+  height: 128px;
+  background-color: #f5f5f5;;
+}
+
+.single-header img {
+  width: 185px;
+  height: 49px;
+}
+
+.login-panel{
+  margin-left: 25%;
+  margin-right: 25%;
+}
+.single-main {
+  display: block;
+  text-align: center;
+  background-color: #f5f5f5;;
+
+}
+
+.login-no-account {
+  padding: 40px 64px;
+  text-align: center;
+  font-size: 14px;
+background-color: #fff;
+border-bottom: 1px solid #eee;
+}
+
+.login-no-account p{
+  display: block;
+    margin: 8px 0 0;
+    border: 1px solid #0099e8;
+    background: #0099e8;
+    color: #fff;
+    line-height: 40px;
+    
+}
+.login-form-inner{
+  background-color: #fff;
+  
+  
+}
+.login-form-inner i{
+  margin: 16px 0 0;
+    background: #385185;
+    color: #fff;
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    -webkit-transition: all ease-out .3s;
+    transition: all ease-out .3s;
+    text-align: center;  
+    
+    
+}
+
+.login-form-inner button{
+  margin: 16px 0 0;
+    background: #fff url(/jp/assets/img/common/common/google.svg) no-repeat 3px top;
+    border: #979797 solid 1px;
+    color: #333;
+    line-height: 48px;
+    width: 100%;
+}
+.login-input-text.input-default{
+  height: 48px;
+    padding: 10px 16px 8px;
+    /* border-radius: 4px; */
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+    width: 88%;
+    
+}
+.login-form-inner{
+  padding: 24px 64px 32px;
+}
+.form-group button{
+  background: #ea352d;
+    border: 1px solid #ea352d;
+    color: #fff;
+}
+.form-group a{
+  color: #0099e8;
+    text-decoration: none;
+    display: block;
+    margin: 40px 0 0;
+}
+
+.footer{
+  position: relative;
+    min-height: 100%;
+    background: #f5f5f5;
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+    font-size: 14px;
+    color: #333;
+    line-height: 1;
+  text-align: center;
+  
+}
+
+

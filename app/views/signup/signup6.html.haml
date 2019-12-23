@@ -1,0 +1,46 @@
+.single
+  .single__a
+    .single__header
+      %img{:class => "single__header--icn", :alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1215422380"}/
+    .progress__bar 
+      .signup__bar
+      %li
+        会員情報
+      %li
+        電話番号認証
+      %li
+        お届け先住所入力
+      %li
+        支払い方法
+      %li
+        完了
+  .main
+    .single__main
+      .single__container
+        .chapter__head__registration
+          会員登録完了
+      .single-content
+        .form
+          .form__groups
+            ありがとうございます
+          .form__groups__a
+            会員登録が完了しました。
+
+        .submit-button.btn-default.btn-red{:type => "button"} メルカリをはじめる
+
+        %img{:alt => "", :src =>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA-bHFzcc9sjzrAkmi5spWD5tuqHyB6D1LDr_C4_rliH1jwkiT&s"}/
+  .single__footer
+    .single__footer__box
+      .single__footer__box__1
+        プライバシーポリシー
+        -# = link_to('#')
+      .single__footer__box__2
+        メルカリ利用規約
+        -# = link_to('#')
+      .single__footer__box__3
+        特定商取引に関する表記
+        -# = link_to('#')
+    .single__footer__logo
+      %img{:class => "single__footer--icn",:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?1215422380", }/
+      %p
+        %small © Mercari, Inc.
