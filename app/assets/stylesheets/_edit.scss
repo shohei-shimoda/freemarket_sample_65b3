@@ -1,0 +1,56 @@
+.edit {
+  width: 700px;
+  text-align: center;
+  background-color: #ffffff;
+  .edit-container {
+    &__block {
+      box-sizing: border-box;
+      padding: 8px 24px;
+      font-size: 24px;
+    }
+    .edit-box {
+      // 
+      &__profile {
+      }
+      .edit-profile {
+        box-sizing: border-box;
+        padding: 72px 16px 24px;
+        &__icon {
+          color: blue;
+        }
+        &__text {
+          font-size: 16px;
+          width: 220px;
+          height: 48px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          box-sizing: border-box;
+          border: 1px solid #ccc;
+          line-height: 48px;
+          margin: 0 0 0 8px;
+        }
+        &__details {
+          padding: 40px 16px;
+          &--text {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background: #fff;
+            font-size: 16px;
+            min-height: 216px;
+            max-width: 100%;
+            display: block;
+          }
+          &--submit {
+            margin-top: 16px;
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: white;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+

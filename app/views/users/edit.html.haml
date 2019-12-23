@@ -1,0 +1,16 @@
+.edit
+  .edit-container
+    .edit-container__block
+      プロフィール
+    .edit-box
+      .edit-box__profile
+        %form
+          %input{type:"hidden", class: "edit-box__profile"}
+      .edit-profile
+        .edit-profile__icon
+          = icon('fas fa-4x', 'user-circle', class: "edit-profile__icon")
+          %input{type: "text", class: "edit-profile__text", placeholder: "名前"}
+        .edit-profile__details
+          %input{type: "textarea", class: "edit-profile__details--text", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
+          %input{type: "submit", class: "edit-profile__details--submit", value: "変更する"}
+    
