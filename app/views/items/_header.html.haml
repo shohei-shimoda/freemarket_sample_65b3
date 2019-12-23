@@ -1,0 +1,30 @@
+.header
+  .header_all
+    .upper_header
+      .upper_header_1
+      = image_tag src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR52Yf0vWd0_ZotUwKvVFZ5g4oFXvKl51BeANS7QBpT569LYiuk", size: "160x42",class: "upper_img"
+      .upper_header_2
+        = text_field :content, class: 'upper_header_2--text', placeholder: "何をお探しですか？"
+        -# .serch_icon
+        -#   .fas.fa-search.icon
+    .down_header
+      .down_header_a
+        .down_header_1  
+          = icon("fa", "bars", class: 'icon_a')
+          カテゴリーから探す
+        .down_header_2
+          = icon('fa', "tags", class: 'icon_b')
+          ブランドから探す
+      .down_header_b
+        .down_header_3
+          .far.fa-heart.icon
+          いいね！！一覧          
+        .down_header_4
+          .far.fa-bell.icon
+          お知らせ          
+        .down_header_5
+          .fas.fa-check.icon
+          やることリスト
+        .down_header_6
+          .far.fa-meh.icon
+          マイページ
