@@ -1,0 +1,31 @@
+.sellbtn {
+  display:　block;
+  bottom: 32px;
+  font-size: 22px;
+  height: 160px;
+  right: 32px;
+  width: 160px;
+  position: fixed;
+  text-align: center;
+  background-color: rgb(234, 53, 45);
+  z-index: 1;
+  text-decoration:none;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  &__sell {
+    padding-top: 32px;
+    color: #fff;
+    &--1 {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+  &__btn {
+    &--1 {
+      display: inline;
+      color: rgb(255, 255, 255);
+      font-size: 60px;
+    }
+  }
+}
