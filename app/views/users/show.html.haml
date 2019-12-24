@@ -1,0 +1,71 @@
+.main
+  .submain
+    .header
+      = render partial: "/items/header"
+      = render partial: "/items/sellbutton"
+.contents
+  = render partial: "menu_head"
+  .center
+    = render partial: "left"
+    .right
+      .right-container
+        =link_to image_tag("sample.jpg", width: "700px", height: "200px")
+        .right-block
+          = link_to "#", class:"right-block--tag" do
+            .right-block__img
+              = icon('fas fa-4x', 'user-circle', class:"right-box__img--icon")
+            .right-block__name
+              名前
+            .right-block__information
+              .right-block__information--evaluation
+                評価 : 0
+              .right-block__information--exhibit
+                出品数 : 0
+
+      .right-center
+        .right-box
+          .right-box__list
+            = link_to "#", class:"right-box__list--tag" do
+              お知らせ
+          .right-box__list
+            = link_to "#", class:"right-box__list--tag" do
+              やることリスト
+        .right-notice
+          .notice-list
+            = link_to "#", class:"notice-list__link" do
+              .notice-tab
+                = image_tag 'logo_red.svg', alt: 'イメージ', height: '48', width: '48', class: 'notice-tab'
+              .notice-box
+                .notice-box__text
+                  事務局から通知
+                .notice-box__time
+                  .notice-box__time--icon
+                    = icon('far', 'clock', class:"notice-box__time--icon")
+                  .notice-box__time--ago
+                    1日前
+              .notice-icon
+                = icon('fas', 'chevron-right', class:"notice-list__icon")
+          .list-display
+            = link_to "#", class:"list-display__link" do
+              .list-display__btn
+                一覧を見る
+
+      .right-bottom
+        .bottom-block
+          購入した商品
+        .bottom-box
+          .bottom-box__list
+            = link_to "#", class:"bottom-box__list--tag" do
+              取引中
+          .bottom-box__list
+            = link_to "#", class:"bottom-box__list--tag" do
+              過去の取引
+        .bottom-notice
+          = image_tag 'logo_gray.svg', alt: 'イメージ', height: '150', width: '150', class: 'bottom-notice'
+          .bottom-list
+            取引中の商品はありません
+
+.main
+  .submain
+    .footer
+      = render partial: "/items/footer" 
