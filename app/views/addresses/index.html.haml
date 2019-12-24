@@ -1,0 +1,34 @@
+.main
+  .submain
+    .header
+      = render partial: "/items/header"
+.contents
+  = render partial: "/users/menu_head"
+  .center
+    = render partial: "/users/left"
+    .addresses
+      .addresses-top
+        本人情報の登録
+      .addresses-center
+        %form
+          .addresses-form
+            .addresses-form__group
+              お客さまの本人情報をご登録ください
+              %br/
+              登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+              = link_to "#", class:"addresses-form__group--tag" do
+                本人確認書類のアップロードについて
+                = icon('fas', 'chevron-right', class:"addresses-form__group--icon")
+            .addresses-form__list
+              %label{class: "addresses-form__list--label"}
+                お名前
+                .addresses-form__list--box
+                  ユーザー名
+
+    
+
+
+.main
+  .submain
+    .footer
+      = render partial: "/items/footer"

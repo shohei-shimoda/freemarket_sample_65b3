@@ -1,5 +1,4 @@
 class AddressesController < ApplicationController
-  def create
-    
+  def index
   end
 end
