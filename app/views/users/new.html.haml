@@ -1,0 +1,31 @@
+.main
+  .submain
+    .header
+      = render partial: "/items/header"
+      = render partial: "/items/sellbutton"
+
+.contents
+  = render partial: "menu_head"
+  .center
+    = render partial: "left"
+
+    .body_new
+      .main_new
+        .newbox_way
+          支払い方法
+        .newbox_card
+          .newbox_card--upper
+            .newbox_card--upper-a
+              クレジットカード一覧
+          .newbox_card--down
+            .newbox_card--down-a
+              クレジットカードを追加する
+              .far.fa-credit-card.icon
+          .newbox_about
+            .newbox_about_container
+              支払い方法について＞
+          
+.main
+  .submain
+    .footer
+      = render partial: "/items/footer" 
