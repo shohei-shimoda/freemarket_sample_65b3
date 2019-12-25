@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :items, only: [:index, :new, :show]
   resources :addresses, only: [:index]
+  resources :cards, only: [:new]
   resources :users, only: [:show, :edit, :new] do
     collection do
       get 'logout'
-      get 'newsignup'
       get 'signup1'
       get 'signup2'
       get 'signup3'

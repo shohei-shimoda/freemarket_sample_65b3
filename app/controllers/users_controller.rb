@@ -15,9 +15,6 @@ class UsersController < ApplicationController
   def logout
   end
 
-  def newsignup
-  end
-
   def signup1
   end
 
