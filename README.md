@@ -37,7 +37,7 @@
 |first_name_kana|string|null: false|
 |last_name_kana|string|null: false|
 |postcode|integer|null: false|
-|prefecture|string|null: false|
+|prefecture_id|integer|null: false|
 |city|string|null: false|
 |house_num|integer|null: false|
 |buiding_name|string||
@@ -45,6 +45,7 @@
 
 ### Association
 - belongs_to :user
+- belongs_to_active_hash :prefecture
 
 ## cardsテーブル
 
@@ -126,3 +127,12 @@ Column|Type|Options|
 
 ### Association
 - has_many :items
+
+## prefectureテーブル
+
+Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+### Association
+- has_many :addresses
