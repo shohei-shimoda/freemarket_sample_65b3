@@ -1,48 +1,46 @@
-.singunp{
+$sectionclor: #fff;
+
+.singunp-mercari{
   background-color: #f5f5f5 ;
   height: 100vh;  
-}
 
-.single-header {
-  height: 128px;
-  text-align: center;
-  
-  
-}
-.single-header img {
-  width: 185px;
-  height: 49px;
-  margin: 40px 0 0;
-}
-
-
-.l-single-main {
-    width: 570px;
-    margin: 0 auto;
-    background: #fff;
-    font-size: 22px;
-    padding: 32px;
-    font-weight: bold;
+  .singunp-mercari__header{
     text-align: center;
-    border-bottom: 1px solid #eee;
-    font-family: "Source Sans Pro",
-    
-}
+    padding: 40px 0 0;
+    height: 128px;
+    background-color: #f5f5f5;;
+    &--icn {
+      width: 185px;
+      height: 49px;
+    }
+  }
 
-.l-single-inner{
-  width: 635px;
-  margin: 0 auto;
-  background: #fff;
-}
-.l-single-content{
-    width: 343px;
+  .single-main__container {
+      width: 570px;
+      margin: 0 auto;
+      background: $sectionclor;
+      font-size: 22px;
+      padding: 32px;
+      font-weight: bold;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+      font-family: "Source Sans Pro",  
+  }
+
+  .l-single-inner{
+    width: 635px;
     margin: 0 auto;
-    background: #fff;
-    padding: 24px 16px 40px;
-    
-}
-.icon-mail{
-  color: #fff;
+    background: $sectionclor;
+  }
+  .l-single__content{
+      width: 343px;
+      margin: 0 auto;
+      background: $sectionclor;
+      padding: 24px 16px 40px;
+      
+  }
+  .icon-mail{
+    color: $sectionclor;
     background-color: #ea352d;
     position: relative;
     display: block;
@@ -53,12 +51,24 @@
     -webkit-transition: all ease-out .3s;
     transition: all ease-out .3s;
     text-align: center;
-}
-.icon-facebook{
-  margin: 16px 0 0;
+    &--c{
+      font-size: 26px;
+        color: white;
+        position: absolute;
+        top: 10px;
+        left: 16px;
+    }
+    &--link{
+      color: $sectionclor;
+      text-decoration: none;
+    }
+  }
+  .icon-facebook{
+    margin: 16px 0 0;
     background: #385185;
-    color: #fff;
+    color: $sectionclor;
     display: block;
+    position: relative;
     width: 100%;
     line-height: 48px;
     font-size: 14px;
@@ -66,41 +76,64 @@
     -webkit-transition: all ease-out .3s;
     transition: all ease-out .3s;
     text-align: center;
-}
-.btn-sns-google {
-  margin: 16px 0 0;
-  background: #fff;
-  color: #333;
-  display: block;
-  width: 100%;
-  line-height: 48px;
-  font-size: 14px;
-  border: 1px solid transparent;
-  -webkit-transition: all ease-out .3s;
-  transition: all ease-out .3s;
-  cursor: pointer;
-  border: #979797 solid 1px;
-  text-align: center;
-}
-.single__footer{
-  width: 456px;
-  height: 220px;
-  margin: 0 auto;
-  text-align: center;
-  margin-top: 100px;
-  &__box{
-    display: flex;
-    font-size: 12px;
-    justify-content: space-between;
+    &--c{
+      font-size: 26px;
+      color: $sectionclor;
+      position: absolute;
+      top: 10px;
+      left: 16px;
+    }
+    &--link{
+      color: $sectionclor;
+      text-decoration: none;
+    }
   }
-
-
-  &__logo{
-    margin-top: 70px;
-    font-size: 13px;
-    text-decoration: underline;
+  .icon-google {
+    margin: 16px 0 0;
+    background: $sectionclor;
+    color: #333;
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    -webkit-transition: all ease-out .3s;
+    transition: all ease-out .3s;
+    border: #979797 solid 1px;
+    text-align: center;
+    position: relative;
+    &--c{
+      font-size: 26px;
+      color: yellowgreen;
+      position: absolute;
+      top: 10px;
+      left: 16px;
+    }
+    &--link{
+      color: black;
+      text-decoration: none;
+    }
   }
- 
-
+  .single-footer{
+    width: 456px;
+    height: 220px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 40px;
+    .footer-block {
+      display: flex;
+      justify-content: space-between;
+      &__box{
+        font-size: 12px;
+      }
+    }
+    .footer-logo{
+      margin-top: 60px;
+      font-size: 13px;
+      &--icn{
+        height: 70px;
+        width: 90px;
+      }
+    }
+  }
 }
-

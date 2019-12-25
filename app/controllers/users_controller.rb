@@ -1,13 +1,19 @@
 class UsersController < ApplicationController
   
-  def new 
+  def index
   end
-  
-  def edit
+
+  def new 
+    render "users/#{params[:name]}"
   end
 
   def show
   end
+
+  def edit
+  end
+
+
 
 
 end
