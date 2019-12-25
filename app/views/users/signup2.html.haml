@@ -45,9 +45,9 @@
             ※ 英字と数字の両方を含めて設定してください
         .form-password-revelation-toggle
           .checkbox-default
-            %input#reveal_password{:type => "checkbox"}/
+            %input#reveal_password{type: "checkbox"}/
             %i.icon-check
-            %label{:for => "reveal_password"} パスワードを表示する
+            %label{for: "reveal_password"} パスワードを表示する
         .form
           .form__groups
             本人確認
@@ -76,7 +76,7 @@
             .form__groupss
               必須
           .select-wrap
-            %select.select-default{:name => "year"}
+            %select.select-default{name: "year"}
               %option{:value => ""} --
               %option{:value => "2019"} 2019
               %option{:value => "2018"} 2018
@@ -200,7 +200,7 @@
               %option{:value => "1900"} 1900
           %span 年
           .select-wrap
-            %select.select-default{:name => "month"}
+            %select.select-default{name: "month"}
               %option{:value => ""} --
               %option{:value => "1"} 1
               %option{:value => "2"} 2
@@ -216,8 +216,8 @@
               %option{:value => "12"} 12
           %span 月
           .select-wrap
-            %select.select-default{:name => "day"}
-              %option{:value => ""} --
+            %select.select-default{name: "day"}
+              %option{value: ""} --
           %span 日
           .form__info__text
             ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
