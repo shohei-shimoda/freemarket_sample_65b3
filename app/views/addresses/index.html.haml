@@ -46,12 +46,10 @@
                 都道府県
               .addresses-form__block--box
                 任意
-              .addresses-form__box
-                %select{name: "prefecture", class: "addresses-form__box--select"}
-                  %option{value: "--"}
-                  %option{value: "北海道"}
-                  %option{value: "青森"}
-                = icon('fas', 'chevron-down', class:"addresses-form__box--label")
+              .addresses-box
+                = icon('fas', 'chevron-down', class:"addresses-box__icon")
+                %select{name: "prefecture", class: "addresses-box__select"}
+                  %option{value: "--"}--
             .addresses-form__block
               %label{for: "city", class: "addresses-form__block--label"}
                 市区町村
