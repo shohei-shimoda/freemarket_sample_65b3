@@ -49,10 +49,18 @@ body{
           border-bottom: solid 1px grey;
           padding: 16px;
           height: 48px;
+          text-align: right;
+          position: relative;
           &--tag {
             text-decoration: none;
-            width: 280px;
             font-size: 14px;
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            bottom: 0;
+          }
+          &--icon {
+            color: #ccc;
           }
         }
         &__pay {
