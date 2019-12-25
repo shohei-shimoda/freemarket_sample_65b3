@@ -109,6 +109,22 @@
       vertical-align: top;
     }
   }
+  .select-wrap__ha{
+    display: inline-block;
+    margin-top: 10px;
+    &--default{
+      position: relative;
+      z-index: 2;
+      height: 70px;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: 0;
+      font-size: 16px;
+      line-height: 1.5;
+      width: 100%;
+    }
+  }
   
   .btn-default{
     display: block;

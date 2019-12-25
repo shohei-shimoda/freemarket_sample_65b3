@@ -5,7 +5,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|nickname|text|index: true, null: false, unique: true|
+|nickname|text|null: false, unique: true|
 |e-mail|integer|null: false, unique: true|
 |password|integer|null: false|
 |first_name|string|null: false|
@@ -21,7 +21,7 @@
 |introduction|text||
 
 ### Association
-- has_one :address
+- has_one :address, dependent: :destroy
 - has_one :card
 - has_many :items
 - has_many :comments
@@ -37,7 +37,7 @@
 |first_name_kana|string|null: false|
 |last_name_kana|string|null: false|
 |postcode|integer|null: false|
-|prefecture|string|null: false|
+|prefecture_id|integer|null: false|
 |city|string|null: false|
 |house_num|integer|null: false|
 |buiding_name|string||
@@ -45,6 +45,7 @@
 
 ### Association
 - belongs_to :user
+- belongs_to_active_hash :prefecture
 
 ## cardsテーブル
 
@@ -63,10 +64,10 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|name|string|index: true, null: false|
 |description|text|null: false|
 |condition|integer|null: false|
-|category|integer|null: false|
+|category_id|references|null: false, foreign_key: true|
 |size|integer|null: false|
 |brand|integer||
 |delivery_charge|integer|null: false|
@@ -80,6 +81,7 @@
 ### Association
 - belongs_to :seller, class_name: 'User', foreign_key: 'seller_id'
 - belongs_to :buyer, class_name: 'User', foreign_key: 'buyer_id'
+- belongs_to :category
 - has_many :comments
 - has_many :images
 - has_many :likes
@@ -115,3 +117,22 @@ Column|Type|Options|
 ### Association
 - belongs_to :user
 - belongs_to :item
+
+## categoriesテーブル
+
+Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|ancestry|string||
+
+### Association
+- has_many :items
+
+## prefectureテーブル
+
+Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+### Association
+- has_many :addresses
