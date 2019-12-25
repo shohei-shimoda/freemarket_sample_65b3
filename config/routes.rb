@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :items, only: [:index, :new, :show]
   resources :addresses, only: [:index]
-  resources :users, only: [:show, :edit] do
+  resources :users, only: [:show, :edit, :new] do
     collection do
       get 'logout'
     end
