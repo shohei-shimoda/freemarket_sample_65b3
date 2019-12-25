@@ -1,0 +1,46 @@
+.member-registration
+  .member-box
+    .member-box__header
+      = image_tag "fmarket_logo_red.svg", class: 'member-box__header--icn'
+    .progress__bar 
+      .signup__bar
+      %li
+        会員情報
+      %li
+        電話番号認証
+      %li
+        お届け先住所入力
+      %li
+        支払い方法
+      %li
+        完了
+  .main
+    .member-main
+      .member-main__registration
+        電話番号の確認
+      .single-content
+        .form
+          .phone_number
+            携帯電話の番号
+          %input{placeholder: "携帯電話の番号を入力", type: "tel", class: "phone_number-default"}
+          .phone-number_a
+            本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+          .phone-number_b
+          %input{type: "submit", class: "phone-number_b-c", value: "SMSを送信する" } 
+          .phone-number_a
+            ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+        .form-group__text-right
+          = link_to "#" ,class: "form-group__text-right--link" do
+            電話番号の確認が必要な理由
+          = icon('fas','angle-right', class:"form-group__text-right--icn")
+  .single-footer
+    .footer-block
+      .footer-block__box
+        プライバシーポリシー
+      .footer-block__box
+        メルカリ利用規約
+      .footer-block__box
+        特定商取引に関する表記
+    .footer-logo
+      = image_tag "logo_gray.svg", class: 'footer-logo--icn'
+      %p © Mercari, Inc.

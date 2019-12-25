@@ -6,6 +6,13 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :new] do
     collection do
       get 'logout'
+      get 'newsignup'
+      get 'signup1'
+      get 'signup2'
+      get 'signup3'
+      get 'signup4'
+      get 'signup5'
+      get 'signup6'
     end
   end
 end
