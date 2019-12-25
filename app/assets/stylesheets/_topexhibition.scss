@@ -1,0 +1,331 @@
+@import './variablefile';
+
+.topexhibitionmain {
+  margin: 0;
+  padding: 0;
+  display: block;
+  background-color: $sectionclor;
+  &__center {
+    width: 700px;
+    margin: 0 auto;
+    background-color: royalblue;
+    height: 100%;
+    &__head {
+      height: 33px;
+      padding: 32px 16px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      border-bottom: 1px solid rgb(211, 209, 209);
+      background-color: $sectionclor1;
+    }
+    &__form {
+      &__itembox {
+        background-color: $sectionclor1;
+        height: 300px;
+        padding: 40px;
+        border-bottom: 1px solid rgb(211, 209, 209);
+        &__head {
+          line-height: 20px;
+          padding: 16px 0;
+          display: flex;
+          font-weight: 600;
+        }
+        &__upload {
+          font-size: 14px;
+          line-height: 1.5;  
+               
+        }
+        &__dropbox {
+          width: 100%;     
+          min-height: 162px;
+          background: $sectionclor;
+          border: 1px dashed #ccc;
+          font-size: 0;
+          text-align: center;
+          cursor: pointer;
+          position: absolute;
+          &--btn1 {
+            display: none;
+          }
+          &__comment {        
+            position: absolute;
+            top: 70px;
+            left: 16px;
+            right: 16px;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.5;
+            -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+            pointer-events: none;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+          }
+        }
+        
+      }
+      &__content {
+        height: 327px;
+        background-color: $sectionclor1;
+        padding: 40px;
+        border-bottom: 1px solid rgb(211, 209, 209);
+        &__head {
+          line-height: 20px;
+          padding: 16px 0;
+          display: flex;
+          font-weight: 600;
+        }
+        &__name {
+          padding: 10px 0px 8px;
+          &--size {
+            padding: 10px 16px 8px;
+            height: 30px;
+            width: 95%;
+            margin-left: 0;
+          }
+        }
+        &__middle {
+          line-height: 20px;
+          padding: 16px 0;
+          display: flex;
+          font-weight: 600;
+        }
+        &__text {
+          &--file {
+            display: block;
+            width: 97%;
+            max-width: 100%;
+            min-height: 142px;
+            padding: 10px;
+            border: 1px solid rgb(207, 205, 205);
+            background: #fff;
+            font-size: 16px;
+            line-height: 1.5; 
+          }
+        }
+      }
+      &__clearfix {
+        height: 230px;
+        background-color: $sectionclor1;
+        padding: 40px;
+        border-bottom: 1px solid rgb(211, 209, 209);
+        &__name {
+          float: left;
+          color: #888;
+          font-size: 14px;
+        }
+        &__group {
+          width: 400px;
+          float: right;
+          &__head {
+            line-height: 20px;           
+            display: flex;
+            font-weight: 600;
+          }
+          &__genre {
+            position: relative;
+          }
+          &__middle {
+            margin-top: 40px;
+            line-height: 20px;           
+            display: flex;
+            font-weight: 600;
+          }
+          &__status {
+            position: relative;
+          }
+        }
+      }
+      &__plan {
+        height: 371px;
+        background-color: $sectionclor1;
+        padding: 40px;
+        border-bottom: 1px solid rgb(211, 209, 209);
+        &__name {
+          float: left;
+          color: #888;
+          font-size: 14px;
+          &--btn {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #0099e8;
+            color: #fff;
+            line-height: 14px;
+            font-size: 12px;
+            text-align: center;
+            text-decoration: none;
+          }
+        }
+        &__group {
+          width: 400px;
+          float: right;
+          &__head {
+            line-height: 20px;           
+            display: flex;
+            font-weight: 600;
+          }
+          &__burden {
+            position: relative;
+          }
+          &__middle {
+            margin-top: 40px;
+            line-height: 20px;           
+            display: flex;
+            font-weight: 600;
+          }
+          &__area {
+            position: relative;
+          }
+          &__bottom {
+            margin-top: 40px;
+            line-height: 20px;           
+            display: flex;
+            font-weight: 600;
+          }
+          &__date {
+            position: relative;
+          }
+        }
+      }
+      &__price {
+        height: 300px;
+        background-color: $sectionclor1;
+        padding: 40px;
+        border-bottom: 1px solid rgb(211, 209, 209);
+        &__name {
+          float: left;
+          color: #888;
+          font-size: 14px;
+        }
+        &__group {
+          width: 400px;
+          float: right;
+          &__first {
+            padding: 0 0 24px;
+            border-bottom: 1px solid rgb(211, 209, 209);
+            display: flex;
+            justify-content: space-between;
+            &__money {                                    
+              display: flex;
+              font-weight: 600;
+              width: 50%;
+              margin-top: 12px;
+              margin-bottom: 12px;            
+            }
+            &__prices {
+              line-height: 48px;
+              display: flex;
+            }
+          }
+          &__second {
+            border-bottom: 1px solid rgb(211, 209, 209);
+            padding: 24px 0;
+            display: flex;
+            justify-content: space-between;
+          }
+          &__third {
+            padding: 24px 0;
+            display: flex;
+            justify-content: space-between;
+          }
+        }
+      }
+      &__sell {
+        height: 260px;
+        background-color: $sectionclor1;
+        padding: 40px;
+        &__attention {
+          font-size: 14px;
+        }
+        &__submission {
+          margin: 40px 0 0;
+          &--btn {
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+          }
+        }
+        &__return {
+          width: 45%;
+          margin: 24px auto 0;
+          &--btn {
+            background: #aaa;
+            border: 1px solid #aaa;
+            color: #fff;
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 必須ボタンです
+.compulsory-btn {
+  background: #ea352d;
+  margin: 0 0 0 8px;
+  padding: 0 2px 0 2px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top; 
+}
+
+// select要素です
+.select-default-all { 
+  margin: 8px 0 0;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 48px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: white;
+  padding: 0 16px;
+  appearance: none; 
+}
+.select-default-icon {
+  position: absolute;
+  right: 16px;
+  top: 24px;
+  color: #888;
+  font-size: 16px;
+}
+
+
+// input要素のSCSSです
+.input-default-main {
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+  
+}
+
+// 商品注意書きのリンクに対しての装飾です
+.attention-property {
+  color: #0099e8;
+  text-decoration: none;
+  touch-action: manipulation;
+}
+
+// label要素のため記述
+.topexhibitionmain__center__form__itembox__drop {
+  position: relative;
+}

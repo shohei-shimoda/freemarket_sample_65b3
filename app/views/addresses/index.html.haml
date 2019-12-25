@@ -1,0 +1,80 @@
+.main
+  .submain
+    .header
+      = render partial: "/items/header"
+      = render partial: "/items/sellbutton"
+.contents
+  = render partial: "/users/menu_head"
+  .center
+    = render partial: "/users/left"
+    .addresses
+      .addresses-top
+        本人情報の登録
+      .addresses-center
+        %form
+          .addresses-form
+            .addresses-form__group
+              お客さまの本人情報をご登録ください
+              %br/
+              登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+              = link_to "#", class:"addresses-form__group--tag" do
+                本人確認書類のアップロードについて
+                = icon('fas', 'chevron-right', class:"addresses-form__group--icon")
+            .addresses-form__list
+              %label{class: "addresses-form__list--label"}
+                お名前
+              .addresses-form__list--box
+                ユーザー名
+            .addresses-form__list
+              %label{class: "addresses-form__list--label"}
+                お名前カナ
+              .addresses-form__list--box
+                ユーザー名カナ
+            .addresses-form__list
+              %label{class: "addresses-form__list--label"}
+                生年月日
+              .addresses-form__list--box
+                2019/01/01
+            .addresses-form__block
+              %label{for: "postcode", class: "addresses-form__block--label"}
+                郵便番号
+              .addresses-form__block--box
+                任意
+              %input{type: "text", name: "postcode", class: "addresses-form__block--text", placeholder: "例) 1234567"}
+            .addresses-form__block
+              %label{for: "prefecture", class: "addresses-form__block--label"}
+                都道府県
+              .addresses-form__block--box
+                任意
+              .addresses-box
+                = icon('fas', 'chevron-down', class:"addresses-box__icon")
+                %select{name: "prefecture", class: "addresses-box__select"}
+                  %option{value: "--"}--
+            .addresses-form__block
+              %label{for: "city", class: "addresses-form__block--label"}
+                市区町村
+              .addresses-form__block--box
+                任意
+              %input{type: "text", name: "city", class: "addresses-form__block--text", placeholder: "例) 横浜市緑区"}
+            .addresses-form__block
+              %label{for: "house_num", class: "addresses-form__block--label"}
+                番地
+              .addresses-form__block--box
+                任意
+              %input{type: "text", name: "house_num", class: "addresses-form__block--text", placeholder: "例) 青山1-1-1"}
+            .addresses-form__block
+              %label{for: "buiding_name", class: "addresses-form__block--label"}
+                建物名
+              .addresses-form__block--box
+                任意
+              %input{type: "text", name: "buiding_name", class: "addresses-form__block--text", placeholder: "例) 柳ビル103"}
+            %input{type: "submit", class: "addresses-form__submit", value: "登録する"}
+            .addresses-form__link
+              = link_to "#", class:"addresses-form__link--tag" do
+                本人情報の登録について
+                = icon('fas', 'chevron-right', class:"addresses-form__link--icon")
+              
+.main
+  .submain
+    .footer
+      = render partial: "/items/footer"

@@ -15,7 +15,7 @@
             .right-block__img
               = icon('fas fa-4x', 'user-circle', class:"right-box__img--icon")
             .right-block__name
-              名前
+              ユーザー名
             .right-block__information
               .right-block__information--evaluation
                 評価 : 0
@@ -27,8 +27,8 @@
           .right-box__list
             = link_to "#", class:"right-box__list--tag" do
               お知らせ
-          .right-box__list
-            = link_to "#", class:"right-box__list--tag" do
+          .right-box__todo
+            = link_to "#", class:"right-box__todo--tag" do
               やることリスト
         .right-notice
           .notice-list
@@ -57,8 +57,8 @@
           .bottom-box__list
             = link_to "#", class:"bottom-box__list--tag" do
               取引中
-          .bottom-box__list
-            = link_to "#", class:"bottom-box__list--tag" do
+          .bottom-box__past
+            = link_to "#", class:"bottom-box__past--tag" do
               過去の取引
         .bottom-notice
           = image_tag 'logo_gray.svg', alt: 'イメージ', height: '150', width: '150', class: 'bottom-notice'
