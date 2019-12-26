@@ -15,10 +15,6 @@
           display: flex;
           padding-top: 10px;
           
-          &__1{
-            // padding-left: 100px;
-          }
-          
           &__2{
             position: relative;
             margin-left: 45px;
@@ -180,6 +176,8 @@
 .body_item{
   height: 1400px;
   .body_item_all{
+    width: 980px;
+    margin: 0 auto;
     display: flex;
     padding-top:30px;
     .body_item_1{
@@ -189,12 +187,14 @@
       line-height: 1.4em;
       margin: 0;
       padding: 0;
-      padding-left: 150px;
+      width: 930px;
     }
 
     .body_item_2{
-      color: blue;
-      padding-left: 600px;
+      color: rgb(0, 149, 238);
+    display: block;
+      white-space: nowrap;
+
 
     }
   }
@@ -203,35 +203,30 @@
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    .pic_1{
-      box-shadow: 0 2px 4px rgba(0,0,0,.18);
-      margin: 10px;
-      .pic_name{
-        color: #222;
-        font-size: 14px;
-        height: 64px;
-        background-color: white;
-        padding: 0 12px;
-      }
-    }
-    .pic_2{
-      box-shadow: 0 2px 4px rgba(0,0,0,.18);
-      margin: 10px;
-      position: relative;
-    }
-    .pic_2--price{
-      position: absolute;
-    }
-    .pic_name_2{
-      color: #222;
-      font-size: 14px;
-      height: 64px;
-      background-color: white;
-      padding: 0 12px;
-      }
     .pic_3{
-      box-shadow: 0 2px 4px rgba(0,0,0,.18);
+      box-shadow: 0 4px 6px rgba(2,2,2,.18);
       margin: 10px;
+      height: 264px;
+
+      .pic_3--img{
+        height: 200px;
+        position: relative;
+      }
+
+      .pic_3--price{
+        position: absolute;
+        height: 30px;
+        width: 80px;
+        line-height: 30px;
+        top: 165px;
+        left: 0px;
+        bottom: 2px;
+        color: white;
+        text-align: center;
+        background: rgba(0,0,0,.4);
+        border-radius: 0 14px 14px 0;
+      }
+
 
       .pic_name_3{
         color: #222;
@@ -241,34 +236,14 @@
         padding: 0 12px;
       }
     }
-    .pic_4{
-      margin: 10px;
-      box-shadow: 0 2px 4px rgba(0,0,0,.18);
-
-      .pic_name_4{
-        color: #222;
-        font-size: 14px;
-        height: 64px;
-        background-color: white;
-        padding: 0 12px;
-      }
-    }
-    .pic_5{
-      margin: 10px;
-      box-shadow: 0 2px 4px rgba(0,0,0,.18);
-
-      .pic_name_5{
-        color: #222;
-        font-size: 14px;
-        height: 64px;
-        background-color: white;
-        padding: 0 12px;
-      }
+   
     }
     
     .body_item_all_2{
+      width: 980px;
+      margin: 0 auto;
       display: flex;
-      padding-top: 50px;
+      padding-top:30px;
     .body_item_3{
     font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
       font-size: 24px;
@@ -276,79 +251,18 @@
       line-height: 1.4em;
       margin: 0;
       padding: 0;
+      width: 930px;
     }
     .body_item_4{
-      color: blue;
-      padding-left: 670px;
+      color: rgb(0, 149, 238);
+    display: block;
+      white-space: nowrap;
     }
     
   }
   .pic_box_all--2{
     display: flex;
     flex-wrap: wrap;
-    .pic_6{
-      margin: 10px;
-      box-shadow: 0 2px 4px rgba(0,0,0,.18);
-
-      .pic_name_6{
-        color: #222;
-      font-size: 14px;
-      height: 64px;
-      background-color: white;
-      padding: 0 12px;
-    }
-    }
-    .pic_7{
-      margin: 10px;
-      box-shadow: 0 2px 4px rgba(0,0,0,.18);
-      .pic_name_7{
-        color: #222;
-      font-size: 14px;
-      height: 64px;
-      background-color: white;
-      padding: 0 12px;
-        
-
-      }
-    }
-    .pic_8{
-      margin: 10px;
-      box-shadow: 0 2px 4px rgba(0,0,0,.18);
-
-      .pic_name_8{
-      color: #222;
-      font-size: 14px;
-      height: 64px;
-      background-color: white;
-      padding: 0 12px;
-
-      }
-    }
-    .pic_9{
-      margin: 10px;
-      box-shadow: 0 2px 4px rgba(0,0,0,.18);
-     
-      .pic_name_9{
-        color: #222;
-        font-size: 14px;
-        height: 64px;
-        background-color: white;
-        padding: 0 12px;
-  
-      }
-    }
-    .pic_10{
-      margin: 10px;
-      box-shadow: 0 2px 4px rgba(0,0,0,.18);
-
-      .pic_name_10{
-        color: #222;
-        font-size: 14px;
-        height: 64px;
-        background-color: white;
-        padding: 0 12px;
-      }
-    }   
     } 
   }
 
@@ -414,4 +328,4 @@
   }
 }
 }
-}
+
