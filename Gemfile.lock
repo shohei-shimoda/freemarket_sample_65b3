@@ -314,6 +314,7 @@ PLATFORMS
 DEPENDENCIES
   active_hash
   ancestry
+  bcrypt
   bootsnap (>= 1.1.0)
   byebug
   capistrano

@@ -5,8 +5,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|nickname|text|null: false, unique: true|
-|e-mail|integer|null: false, unique: true|
+|nickname|string|null: false, unique: true|
+|email|string|null: false, unique: true|
 |password|integer|null: false|
 |first_name|string|null: false|
 |last_name|string|null: false|
@@ -17,6 +17,7 @@
 |birthday_day|integer|null: false|
 |phone_num|integer|null: false|
 |authentication_num|integer|null: false|
+|address|references|null: false, foreign_key: true|
 |user_img|text||
 |introduction|text||
 
