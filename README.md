@@ -77,6 +77,7 @@
 |status|integer|null: false|
 |seller_id|integer|null: false, foreign_key: true|
 |buyer_id|integer|null: false, foreign_key: true|
+|image_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :seller, class_name: 'User', foreign_key: 'seller_id'
