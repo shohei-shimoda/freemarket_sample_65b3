@@ -1,6 +1,5 @@
 .login-main
-  .login-header 
-    = image_tag "fmarket_logo_red.svg", class: 'login-header--icn'
+  = render partial: "header"
   .signup-main
     .signup-container
       .signup-container__registration
@@ -34,13 +33,4 @@
           = link_to "#" ,class: "form-forget__c" do
             パスワードをお忘れの方
   .single-footer
-    .footer-block
-      .footer-block__box
-        プライバシーポリシー
-      .footer-block__box
-        メルカリ利用規約
-      .footer-block__box
-        特定商取引に関する表記
-    .footer-logo
-      = image_tag "logo_gray.svg", class: 'footer-logo--icn'
-      %p © Mercari, Inc.
+    = render partial: "footer"
