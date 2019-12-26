@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2019_12_26_032119) do
-
+ActiveRecord::Schema.define(version: 2019_12_26_074034) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture_id"
@@ -21,6 +19,13 @@ ActiveRecord::Schema.define(version: 2019_12_26_032119) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "birthdays", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "birthday_year"
+    t.integer "birthday_month"
+    t.integer "birthday_day"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -85,5 +90,4 @@ ActiveRecord::Schema.define(version: 2019_12_26_032119) do
   end
 
   add_foreign_key "users", "addresses"
-
 end
