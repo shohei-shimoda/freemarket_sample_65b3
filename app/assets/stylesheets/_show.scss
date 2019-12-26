@@ -1,14 +1,10 @@
-$font-color: #333;
-$color: #ffffff;
-$color-ccc: #ccc;
-$color-eee: #eee;
-$font-type: "游ゴシック Medium",YuGothic,YuGothicM,"Hiragino Kaku Gothic ProN","Hiragino Kaku Gothic Pro",メイリオ,Meiryo,sans-serif;
+@import './variablefile';
 @mixin box {
   text-align: center;
   width: 50%;
   border-top: 2px solid #ea352d;
   font-size: 16px;
-  font-family: $font-type;
+  font-family: $font-family;
   font-weight: 600;
 }
 
@@ -45,7 +41,7 @@ $font-type: "游ゴシック Medium",YuGothic,YuGothicM,"Hiragino Kaku Gothic Pr
       }
       &__mypage {
         display: inline-block;
-        font-family: $font-type;
+        font-family: $font-family;
         font-weight: 600;
       }
     }

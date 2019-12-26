@@ -1,5 +1,4 @@
-$font-family: "游ゴシック Medium",YuGothic,YuGothicM,"Hiragino Kaku Gothic ProN","Hiragino Kaku Gothic Pro",メイリオ,Meiryo,sans-serif;
-$font-weight: 600;
+@import './variablefile';
 @mixin box {
   margin: 8px 0 0 ;
 }
