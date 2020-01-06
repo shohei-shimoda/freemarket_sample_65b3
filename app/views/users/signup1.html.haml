@@ -1,0 +1,31 @@
+.singunp-mercari
+  .singunp-mercari__header
+    = image_tag "fmarket_logo_red.svg", class: 'singunp-mercari__header--icn'
+  .single-main
+    .single-main__container
+      新規会員登録
+    .l-single-inner
+      .l-single__content
+        .icon-mail
+          = icon('fas', ' fa-envelope', class:"icon-mail--c")
+<<<<<<< Updated upstream
+          = link_to "signup2" ,class: "icon-mail--link" do
+=======
+          = link_to signup2_signup_index_path ,class: "icon-mail--link" do
+>>>>>>> Stashed changes
+            メールアドレスで登録する
+        
+        .icon-facebook
+          = icon('fab', 'facebook-square', class:"icon-facebook--c")      
+          = link_to "#" ,class: "icon-facebook--link" do
+            Facebookで登録する
+        
+        .icon-google
+          = icon('fab', 'google', class:"icon-google--c")
+          = link_to "#" ,class: "icon-google--link" do
+            Googleで登録する
+  .single-footer
+    = render partial: "footer"
+
+
+

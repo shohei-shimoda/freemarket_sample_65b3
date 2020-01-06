@@ -1,0 +1,66 @@
+
+.body_new{
+  width: 700px;
+  margin: 24px auto 0;
+  padding: 0 0 40px;
+
+
+  .main_new{
+    height: 358px;
+    background-color: white;
+
+    .newbox_way{
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      font-size: 24px;
+      font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+      font-weight: bold;
+    }
+
+    .newbox_card{
+      height: 180px;
+      padding: 64px;
+      border-top: 1px solid #f5f5f5;
+    }
+    .newbox_card--upper{
+      width: 572px;
+      height: 16px;
+
+
+      .newbox_card--upper-a{
+        width: 320px;
+        height: 16px;
+        font-size: 16px;
+        line-height: 16px;
+        font-weight: bold;
+        margin: 0 auto;
+        max-width: 320px;
+      }
+      
+    }
+
+    .newbox_card--down{
+      padding: 24px 0;
+      border-bottom: 1px solid #eee;
+      
+
+      .newbox_card--down-a{
+        height: 50px;
+        line-height: 50px;
+        margin: 0 auto;
+        width: 320px;
+        text-align: center;
+        background: #ea352d;
+        color: white;
+        
+      }
+    }
+    .newbox_about{
+      margin: 40px 0 0;
+      text-align: right;
+      color: #0099e8;
+      font-size: 14px;
+    }
+  }
+}

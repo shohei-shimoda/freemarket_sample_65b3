@@ -1,0 +1,23 @@
+.member-registration
+  = render partial: "loginheader"
+  .main
+    .member-main
+      .member-main__registration
+        電話番号の確認
+      .single-content
+        .form
+          .phone_number
+            携帯電話の番号
+          %input{placeholder: "携帯電話の番号を入力", type: "tel", class: "phone_number-default"}
+          .phone-number_a
+            本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+          .phone-number_b
+          %input{type: "submit", class: "phone-number_b-c", value: "SMSを送信する" } 
+          .phone-number_a
+            ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+        .form-group__text-right
+          = link_to "#" ,class: "form-group__text-right--link" do
+            電話番号の確認が必要な理由
+          = icon('fas','angle-right', class:"form-group__text-right--icn")
+  .single-footer
+    = render partial: "footer"

@@ -1,30 +1,33 @@
-.header
-  .header_all
-    .upper_header
-      .upper_header_1
-      = image_tag "fmarket_logo_red.svg", size: "160x42",class: "upper_img"
-      .upper_header_2
-        = text_field :content, class: 'upper_header_2--text', placeholder: "何をお探しですか？"
-        -# .serch_icon
-        -#   .fas.fa-search.icon
-    .down_header
-      .down_header_a
-        .down_header_1  
-          = icon("fa", "bars", class: 'icon_a')
+.header-all
+  .upper-header
+    .upper-header__1
+      = image_tag "fmarket_logo_red.svg", size: "160x42",class: "upper-img"
+    .upper-header__2
+      %input{type: "text", class: 'upper-header__2--text', placeholder: "何をお探しですか？"}
+  .down-header
+    .down-header__a
+      .down-header__a--1
+        =link_to "#",class:"down-header__a--link" do
+          = icon("fa", "bars", class: 'down-header__a--icon')
           カテゴリーから探す
-        .down_header_2
-          = icon('fa', "tags", class: 'icon_b')
+      .down-header__a--2
+        =link_to "#",class:"down-header__a--link" do
+          = icon('fa', "tags", class: 'down-header__a--icon')
           ブランドから探す
-      .down_header_b
-        .down_header_3
-          .far.fa-heart.icon
+    .down-header__b
+      .down-header__b--3
+        =link_to "#",class:"down-header__b--link" do
+          = icon('far', "heart", class: 'down-header__b--icon')
           いいね！！一覧          
-        .down_header_4
-          .far.fa-bell.icon
+      .down-header__b--3
+        =link_to "#",class:"down-header__b--link" do
+          = icon('far', "bell", class: 'down-header__b--icon')
           お知らせ          
-        .down_header_5
-          .fas.fa-check.icon
+      .down-header__b--3
+        =link_to "#",class:"down-header__b--link" do
+          = icon('fas', "check", class: 'down-header__b--icon')
           やることリスト
-        .down_header_6
-          .far.fa-meh.icon
+      .down-header__b--3
+        =link_to "#",class:"down-header__b--link" do
+          = icon('far', "meh", class: 'down-header__b--icon')
           マイページ
