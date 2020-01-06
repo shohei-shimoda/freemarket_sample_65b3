@@ -33,6 +33,7 @@
         .down-header{
           // -webkit-box-pack: justify;
           // justify-content: space-between;
+          position: relative;
           display: flex;
           &__a{
             display: flex;
@@ -91,6 +92,34 @@
               color: #ccc;
             }
             
+          }
+          &__box {
+            display: flex;
+            position: absolute;
+            right: 0;
+            &--sign {
+              background-color: rgb(234, 53, 45);
+              color: rgb(255, 255, 255);
+              font-size: 14px;
+              border-width: 1px;
+              border-style: solid;
+              border-color: rgb(234, 53, 45);
+              border-radius: 4px;
+              padding: 8px 10px;
+              text-decoration: none;
+            }
+            &--log {
+              margin-left: 11px;
+              background-color: rgb(255, 255, 255);
+              color: rgb(0, 149, 238);
+              font-size: 14px;
+              border-width: 1px;
+              border-style: solid;
+              border-color: rgb(0, 149, 238);
+              border-radius: 4px;
+              padding: 8px 10px;
+              text-decoration: none;
+            }
           }
         }
       }

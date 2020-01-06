@@ -16,19 +16,19 @@
         = icon('fab', 'google', class:"login-form__block--icon")
         = link_to "#" ,class: "login-form__block--link" do
           Googleでログイン
-    = form_for url: new_user_path, method: :get do
+    = form_for @user, url: user_session_path, method: :post do |f|
       .form-block
         .form-group
-          %input{placeholder: "メールアドレス", type: "email", class: "form-group--email"}
+          = f.email_field :email, class: "form-group--email", placeholder: "メールアドレス"
         .form-tab
-          %input{placeholder: "パスワード", type: "password", class: "form-tab--password" }
+          = f.password_field :password, class: "form-tab--password",placeholder: "パスワード"
         .form-box
           .login-captcha{"data-sitekey" => "6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc"}
             .form-box__captcha
               %iframe{frameborder: "0",height: "78",role: "presentation",sandbox: "allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox", :scrolling => "no", :src => "https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&hl=ja&v=mhgGrlTs_PbFQOW4ejlxlxZn&size=normal&cb=uvu3wf6bvpg8", :width => "304"}
               %textarea#g-recaptcha-response.g-recaptcha-response{:name => "g-recaptcha-response", :style => "width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"}
         .form-default
-          %input{type: "submit", class: "form-default__submit", value: "ログイン" } 
+          = f.submit "ログイン", class: "form-default__submit" 
         .form-forget
           = link_to "#" ,class: "form-forget__c" do
             パスワードをお忘れの方

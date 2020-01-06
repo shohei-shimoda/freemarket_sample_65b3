@@ -1,0 +1,108 @@
+.member-registration
+  = render partial: "users/loginheader"
+  .main
+    .member-main
+      .member-main__registration
+        会員情報入力
+      .member-content
+        = form_for @user, url: signup3_signup_index_path, method: :get, html: {class: 'member-content'} do |f|
+
+          .form
+            .form__groups
+              = f.label :nickname, "ニックネーム"
+              .form__groupss
+                必須
+            .form__groupsss
+              = f.text_field :nickname, class: "form__groupsss--cc", placeholder: "例) メルカリ太郎", autofocus: true, autocomplete: "nickname"
+
+          .form
+            .form__groups
+              = f.label :email, "メールアドレス"
+              .form__groupss
+                必須
+            .form__groupsss
+              = f.email_field :email, class: "form__groupsss--cc", placeholder: "例) PC・携帯どちらでも可", autofocus: true
+
+
+          .form
+            .form__groups
+              = f.label :password, "パスワード"
+              .form__groupss
+                必須
+            .form__groupsss
+              - if @minimum_password_length
+                %em
+                  (#{@minimum_password_length} characters minimum)
+              = f.password_field :password, class: "form__groupsss--cc",placeholder: "例) ７文字以上の半角数字", autocomplete: "new-password"
+          .form__info__text
+            %p 
+              ※ 英字と数字の両方を含めて設定してください
+          .form-password-revelation-toggle
+            .checkbox-default
+              %input#reveal_password{type: "checkbox"}/
+              %i.icon-check
+              %label{for: "reveal_password"} パスワードを表示する
+          .form
+            .form__groups
+              本人確認
+            .form__groups__text
+              安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+          .form
+            .form__groups
+              = f.label :last_name, "お名前(全角)"
+              .form__groupss
+                必須
+            .form__groupsss3
+              = f.text_field :last_name, class: "form__groupsss--cc",placeholder: "例) 山田"
+              .form__groupsss4
+                = f.text_field :first_name, class: "form__groupsss--cc",placeholder: "例) 彩"
+            .form
+            .form__groups
+              = f.label :last_name_kana, "お名前(全角カナ)"
+              .form__groupss
+                必須
+            .form__groupsss3
+              = f.text_field :last_name_kana, class: "form__groupsss--cc", placeholder: "例) ヤマダ"
+              .form__groupsss4
+                = f.text_field :first_name_kana, class: "form__groupsss--cc", placeholder: "例) アヤ"
+            .form__groups
+              生年月日
+              .form__groupss
+                必須
+            .select-wrap
+              = f.collection_select :birthday_year, BirthdayYear.all, :id, :name, prompt: "--"
+              
+            %span 年
+            .select-wrap
+              = f.collection_select :birthday_month, BirthdayMonth.all, :id, :month, prompt: "--"
+                
+            %span 月
+            .select-wrap
+              = f.collection_select :birthday_day, BirthdayDay.all, :id, :day, prompt: "--"
+                
+            %span 日
+            .form__info__text
+              ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+            .form-group
+              .form-groups__text
+                「次へ進む」のボタンを押すことにより、
+                = link_to "#" ,class: "form-groups__text--c" do
+                  利用企画
+                %p に同意したものとみなします
+            .btn-default
+              = f.submit "次へ進む", class: "btn-default__red" 
+            .form-group
+              = icon('fas','angle-right', class:"form-group--icon")
+              = link_to "#" ,class: "form-group__right" do
+                本人情報の登録について
+            .form-group__recaptcha
+              This site is protected by reCAPTCHA and the Google
+              = link_to "#" ,class: "form-group__recaptcha_term" do
+                Privacy Policy
+              and
+              = link_to "#" ,class: "form-group__recaptcha_term" do
+                Terms of Service
+              apply.
+  .single-footer
+    = render partial: "users/footer"
+
