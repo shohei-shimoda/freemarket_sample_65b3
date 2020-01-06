@@ -13,8 +13,7 @@
                 必須
             .form__groupsss--w
               = f.text_field :last_name, class: "form__groupsss--cc", placeholder: "例) 山田"
-              .form__groupsss--x
-                = f.text_field :first_name, class: "form__groupsss--cc",placeholder: "例) 彩"
+              = f.text_field :first_name, class: "form__groupsss--cc",placeholder: "例) 彩"
           .form
             .form__groups
               = f.label :last_name_kana, "お名前(全角)"
@@ -22,19 +21,18 @@
                 必須
             .form__groupsss--w
               = f.text_field :last_name_kana, class: "form__groupsss--cc", placeholder: "例) ヤマダ"
-              .form__groupsss--x
-                = f.text_field :first_name_kana, class: "form__groupsss--cc", placeholder: "例) アヤ"
+              = f.text_field :first_name_kana, class: "form__groupsss--cc", placeholder: "例) アヤ"
           = f.fields_for :addresses do |a|
             .form
               .form__groups
-                = a.label :postcode, "郵便番号", class: "form__groups"
+                = a.label :postcode, "郵便番号"
                 .form__groupss
                   必須
               .form__groupsss
                 = a.text_field :postcode, class: "form__groupsss--cc", placeholder: "例) 123-4567"
             .form
               .form__groups
-                = a.label :prefecture_id, "都道府県", class: "form__groups"
+                = a.label :prefecture_id, "都道府県"
                 .form__groupss
                   必須
               .form__groupsss
@@ -43,21 +41,21 @@
                   
             .form
               .form__groups
-                = a.label :city, "市区町村", class: "form__groups"
+                = a.label :city, "市区町村"
                 .form__groupss
                   必須
               .form__groupsss
                 = a.text_field :city, class: "form__groupsss--cc", placeholder: "例) 横浜市横浜市緑区"
             .form
               .form__groups
-                = a.label :house_num, "番地", class: "form__groups"
+                = a.label :house_num, "番地"
                 .form__groupss
                   必須
               .form__groupsss
                 = a.text_field :house_num, class: "form__groupsss--cc", placeholder: "例) 123-4567"
             .form
               .form__groups
-                = a.label :building_name, "建物名", class: "form__groups"
+                = a.label :building_name, "建物名"
                 .form__groupss5
                   任意
               .form__groupsss
