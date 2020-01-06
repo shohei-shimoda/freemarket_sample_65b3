@@ -8,9 +8,8 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :new, :show]
   resources :addresses, only: [:index]
   resources :cards, only: [:new]
-  resources :signup do
+  resources :signup, only: [:new, :create] do
     collection do
-      get 'signup2'
       get 'signup3'
       get 'signup4'
       get 'signup5'
