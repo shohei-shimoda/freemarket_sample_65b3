@@ -203,49 +203,56 @@
     margin: 0 auto;
     box-sizing: border-box;
     flex-wrap: wrap;
+    display: flex;
+    
+    }
     .pic_3{
       box-shadow: 0 4px 6px rgba(2,2,2,.18);
       margin: 10px;
       height: 264px;
-      .pic_3--img{
-        height: 200px;
-        position: relative;
-        // display: flex;
-      }
-
-      .pic_3--price{
-        position: absolute;
-        height: 30px;
-        width: 80px;
-        line-height: 30px;
-        top: 165px;
-        left: 0px;
-        bottom: 2px;
-        color: white;
-        text-align: center;
-        background: rgba(0,0,0,.4);
-        border-radius: 0 14px 14px 0;
-        display: flex;
-        .pic_3--price--b{
-          text-align: right;
-          color: red;
-        }
-      }
-
-
-      .pic_name_3{
-        color: #222;
-        font-size: 14px;
-        height: 64px;
-        background-color: white;
-        padding: 0 12px;
-        width: 180px;
-        display: flex;
-
-      }
+      // display: flex;
+      // flex-wrap: wrap;
+      
+      
     }
-   
+    .pic_3--img{
+      height: 200px;
+      position: relative;
+      // display: flex;
     }
+    .pic_3--img--a{
+      height: 80px;
+       width: 80px;
+      //  display: flex;
+      
+    }
+    .pic_3--price{
+      position: absolute;
+      height: 30px;
+      width: 80px;
+      line-height: 30px;
+      top: 165px;
+      left: 0px;
+      bottom: 2px;
+      color: white;
+      text-align: center;
+      background: rgba(0,0,0,.4);
+      border-radius: 0 14px 14px 0;
+      // display: flex;
+    }
+
+
+    .pic_name_3{
+      color: #222;
+      font-size: 14px;
+      height: 64px;
+      background-color: white;
+      padding: 0 12px;
+      width: 180px;
+      // display: flex;
+
+    }
+ 
     
     .body_item_all_2{
       width: 980px;
@@ -271,6 +278,10 @@
   .pic_box_all--2{
     display: flex;
     flex-wrap: wrap;
+    width: 1000px;
+      margin: 0 auto;
+      display: flex;
+    
     } 
   }
 
@@ -336,11 +347,4 @@
   }
 }
 }
-.pic_3--img--a{
-  height: 80px;
-   width: 80px;
-   display: flex;
-   .pic_3--img--b{
-     padding: 10px;
-   }
-}
+
