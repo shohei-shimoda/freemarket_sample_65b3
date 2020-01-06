@@ -8,6 +8,12 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :new, :show]
   resources :addresses, only: [:index]
   resources :cards, only: [:new]
+  resources :users, only: [:show, :edit, :new] do
+    collection do
+      get 'logout'
+      
+    end
+  end
   resources :signup do
     collection do
       get 'signup1'
@@ -16,12 +22,6 @@ Rails.application.routes.draw do
       get 'signup4'
       get 'signup5'
       get 'signup6'
-    end
-  end
-  resources :users, only: [:show, :edit, :new] do
-    collection do
-      get 'logout'
-      
     end
   end
 end
