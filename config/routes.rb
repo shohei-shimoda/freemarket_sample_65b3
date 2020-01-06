@@ -15,7 +15,6 @@ Rails.application.routes.draw do
       get 'signup3'
       get 'signup4'
       get 'signup5'
-      post 'signup_index'
       get 'signup6'
     end
   end
