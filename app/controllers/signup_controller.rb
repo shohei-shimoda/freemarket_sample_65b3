@@ -1,7 +1,5 @@
 class SignupController < ApplicationController
-  def signup1
-    @user = User.new
-  end
+  
 
   def signup2
     @user = User.new
@@ -31,16 +29,13 @@ class SignupController < ApplicationController
     if @user.save
       # ログインするための情報を保管
       session[:id] = @user.id
-      redirect_to signup6_signup_index_path
+      redirect_to signup6_users_path
     else
-      render '/signup/signup1'
+      render '/users/signup1'
     end
   end
 
-  def signup6
-    sign_in User.find(session[:id]) unless user_signed_in?
-  end
-
+  
 
   private
     # 許可するキーを設定します
