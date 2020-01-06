@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_one :address, dependent: :destroy
   accepts_nested_attributes_for :address
   
+  validates :nickname, presence: true, length: { maximum: 6 }
   validates :email, {presence: true, uniqueness: true}
   validates :password, {presence: true}
 end
