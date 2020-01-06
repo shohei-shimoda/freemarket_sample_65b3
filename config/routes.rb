@@ -8,13 +8,14 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :new, :show]
   resources :addresses, only: [:index]
   resources :cards, only: [:new]
-  resources :signup, only: [:create] do
+  resources :signup do
     collection do
       get 'signup1'
       get 'signup2'
       get 'signup3'
       get 'signup4'
       get 'signup5'
+      post 'signup_index'
       get 'signup6'
     end
   end
