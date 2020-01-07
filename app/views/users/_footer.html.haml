@@ -6,5 +6,6 @@
   .footer-block__box
     特定商取引に関する表記
 .footer-logo
-  = image_tag "logo_gray.svg", class: 'footer-logo--icn'
+  =link_to root_path,class:"down-header__a--link" do
+    = image_tag "logo_gray.svg", class: 'footer-logo--icn'
   %p © Mercari, Inc.

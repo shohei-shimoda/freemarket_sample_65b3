@@ -1,6 +1,7 @@
 .member-box
   .member-box__header
-    = image_tag "fmarket_logo_red.svg", class: 'member-box__header--icn'
+    =link_to root_path,class:"down-header__a--link" do
+      = image_tag "fmarket_logo_red.svg", class: 'member-box__header--icn'
   .progress__bar 
     .signup__bar
     %li
