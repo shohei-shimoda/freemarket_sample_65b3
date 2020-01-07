@@ -10,11 +10,11 @@ class ItemsController < ApplicationController
     @category_parent_array = []
     parent_origin = [value: 0, name: "---"]
     @category_parent_array << parent_origin
-    
+
     Category.where(ancestry: nil).each do |parent|
       parent = [value: parent.id, name: parent.name]
       @category_parent_array << parent
-  end
+    end
   end
 
   def create
