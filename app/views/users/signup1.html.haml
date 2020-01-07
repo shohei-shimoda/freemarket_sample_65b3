@@ -8,9 +8,8 @@
       .l-single__content
         .icon-mail
           = icon('fas', ' fa-envelope', class:"icon-mail--c")
-          = link_to "signup2" ,class: "icon-mail--link" do
-            メールアドレスで登録する
-        
+          = link_to "メールアドレスで登録する", new_signup_path, class: "icon-mail--link" 
+          
         .icon-facebook
           = icon('fab', 'facebook-square', class:"icon-facebook--c")      
           = link_to user_facebook_omniauth_authorize_path,class: "icon-facebook--link" do
@@ -21,7 +20,7 @@
           = link_to "#" ,class: "icon-google--link" do
             Googleで登録する
   .single-footer
-    = render partial: "footer"
+    = render partial: "users/footer"
 
 
 
