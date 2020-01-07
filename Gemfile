@@ -80,5 +80,6 @@ gem 'fog-aws'
 gem 'kaminari'
 gem 'ancestry'
 gem 'active_hash'
+gem 'jquery-rails'
 gem 'payjp'
 gem "gretel"
