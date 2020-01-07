@@ -81,3 +81,4 @@ gem 'kaminari'
 gem 'ancestry'
 gem 'active_hash'
 gem 'payjp'
+gem "gretel"
