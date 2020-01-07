@@ -7,7 +7,6 @@ class ItemsController < ApplicationController
   def new    
     @item = Item.new
     @item.images.new
-    # @item_image = @item.images.build
     @category_parent_array = []
     parent_origin = [value: 0, name: "---"]
     @category_parent_array << parent_origin
@@ -18,16 +17,9 @@ class ItemsController < ApplicationController
   end
 
   def create
-    
-    # Item.create(item_params)
     @item = Item.new(item_params)
-    # category = Category.find(item_params[:category_id])
-    # @category_parent_array = []
-    # parent_origin = [value: category.id, name:category.name]
-    # @category_parent_array << parent_origin
-    # redirect_to root_path
+    @item.seller_id = current_user.id
     if @item.save
-      # binding.pry
       redirect_to root_path
     else
       render :new
@@ -35,6 +27,14 @@ class ItemsController < ApplicationController
   end
 
   def show 
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
   
   def get_category_children
@@ -53,7 +53,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :price, :description, :condition, :delivery_charge, :delivery_area, :delivery_days, :category_id, images_attributes: [:src])
-  def create
+    params.require(:item).permit(:name, :price, :description, :condition, :delivery_charge, :delivery_area, :delivery_days, :category_id, images_attributes: [:src, :_destroy])
+
   end
 end

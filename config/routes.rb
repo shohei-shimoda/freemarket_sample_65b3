@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'items#index'
-  resources :items, only: [:index, :new, :create, :show] do
+  resources :items, only: [:index, :new, :create, :show, :update] do
     collection do
       get 'get_category_children', defaults:{ format: 'json'}
       get 'get_category_grandchildren', defaults:{ format:'json'}
