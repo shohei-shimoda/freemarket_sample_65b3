@@ -10,11 +10,11 @@
     .login-form
       .login-form__box
         = icon('fab', 'facebook-square', class:"login-form__box--icon")
-        = link_to "FACEBOOK_KEY_ID" ,class: "login-form__box--link" do
+        = link_to user_facebook_omniauth_authorize_path,class: "login-form__box--link" do
           Facebookでログイン
       .login-form__block
         = icon('fab', 'google', class:"login-form__block--icon")
-        = link_to "#" ,class: "login-form__block--link" do
+        = link_to user_google_omniauth_authorize_path,class: "login-form__block--link" do
           Googleでログイン
     %form
       .form-block

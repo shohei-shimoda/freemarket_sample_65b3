@@ -8,16 +8,12 @@
       .l-single__content
         .icon-mail
           = icon('fas', ' fa-envelope', class:"icon-mail--c")
-<<<<<<< Updated upstream
           = link_to "signup2" ,class: "icon-mail--link" do
-=======
-          = link_to signup2_signup_index_path ,class: "icon-mail--link" do
->>>>>>> Stashed changes
             メールアドレスで登録する
         
         .icon-facebook
           = icon('fab', 'facebook-square', class:"icon-facebook--c")      
-          = link_to "#" ,class: "icon-facebook--link" do
+          = link_to user_facebook_omniauth_authorize_path,class: "icon-facebook--link" do
             Facebookで登録する
         
         .icon-google
