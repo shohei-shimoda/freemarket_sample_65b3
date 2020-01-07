@@ -1,5 +1,7 @@
 class SignupController < ApplicationController
-  
+  before_action :save_new_to_session, only: :signup3
+  before_action :save_signup3_to_session, only: :signup4
+  before_action :save_signup4_to_session, only: :signup5
 
   def new
     @user = User.new
