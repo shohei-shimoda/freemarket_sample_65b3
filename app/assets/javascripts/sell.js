@@ -1,12 +1,4 @@
 $(function() {
-
-  //イメージの挿入
-  // var dropzone = $('.dropzone-area');
-  // var images = [];
-  // var inputs  =[];
-  // var input_area = $('.input_area');
-  // var preview = $('#preview');
-
 //価格表示
 $('#sell-price').on('keyup', function(){
   var price = $(this).val();
