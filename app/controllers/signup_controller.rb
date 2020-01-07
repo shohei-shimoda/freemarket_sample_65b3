@@ -7,6 +7,12 @@ class SignupController < ApplicationController
     @user = User.new
   end
 
+  def save_new_to_session
+    session[:user_params] = user_params
+    @user = User.new(session[:user_params])
+    render '/signup/step1' unless @user.valid?
+  end 
+
   def signup3
     session[:user_params] = user_params
     @user = User.new 
