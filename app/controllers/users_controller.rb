@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
-  
+
   def index
   end
 
-  def new 
+  def new
+    
   end
 
   def show
@@ -16,21 +17,12 @@ class UsersController < ApplicationController
   end
 
   def signup1
-  end
-
-  def signup2
-  end
-
-  def signup3
-  end
-
-  def signup4
-  end
-
-  def signup5
+    @user = User.new
   end
 
   def signup6
+    sign_in User.find(session[:id]) unless user_signed_in?
   end
+
 
 end

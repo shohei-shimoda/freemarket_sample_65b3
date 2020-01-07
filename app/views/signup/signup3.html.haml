@@ -1,0 +1,24 @@
+.member-registration
+  = render partial: "users/loginheader"
+  .main
+    .member-main
+      .member-main__registration
+        電話番号の確認
+      .single-content
+        = form_for @user, url: signup4_signup_index_path, method: :get, html: {class: 'single-content'} do |f|
+          .form
+            .phone_number
+              携帯電話の番号
+              = f.telephone_field :phone_num, placeholder: "携帯電話の番号を入力", class: "phone_number-default"
+            .phone-number_a
+              本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+            .phone-number_b
+              = f.submit "SMSを送信する", class: "phone-number_b-c"
+            .phone-number_a
+              ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+          .form-group__text-right
+            = link_to "#" ,class: "form-group__text-right--link" do
+              電話番号の確認が必要な理由
+            = icon('fas','angle-right', class:"form-group__text-right--icn")
+  .single-footer
+    = render partial: "users/footer"

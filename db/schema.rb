@@ -10,12 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2019_12_26_102558) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "prefecture_id"
-    t.string "city"
+    t.bigint "user_id", null: false
+    t.string "postcode", null: false
+    t.integer "prefecture_id", null: false
+    t.string "city", null: false
+    t.string "house_num", null: false
+    t.string "building_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "birthdays", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -27,8 +33,14 @@
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "card_num", null: false
+    t.integer "limit_mouth", null: false
+    t.integer "limit_year", null: false
+    t.integer "security_code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -61,13 +73,13 @@
     t.integer "delivery_charge", null: false
     t.integer "delivery_area", null: false
     t.integer "delivery_days", null: false
+    t.integer "price", null: false
     t.integer "status", null: false
     t.integer "seller_id", null: false
     t.integer "buyer_id", null: false
     t.integer "image_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "price"
     t.index ["category_id_id"], name: "index_items_on_category_id_id"
     t.index ["name"], name: "index_items_on_name"
   end
@@ -88,8 +100,6 @@
     t.integer "birthday_month", null: false
     t.integer "birthday_day", null: false
     t.integer "phone_num", null: false
-    t.integer "authentication_num", null: false
-    t.bigint "address_id", null: false
     t.text "user_img"
     t.text "introduction"
     t.string "encrypted_password", default: "", null: false
@@ -98,10 +108,8 @@
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["address_id"], name: "index_users_on_address_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "users", "addresses"
 end

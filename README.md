@@ -33,16 +33,11 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|first_name|string|null: false|
-|last_name|string|null: false|
-|first_name_kana|string|null: false|
-|last_name_kana|string|null: false|
 |postcode|integer|null: false|
-|prefecture_id|integer|null: false|
+|prefecture|integer|null: false|
 |city|string|null: false|
 |house_num|integer|null: false|
-|buiding_name|string||
-|phone_num|integer|null: false|
+|building_name|string||
 
 ### Association
 - belongs_to :user
@@ -130,11 +125,4 @@ Column|Type|Options|
 ### Association
 - has_many :items
 
-## prefectureテーブル
 
-Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-
-### Association
-- has_many :addresses
