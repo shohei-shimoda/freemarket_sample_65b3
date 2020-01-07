@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_26_102558) do
+ActiveRecord::Schema.define(version: 2020_01_03_034159) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture_id"
@@ -34,9 +34,10 @@ ActiveRecord::Schema.define(version: 2019_12_26_102558) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -45,31 +46,31 @@ ActiveRecord::Schema.define(version: 2019_12_26_102558) do
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "item_id_id", null: false
-    t.text "image", null: false
+    t.string "src"
+    t.bigint "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id_id"], name: "index_images_on_item_id_id"
+    t.index ["item_id"], name: "index_images_on_item_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
     t.integer "condition", null: false
-    t.bigint "category_id_id", null: false
-    t.integer "size", null: false
+    t.bigint "category_id", null: false
+    t.integer "size"
     t.integer "brand"
     t.integer "delivery_charge", null: false
     t.integer "delivery_area", null: false
     t.integer "delivery_days", null: false
     t.integer "price", null: false
-    t.integer "status", null: false
-    t.integer "seller_id", null: false
-    t.integer "buyer_id", null: false
-    t.integer "image_id", null: false
+    t.integer "status"
+    t.integer "seller_id"
+    t.integer "buyer_id"
+    t.integer "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id_id"], name: "index_items_on_category_id_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["name"], name: "index_items_on_name"
   end
 
@@ -104,5 +105,6 @@ ActiveRecord::Schema.define(version: 2019_12_26_102558) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "images", "items"
   add_foreign_key "users", "addresses"
 end
