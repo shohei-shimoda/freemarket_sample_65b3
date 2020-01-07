@@ -10,38 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_07_022919) do
-
-  create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.bigint "blob_id", null: false
-    t.datetime "created_at", null: false
-    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
-    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
-  end
-
-  create_table "active_storage_blobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "key", null: false
-    t.string "filename", null: false
-    t.string "content_type"
-    t.text "metadata"
-    t.bigint "byte_size", null: false
-    t.string "checksum", null: false
-    t.datetime "created_at", null: false
-    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
-  end
+ActiveRecord::Schema.define(version: 2019_12_26_102558) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "prefecture_id"
-    t.string "city"
+    t.bigint "user_id", null: false
+    t.string "postcode", null: false
+    t.integer "prefecture_id", null: false
+    t.string "city", null: false
+    t.string "house_num", null: false
+    t.string "building_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.string "postcode"
-    t.string "house_num"
-    t.string "building_name"
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
@@ -54,16 +33,21 @@ ActiveRecord::Schema.define(version: 2020_01_07_022919) do
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "card_num", null: false
+    t.integer "limit_mouth", null: false
+    t.integer "limit_year", null: false
+    t.integer "security_code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "ancestry"
-    t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -72,10 +56,10 @@ ActiveRecord::Schema.define(version: 2020_01_07_022919) do
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.text "image", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "src"
-    t.bigint "item_id"
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
@@ -83,19 +67,19 @@ ActiveRecord::Schema.define(version: 2020_01_07_022919) do
     t.string "name", null: false
     t.text "description", null: false
     t.integer "condition", null: false
+    t.bigint "category_id", null: false
+    t.integer "size", null: false
     t.integer "brand"
     t.integer "delivery_charge", null: false
     t.integer "delivery_area", null: false
     t.integer "delivery_days", null: false
     t.integer "price", null: false
+    t.integer "status", null: false
+    t.integer "seller_id", null: false
+    t.integer "buyer_id", null: false
+    t.integer "image_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "category_id"
-    t.integer "status"
-    t.integer "seller_id"
-    t.integer "buyer_id"
-    t.integer "image_id"
-    t.integer "size"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["name"], name: "index_items_on_name"
   end
@@ -128,7 +112,4 @@ ActiveRecord::Schema.define(version: 2020_01_07_022919) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "addresses", "users"
-  add_foreign_key "items", "categories"
 end
