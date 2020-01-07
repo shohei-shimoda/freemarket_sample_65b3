@@ -1,5 +1,5 @@
 .member-registration
-  = render partial: "loginheader"
+  = render partial: "users/loginheader"
   .main
     .member-main
       .member-main__registration
@@ -11,7 +11,7 @@
           .form-q__groups--a
             会員登録が完了しました。
         .btn-default__p
-        %input{type: "submit", class: "btn-default__p--red", value: "メルカリをはじめる" } 
-        = image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA-bHFzcc9sjzrAkmi5spWD5tuqHyB6D1LDr_C4_rliH1jwkiT&s", class: 'btn-default__p--icn'
+          = link_to "メルカリをはじめる", items_path, class: "btn-default__p--red"  
+          = image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA-bHFzcc9sjzrAkmi5spWD5tuqHyB6D1LDr_C4_rliH1jwkiT&s", class: 'btn-default__p--icn'
   .single-footer
-    = render partial: "footer"
+    = render partial: "users/footer"

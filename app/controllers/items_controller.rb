@@ -1,8 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
-    # @items = Item.all
-    @items = Item.includes(:images).order('created_at DESC')
+    @items = Item.all
   end
 
   def new    
@@ -55,5 +54,6 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:name, :price, :description, :condition, :delivery_charge, :delivery_area, :delivery_days, :category_id, images_attributes: [:src])
+  def create
   end
 end

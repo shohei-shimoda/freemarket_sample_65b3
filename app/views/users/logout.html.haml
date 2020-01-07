@@ -9,8 +9,7 @@
     = render partial: "left"
     .logout
       .logout__in
-        = link_to "#", class: "logout__in--btn" do
-          ログアウト
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout__in--btn" 
 
 
 .main

@@ -1,12 +1,12 @@
 .login-main
-  = render partial: "header"
+  = render partial: "users/header"
   .signup-main
     .signup-container
       .signup-container__registration
         アカウントをお持ちでない方はこちら
       .signup-container__account 
-        = link_to "#" ,class: "signup-container__account--link" do
-          新規会員登録
+        = link_to "新規会員登録", signup1_signup_index_path, class: "signup-container__account--link" 
+          
     .login-form
       .login-form__box
         = icon('fab', 'facebook-square', class:"login-form__box--icon")
@@ -16,7 +16,7 @@
         = icon('fab', 'google', class:"login-form__block--icon")
         = link_to "#" ,class: "login-form__block--link" do
           Googleでログイン
-    %form
+    = form_for url: new_user_path, method: :get do
       .form-block
         .form-group
           %input{placeholder: "メールアドレス", type: "email", class: "form-group--email"}
@@ -33,4 +33,4 @@
           = link_to "#" ,class: "form-forget__c" do
             パスワードをお忘れの方
   .single-footer
-    = render partial: "footer"
+    = render partial: "users/footer"
