@@ -1,17 +1,20 @@
 $(document).on('turbolinks:load', ()=> {
   // 画像用のinputを生成する関数
   const buildFileField = (index)=> {
-    const html = `<div data-index="${index}" class="topexhibitionmain__center__form__itembox__dropbox">
+    const html = `<label class="topexhibitionmain__center__form__itembox__dropbox--btn" for="item_images_attributes_${index}_src"><div class="topexhibitionmain__center__form__itembox__dropbox">
+                  <div data-index="${index}" class="topexhibitionmain__center__form__itembox__dropbox">
                     <input class="topexhibitionmain__center__form__itembox__dropbox--btn1" type="file"
                     name="item[images_attributes][${index}][src]"
                     id="item_images_attributes_${index}_src"><br>
+                    <div class="topexhibitionmain__center__form__itembox__dropbox__comment">ドラッグアンドドロップ\nまたはクリックしてファイルをアップロード</div>
                     <div class="js-remove">削除</div>
-                  </div>`;
+                  </div>
+                  </label>`;
     return html;
   }
   // プレビュー用のimgタグを生成する関数
   const buildImg = (index, url)=> {
-    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
+    const html = `<img data-index="${index}" src="${url}" width="140px" height="140px">`;
     return html;
   }
   // file_fieldのnameに動的なindexをつける為の配列
