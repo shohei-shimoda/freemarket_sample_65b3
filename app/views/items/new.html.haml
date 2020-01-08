@@ -14,24 +14,18 @@
               %span.compulsory-btn 必須
             .topexhibitionmain__center__form__itembox__upload
               最大10枚までアップロードできます
-          #image-box
-            #previews
-            = f.fields_for :images do |image| 
-              .topexhibitionmain__center__form__itembox__drop      
-                = image.label :src, class: "topexhibitionmain__center__form__itembox__dropbox--btn" do
-                  .topexhibitionmain__center__form__itembox__dropbox{"data-index" => "#{image.index}"}
-                    = image.file_field :src, class: "topexhibitionmain__center__form__itembox__dropbox--btn1", 'data-image': 0, type: "file", name: "item[images_attributes][0][src]"
-                    %br/
-                    %span.js-remove 削除
-              - if @item.persisted?
-                = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-              - if @item.persisted?
-                .topexhibitionmain__center__form__itembox__dropbox{"data-index" => "#{@item.images.count}"}
-                  = file_field_tag :src, name: "product[images_attributes][#{@item.images.count}][src]", class: 'topexhibitionmain__center__form__itembox__dropbox--btn1'
-                  .js-remove 削除
-                .topexhibitionmain__center__form__itembox__dropbox__comment
-                  %p ドラッグアンドドロップ
-                  %p またはクリックしてファイルをアップロード
+          = f.fields_for :images do |image| 
+            .topexhibitionmain__center__form__itembox__drop      
+            #image-box
+              #previews
+              = image.label :src, class: "topexhibitionmain__center__form__itembox__dropbox--btn" do
+                .topexhibitionmain__center__form__itembox__dropbox{"data-index" => "#{image.index}"}
+                  = image.file_field :src, class: "topexhibitionmain__center__form__itembox__dropbox--btn1", 'data-image': 0, type: "file", name: "item[images_attributes][0][src]"
+                  %br/
+                  %span.js-remove 削除
+                  .topexhibitionmain__center__form__itembox__dropbox__comment
+                    %p ドラッグアンドドロップ
+                    %p またはクリックしてファイルをアップロード
 
 
           .topexhibitionmain__center__form__content
