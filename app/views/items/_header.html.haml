@@ -1,7 +1,8 @@
 .header-all
   .upper-header
     .upper-header__1
-      = image_tag "fmarket_logo_red.svg", size: "160x42",class: "upper-img"
+      =link_to root_path,class:"down-header__a--link" do
+        = image_tag "fmarket_logo_red.svg", size: "160x42",class: "upper-img"
     .upper-header__2
       %input{type: "text", class: 'upper-header__2--text', placeholder: "何をお探しですか？"}
   .down-header
