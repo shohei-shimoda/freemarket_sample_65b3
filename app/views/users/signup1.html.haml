@@ -12,12 +12,12 @@
           
         .icon-facebook
           = icon('fab', 'facebook-square', class:"icon-facebook--c")      
-          = link_to "#" ,class: "icon-facebook--link" do
+          = link_to user_facebook_omniauth_authorize_path ,class: "icon-facebook--link" do
             Facebookで登録する
         
         .icon-google
           = icon('fab', 'google', class:"icon-google--c")
-          = link_to "#" ,class: "icon-google--link" do
+          = link_to user_google_oauth2_omniauth_authorize_path ,class: "icon-google--link" do
             Googleで登録する
   .single-footer
     = render partial: "users/footer"
