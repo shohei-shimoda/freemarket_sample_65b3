@@ -196,7 +196,7 @@
   }
 }
 .body_item{
-  height: 1400px;
+  overflow: hidden;
   .body_item_all{
     width: 980px;
     margin: 0 auto;
@@ -213,10 +213,11 @@
     }
 
     .body_item_2{
-      color: rgb(0, 149, 238);
-    display: block;
       white-space: nowrap;
-
+      &--btn {
+        color: rgb(0, 149, 238);
+        text-decoration: none;
+      }
 
     }
   }
