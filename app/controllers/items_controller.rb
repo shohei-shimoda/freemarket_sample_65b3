@@ -1,7 +1,11 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.all
+    @items_ladies = Item.adjust.active(1)
+    @items_mens = Item.adjust.active(212)
+    @items_toies = Item.adjust.active(794)
+    @items_electricdevices = Item.adjust.active(907)
+  
   end
 
   def new    
