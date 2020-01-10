@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_01_03_034159) do
     t.string "city", null: false
     t.string "house_num", null: false
     t.string "building_name"
+    t.string "address_phone_num"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
@@ -100,7 +101,7 @@ ActiveRecord::Schema.define(version: 2020_01_03_034159) do
     t.integer "birthday_year", null: false
     t.integer "birthday_month", null: false
     t.integer "birthday_day", null: false
-    t.integer "phone_num", null: false
+    t.string "phone_num", null: false
     t.text "user_img"
     t.text "introduction"
     t.string "encrypted_password", default: "", null: false

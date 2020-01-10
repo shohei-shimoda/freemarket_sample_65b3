@@ -1,5 +1,33 @@
 .member-registration
-  = render partial: "users/loginheader"
+  .member-box
+    .member-header
+      =link_to root_path,class:"down-header__a--link" do
+        = image_tag "fmarket_logo_red.svg", class: 'member-header__icn'
+    .progress-address
+      .signup-list
+        .signup-list__information
+          会員情報
+          .signup-list__information--ball
+          .signup-list__information--line
+        .signup-list__phone
+          電話番号認証
+          .signup-list__phone--ball
+          .signup-list__phone--left
+          .signup-list__phone--right
+        .signup-list__address
+          お届け先住所入力
+          .signup-list__address--ball
+          .signup-list__address--left
+          .signup-list__address--right
+        .signup-list__card
+          支払い方法
+          .signup-list__card--ball
+          .signup-list__card--left
+          .signup-list__card--right
+        .signup-list__finish
+          完了
+          .signup-list__finish--ball
+          .signup-list__finish--left
   .main
     .member-main
       .member-main__registration
@@ -13,7 +41,15 @@
                 必須
             .form__groupsss--w
               = f.text_field :last_name, class: "form__groupsss--cc", placeholder: "例) 山田"
+              - if @user.errors[:last_name].any?
+                %ul.error-text
+                  - @user.errors[:last_name].each do |message|
+                    %li= message
               = f.text_field :first_name, class: "form__groupsss--cc",placeholder: "例) 彩"
+              - if @user.errors[:first_name].any?
+                %ul.error-text
+                  - @user.errors[:first_name].each do |message|
+                    %li= message
           .form
             .form__groups
               = f.label :last_name_kana, "お名前(全角)"
@@ -21,7 +57,15 @@
                 必須
             .form__groupsss--w
               = f.text_field :last_name_kana, class: "form__groupsss--cc", placeholder: "例) ヤマダ"
+              - if @user.errors[:last_name_kana].any?
+                %ul.error-text
+                  - @user.errors[:last_name_kana].each do |message|
+                    %li= message
               = f.text_field :first_name_kana, class: "form__groupsss--cc", placeholder: "例) アヤ"
+              - if @user.errors[:first_name_kana].any?
+                %ul.error-text
+                  - @user.errors[:first_name_kana].each do |message|
+                    %li= message
           = f.fields_for :addresses do |a|
             .form
               .form__groups
@@ -30,6 +74,10 @@
                   必須
               .form__groupsss
                 = a.text_field :postcode, class: "form__groupsss--cc", placeholder: "例) 123-4567"
+                - if @address.errors[:postcode].any?
+                  %ul.error-text
+                    - @address.errors[:postcode].each do |message|
+                      %li= message
             .form
               .form__groups
                 = a.label :prefecture_id, "都道府県"
@@ -38,6 +86,10 @@
               .form__groupsss
                 .select-wrap__ha
                   = a.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--"
+                  - if @address.errors[:prefecture_id].any?
+                    %ul.error-text
+                      - @address.errors[:prefecture_id].each do |message|
+                        %li= message
                   
             .form
               .form__groups
@@ -46,6 +98,10 @@
                   必須
               .form__groupsss
                 = a.text_field :city, class: "form__groupsss--cc", placeholder: "例) 横浜市横浜市緑区"
+                - if @address.errors[:city].any?
+                  %ul.error-text
+                    - @address.errors[:city].each do |message|
+                      %li= message
             .form
               .form__groups
                 = a.label :house_num, "番地"
@@ -53,6 +109,10 @@
                   必須
               .form__groupsss
                 = a.text_field :house_num, class: "form__groupsss--cc", placeholder: "例) 123-4567"
+                - if @address.errors[:house_num].any?
+                  %ul.error-text
+                    - @address.errors[:house_num].each do |message|
+                      %li= message
             .form
               .form__groups
                 = a.label :building_name, "建物名"
@@ -62,11 +122,11 @@
                 = a.text_field :building_name, class: "form__groupsss--cc", placeholder: "例) 柳ビル103"
             .form
               .form__groups
-                電話
+                = a.label :address_phone_num, "電話"
                 .form__groupss5
                   任意
               .form__groupsss
-                = f.text_field :phone_num, class: "form__groupsss--cc", placeholder: "例) 09012345678"
+                = a.telephone_field :address_phone_num, class: "form__groupsss--cc", placeholder: "例) 09012345678"
             .btn-default
               = f.submit "次へ進む", class: "btn-default__red"
   .single-footer

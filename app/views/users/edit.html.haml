@@ -21,7 +21,7 @@
             .edit-group
               .edit-group__block
                 = icon('fas', 'user-circle', class: "edit-group__block--icon")
-                %input{type: "text", class: "edit-group__block--text", placeholder: "ユーザー名"}
+                %input{type: "text", class: "edit-group__block--text", value: current_user.nickname}
             .edit-details
               %textarea{name: "プロフィール文", cols: "30", rows: "10", class: "edit-details__text", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
               %input{type: "submit", class: "edit-details__submit", value: "変更する"}

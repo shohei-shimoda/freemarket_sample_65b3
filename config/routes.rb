@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     end
     resources :categories, only: [:create]
   end
-  resources :addresses, only: [:index]
+  resources :addresses, only: [:edit]
   resources :cards, only: [:new]
   resources :signup, only: [:new, :create] do
     collection do
