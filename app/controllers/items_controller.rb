@@ -32,6 +32,19 @@ class ItemsController < ApplicationController
   end
 
   def show 
+    @item= Item.find(params[:id])
+  end
+
+  def edit
+    # @item= Item.find(params[:id])
+    @category_parent_array = []
+    parent_origin = [value: 0, name: "---"]
+    @category_parent_array << parent_origin
+
+    Category.where(ancestry: nil).each do |parent|
+      parent = [value: parent.id, name: parent.name]
+      @category_parent_array << parent
+    end
   end
 
   def update
@@ -40,6 +53,9 @@ class ItemsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
   end
   
   def get_category_children

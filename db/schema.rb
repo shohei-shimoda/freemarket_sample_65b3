@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2020_01_09_032445) do
     t.integer "delivery_area", null: false
     t.integer "delivery_days", null: false
     t.integer "price", null: false
-    t.integer "status"
+    t.integer "status", default: 0, null: false
     t.integer "seller_id"
     t.integer "buyer_id"
     t.integer "image_id"
