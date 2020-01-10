@@ -1,4 +1,4 @@
 class AddressesController < ApplicationController
-  def index
+  def edit
   end
 end

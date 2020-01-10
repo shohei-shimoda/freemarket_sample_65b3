@@ -81,8 +81,7 @@
         メール/パスワード
       = icon('fas', 'chevron-right', class:"left-container__list--icon")
     .left-container__list
-      = link_to "#", class: "left-container__list--tag" do
-        本人情報
+      = link_to "本人情報", edit_address_path(current_user), class: "left-container__list--tag" 
       = icon('fas', 'chevron-right', class:"left-container__list--icon")
     .left-container__list
       = link_to "#", class: "left-container__list--tag" do
