@@ -97,7 +97,7 @@ class SignupController < ApplicationController
       building_name: session[:building_name],
       address_phone_num: session[:address_phone_num]
     )
-    render '/signup/signup4' unless @address.valid?
+    render '/signup/signup4' unless @address.valid? && @user.valid?(:validates_new)
   end
 
   def create
