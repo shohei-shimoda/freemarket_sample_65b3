@@ -123,6 +123,7 @@
                 = link_to '加盟店規約', '#', class: "attention-property"
                 に同意したことになります。
             .topexhibitionmain__center__form__sell__submission
+              = f.hidden_field :status, value:0
               = f.submit "出品する", class: "topexhibitionmain__center__form__sell__submission--btn" do
                 出品する
             .topexhibitionmain__center__form__sell__return

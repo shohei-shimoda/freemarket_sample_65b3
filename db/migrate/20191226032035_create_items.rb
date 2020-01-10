@@ -11,7 +11,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :delivery_area, null: false
       t.integer :delivery_days, null: false
       t.integer :price, null: false
-      t.integer :status
+      t.integer :status, null: false,default: 0
       t.integer :seller_id
       t.integer :buyer_id
       t.integer :image_id
