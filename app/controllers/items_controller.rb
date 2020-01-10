@@ -56,8 +56,14 @@ class ItemsController < ApplicationController
 
   def destroy
     @item= Item.find(params[:id])
-    @item.destroy
-    redirect_to root_path
+    if @item.destroy
+      # 削除に成功した時の処理
+      redirect_to root_path
+    else
+      # 削除に失敗した時の処理
+      redirect_to root_path, alert: "削除が失敗しました"
+    end
+    
   end
   
   def get_category_children
