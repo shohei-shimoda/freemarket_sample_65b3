@@ -1,5 +1,33 @@
 .member-registration
-  = render partial: "users/loginheader"
+  .member-box
+    .member-header
+      =link_to root_path,class:"down-header__a--link" do
+        = image_tag "fmarket_logo_red.svg", class: 'member-header__icn'
+    .progress-finish
+      .signup-list
+        .signup-list__information
+          会員情報
+          .signup-list__information--ball
+          .signup-list__information--line
+        .signup-list__phone
+          電話番号認証
+          .signup-list__phone--ball
+          .signup-list__phone--left
+          .signup-list__phone--right
+        .signup-list__address
+          お届け先住所入力
+          .signup-list__address--ball
+          .signup-list__address--left
+          .signup-list__address--right
+        .signup-list__card
+          支払い方法
+          .signup-list__card--ball
+          .signup-list__card--left
+          .signup-list__card--right
+        .signup-list__finish
+          完了
+          .signup-list__finish--ball
+          .signup-list__finish--left
   .main
     .member-main
       .member-main__registration
