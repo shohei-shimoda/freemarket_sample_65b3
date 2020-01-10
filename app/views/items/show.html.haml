@@ -57,6 +57,26 @@
       %span{:class => "itembox__price__bold"}¥14,200
       %span{:class => "itembox__price__tax"}（税込）
       %span{:class => "itembox__price__shipping"}送料込み
+
+    -if user_signed_in?
+      -if @product.user_id == current_user.id
+        = link_to edit_product_path(@product), data: {turbolinks: false} do
+          .product-edit-btn 商品の編集
+          .product-btn-or or
+          .product-stop-btn 出品を一旦停止する
+        = link_to product_path(@product), method: :delete, data: { turbolinks: false} do
+          .product-stop-btn この商品を削除する   
+      -else 
+        -if @product.status == 0
+          = link_to product_card_confirmation_path(@product), data: {turbolinks: false} do
+            .product-buy-btn 購入画面に進む
+        -else
+          .product-buy-btn-sold 売り切れました
+    -else
+      -if @product.status == 0
+        = link_to "/users/sign_in" do
+          .product-buy-btn 購入画面に進む
+      -else”
     .itembox__buy
       = link_to "#", class: "itembox__buy--btn" do
         商品購入画面に進む
