@@ -7,7 +7,13 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :items, only: [:index, :new, :show]
   resources :addresses, only: [:index]
-  resources :cards, only: [:new]
+  resources :cards, only: [:new, :show] do
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
+    end
+  end
   resources :signup, only: [:new, :create] do
     collection do
       get 'signup3'

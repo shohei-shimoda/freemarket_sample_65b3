@@ -3,29 +3,81 @@
     .header
       = render partial: "/items/header"
       = render partial: "/items/sellbutton"
-
 .contents
-  = render partial: "/users/menu_head"
+  = render partial: "users/menu_head"
   .center
-    = render partial: "/users/left"
-
-    .body_new
-      .main_new
-        .newbox_way
-          支払い方法
-        .newbox_card
-          .newbox_card--upper
-            .newbox_card--upper-a
-              クレジットカード一覧
-          .newbox_card--down
-            .newbox_card--down-a
-              クレジットカードを追加する
-              .far.fa-credit-card.icon
-          .newbox_about
-            .newbox_about_container
-              支払い方法について＞
-          
-.main
-  .sub-main
-    .footer
-      = render partial: "/items/footer" 
+    = render partial: "users/left"
+    .member-registration
+      .main
+        .member-main
+          = form_tag(pay_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
+            .member-main__registration
+              クレジットカード情報登録
+            .member-content
+              .form
+                .form__groups
+                  カード番号
+                  .form__groupss
+                    必須
+                .form__groupsss
+                  = text_field "number", "", class: "form__groupsss--cc", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
+              .signup-card-list
+                %img{alt: "", height: "20", src: "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?1714804574"}
+                %img{alt: "", height: "20", src: "//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?1714804574"}
+                %img{alt: "", height: "20", src: "//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?1714804574"}
+                %img{alt: "", height: "20", src: "//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?1714804574"}
+                %img{alt: "", height: "20", src: "//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?1714804574"}
+                %img{alt: "", height: "20", src: "//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?1714804574"}
+                %img{alt: "", height: "20", src: "//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?1714804574"}
+              .form
+                .form__groups
+                  有効期限
+                  .form__groupss
+                    必須
+                .select-wrap__half
+                  %select.select-wrap__half--default
+                    %option{value: "01"} 01
+                    %option{value: "02"} 02
+                    %option{value: "03"} 03
+                    %option{value: "04"} 04
+                    %option{value: "05"} 05
+                    %option{value: "06"} 06
+                    %option{value: "07"} 07
+                    %option{value: "08"} 08
+                    %option{value: "09"} 09
+                    %option{value: "10"} 10
+                    %option{value: "11"} 11
+                    %option{value: "12"} 12
+                  %i.icon-arrow-bottom
+                  %h 月
+                .select-wrap__half
+                  %select.select-wrap__half--default
+                    %option{value: "19"} 19
+                    %option{value: "20"} 20
+                    %option{value: "21"} 21
+                    %option{value: "22"} 22
+                    %option{value: "23"} 23
+                    %option{value: "24"} 24
+                    %option{value: "25"} 25
+                    %option{value: "26"} 26
+                    %option{value: "27"} 27
+                    %option{value: "28"} 28
+                    %option{value: "29"} 29
+                  %i.icon-arrow-bottom
+                  %h 年
+                .form
+                  .form__groups
+                    セキュリティーコード
+                    .form__groupss_form
+                      必須
+                  .form__groupsss
+                    = text_field_tag "cvc", "", class: "form__groupsss--cc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
+                .signup-seqcode-text
+                  .form-question ?
+                  カード裏面の番号とは？
+                .btn-default
+                  = submit_tag "追加する",class: "btn-default__red" ,id: "token_submit"
+  .main
+    .sub-main
+      .footer
+        = render partial: "items/footer"

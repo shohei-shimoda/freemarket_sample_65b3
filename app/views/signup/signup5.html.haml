@@ -1,6 +1,6 @@
 .member-registration
   = render partial: "users/loginheader"
-  .main
+  .main-card
     .member-main
       = form_for(@user, url: {controller: 'signup', action: 'create'}, html: {class: 'member-main'}) do |f|
         .member-main__registration
