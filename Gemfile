@@ -83,4 +83,7 @@ gem 'active_hash'
 gem 'jquery-rails'
 gem 'payjp'
 gem "gretel"
-
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
+gem 'dotenv-rails'

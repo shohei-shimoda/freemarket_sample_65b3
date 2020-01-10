@@ -101,6 +101,7 @@ html, body {
         &--btn {
           text-decoration: none;
           color: #333;
+          font-size: 14px;
         }
 
       }
@@ -114,7 +115,8 @@ html, body {
       border-radius: 15px;
       &__all {
         text-decoration: none;
-        color: #0099e8;       
+        color: #0099e8;
+        font-size: 14px;       
       }
     }
   }
@@ -136,7 +138,7 @@ html, body {
     margin: 8px 0 0;
     &--file {
       display: block;
-      width: 97%;
+      width: 100%;
       max-width: 100%;
       min-height: 104px;
       padding: 10px;
