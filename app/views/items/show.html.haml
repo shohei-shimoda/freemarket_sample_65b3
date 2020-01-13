@@ -136,11 +136,12 @@
     .comment
       - if @comments    
         - @comments.each do |comment|
-          %h4 ＜コメント一覧＞
+          
           %p
             %strong
               = link_to comment.user.nickname, "/users/#{comment.user_id}", class: "comment__name"
-            .comment__content
+
+            .comment__content       
               ：
               = comment.content
     .messagecontent__attention  
