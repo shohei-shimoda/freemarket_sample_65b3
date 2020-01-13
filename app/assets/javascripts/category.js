@@ -8,7 +8,7 @@ $(document).on('turbolinks:load',function(){
   function appendChidrenBox(insertHTML){
     var childSelectHtml = '';
     childSelectHtml = `<div class='topexhibitionmain__center__form__clearfix__group__genre' id= 'children_wrapper'>
-                          <select class="select-default-all" id="child_category" name="product[child_category]">
+                          <select class="select-default-all" id="child_category" name="item[child_category]">
                             <option value="---" data-category="---">---</option>
                             ${insertHTML}
                           <select>
@@ -21,7 +21,7 @@ $(document).on('turbolinks:load',function(){
     var grandchildSelectHtml = '';
     grandchildSelectHtml = `<div class='topexhibitionmain__center__form__clearfix__group__genre' id= 'grandchildren_wrapper'>
                               <div class='topexhibitionmain__center__form__clearfix__group__genre'>
-                                <select class="select-default-all" id="grandchild_category" name="product[grandchild_category]">
+                                <select class="select-default-all" id="grandchild_category" name="item[grandchild_category]">
                                   <option value="---" data-category="---">---</option>
                                   ${insertHTML}
                                 </select>

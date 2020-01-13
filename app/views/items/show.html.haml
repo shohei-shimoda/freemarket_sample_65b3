@@ -34,13 +34,14 @@
             %td{:bgcolor => "white", :width => "182", :height => "73"}
               =link_to "#", class: "catecate" do
                 = @item.category.name
-              -# %p
-              -#   =link_to "#", class: "catecate" do
-              -#     %i.fa.fa-angle-right
-             
-              -# =link_to "#", class: "catecate" do
-              -#   %i.fa.fa-angle-right
-              -#   = @item.category.children.name
+              %p
+                =link_to "#", class: "catecate" do
+                  %i.fa.fa-angle-right
+                  = Category.find(@item.child_category).name
+              =link_to "#", class: "catecate" do
+                %i.fa.fa-angle-right
+                = Category.find(@item.grandchild_category).name
+            
           %tr
             %th{:bgcolor => "#f5f5f5", :width => "117", :height => "46"}
               %font{:color => "black"} ブランド
@@ -71,8 +72,6 @@
               %font{:color => "black"} 発送日の目安
             %td{:bgcolor => "white", :width => "182", :height => "46"}
               =@item.delivery_days
-
-
 
     .itembox__price
       .itembox__price__bold
