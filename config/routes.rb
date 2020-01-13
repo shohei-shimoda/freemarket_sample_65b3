@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults:{ format:'json'}
       get 'error'
       get 'search'
+      get 'buy'
     end
     resources :categories, only: [:create]
     resources :comments, only: :create
