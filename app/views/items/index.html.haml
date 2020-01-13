@@ -36,8 +36,7 @@
                   = link_to item_path(item_ladies), data: {"turbolinks" => false} do
                     =image_tag item_ladies.images[0].src.url,class:"pic3",size:"180x200"
                 .pic_3--price
-                  ¥
-                  = item_ladies[:price]
+                  = number_to_currency(item_ladies.price) #ヘルバーメソッド使いました。app/helpers/items_helper.rbに記述があります。
               .pic_name_3
                 = item_ladies[:name]
       .body_item
@@ -54,8 +53,7 @@
                   = link_to item_path(item_mens), data: {"turbolinks" => false} do
                     =image_tag item_mens.images[0].src.url,class:"pic3",size:"180x200"
                 .pic_3--price
-                  ¥
-                  = item_mens[:price]
+                  = number_to_currency(item_mens.price) #ヘルバーメソッド使いました。app/helpers/items_helper.rbに記述があります。
               .pic_name_3
                 = item_mens[:name]
       .body_item
@@ -72,8 +70,7 @@
                   = link_to item_path(item_toies), data: {"turbolinks" => false} do
                     =image_tag item_toies.images[0].src.url,class:"pic3",size:"180x200"
                 .pic_3--price
-                  ¥
-                  = item_toies[:price]
+                  = number_to_currency(item_toies.price) #ヘルバーメソッド使いました。app/helpers/items_helper.rbに記述があります。
               .pic_name_3
                 = item_toies[:name]
       .body_item
@@ -90,8 +87,7 @@
                   = link_to item_path(item_electricdevices), data: {"turbolinks" => false} do
                     =image_tag item_electricdevices.images[0].src.url,class:"pic3",size:"180x200"
                 .pic_3--price
-                  ¥
-                  = item_electricdevices[:price]
+                  = number_to_currency(item_electricdevices.price) #ヘルバーメソッド使いました。app/helpers/items_helper.rbに記述があります。
               .pic_name_3
                 = item_electricdevices[:name]
     .footer

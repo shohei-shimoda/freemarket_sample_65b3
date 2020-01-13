@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       get 'search'
     end
     resources :categories, only: [:create]
+    resources :comments, only: :create
   end
   resources :addresses, only: [:edit]
 

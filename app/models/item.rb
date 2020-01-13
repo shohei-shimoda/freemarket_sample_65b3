@@ -1,7 +1,10 @@
 class Item < ApplicationRecord
-  belongs_to :user,optional: true
+  belongs_to :seller, class_name:"User"
+  has_one :buyer, class_name:"User"
   belongs_to :category
   has_many :images,dependent: :destroy
+
+  has_many :comments ,dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   # scope :active, -> (category){where(category_id:category)}
   # 親のレコードが削除された場合に、関連付いている子のレコードも一緒に削除してくれる
