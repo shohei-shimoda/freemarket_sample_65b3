@@ -34,13 +34,13 @@
             %td{:bgcolor => "white", :width => "182", :height => "73"}
               =link_to "#", class: "catecate" do
                 = @item.category.name
-              -# %p
-              -#   =link_to "#", class: "catecate" do
-              -#     %i.fa.fa-angle-right
+              %p
+                =link_to "#", class: "catecate" do
+                  %i.fa.fa-angle-right
              
-              -# =link_to "#", class: "catecate" do
-              -#   %i.fa.fa-angle-right
-              -#   = @item.category.children.name
+              =link_to "#", class: "catecate" do
+                %i.fa.fa-angle-right
+                = @item.category.children.name
           %tr
             %th{:bgcolor => "#f5f5f5", :width => "117", :height => "46"}
               %font{:color => "black"} ブランド
