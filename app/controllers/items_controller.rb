@@ -40,6 +40,7 @@ class ItemsController < ApplicationController
     #あなたの出品一覧
     @items_seller_id = Item.where(seller_id:current_user.id).adjust.limit(9)
     @item= Item.find(params[:id])
+  end
 
   def edit
     @category_parent_array = []
