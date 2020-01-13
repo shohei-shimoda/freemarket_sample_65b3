@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-
+  before_action :specific_item, only: [:show]
   def index
     @items_ladies = Item.adjust.active(1)
     @items_mens = Item.adjust.active(212)
@@ -21,6 +21,7 @@ class ItemsController < ApplicationController
     end
   end
 
+
   def create
     @item = Item.new(item_params)
     @item.seller_id = current_user.id
@@ -30,8 +31,14 @@ class ItemsController < ApplicationController
       redirect_to new_item_path
     end
   end
-
-  def show 
+  
+  def show
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
+    #出品者のその他の出品
+    @item_seller_id = Item.adjust.limit(9).where(seller_id: @item.seller_id)
+    #あなたの出品一覧
+    @items_seller_id = Item.where(seller_id:current_user.id).adjust.limit(9)
     @item= Item.find(params[:id])
   end
 
@@ -66,6 +73,17 @@ class ItemsController < ApplicationController
     
   end
   
+  def edit
+    @item = Item.find(params[:id])
+    @item.images.build
+    @addresses = Address.all
+    @root_category = @item.category
+    @child_category = Category.find(@item.child_category)
+    @grandchild_category = Category.find(@item.grandchild_category)
+
+    render layout: 'index'
+  end
+
   def get_category_children
     @category_children = Category.find(params[:parent_id]).children
     respond_to do |format|
@@ -82,7 +100,11 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :price, :description, :condition, :delivery_charge, :delivery_area, :delivery_days, :category_id, images_attributes: [:src, :_destroy])
-
+    params.require(:item).permit(:name, :price, :description, :condition, :delivery_charge, :delivery_area, :delivery_days, :category_id, :child_category, :grandchild_category, images_attributes: [:src, :_destroy]).merge(seller_id:current_user.id)
   end
+
+  def specific_item
+    @item = Item.find(params[:id])
+  end
+
 end
