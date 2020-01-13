@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :specific_item, only: [:show]
+  before_action :specific_item, only: [:show, :edit]
   def index
     @items_ladies = Item.adjust.active(1)
     @items_mens = Item.adjust.active(212)
@@ -43,10 +43,10 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item= Item.find(params[:id])
+    @item.images.new
     @category_parent_array = []
-    
-    Category.where(ancestry: @item.category_id).each do |parent|
+    parent_origin = [value: 0, name: "---"]
+    Category.where(ancestry: nil).each do |parent|
       parent = [value: parent.id, name: parent.name]
       @category_parent_array << parent
     end
@@ -73,16 +73,7 @@ class ItemsController < ApplicationController
     
   end
   
-  def edit
-    @item = Item.find(params[:id])
-    @item.images.build
-    @addresses = Address.all
-    @root_category = @item.category
-    @child_category = Category.find(@item.child_category)
-    @grandchild_category = Category.find(@item.grandchild_category)
-
-    render layout: 'index'
-  end
+  
 
   def get_category_children
     @category_children = Category.find(params[:parent_id]).children
