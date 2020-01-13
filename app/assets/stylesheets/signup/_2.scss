@@ -1,3 +1,10 @@
+@import './variablefile';
+
+li{
+  color: #ea352d;
+  list-style: none;
+}
+
 .member-registration{
   height: 100%; 
   background-color: #f5f5f5 ;
@@ -5,8 +12,8 @@
     height: 128px;
     display: flex;
     justify-content: center;
-    &__header{
-      &--icn {
+    .member-header{
+      &__icn {
         width: 185px;
         height: 49px;
         line-height: 49px;
@@ -14,11 +21,133 @@
         text-align: center;
       }
     }
-    .progress__bar{
+    .progress-bar{
       display: flex;
       padding: 40px 0 0 44px;
       border: 0;
       list-style: none;
+      .signup-list{
+        font-family: $font-family;
+        display: flex;
+        &__information{
+          margin: 0 40px 0 0;
+          font-size: 12px;
+          text-align: center;
+          color: #ea352d;
+          position: relative;
+          &--ball{
+            @include ball;
+            background: #ea352d;
+          }
+          &--line{
+            background: #ccc;
+            position: absolute;
+            left: 30px;
+            bottom: 55px;
+            width: 100%;
+            height: 2px;
+          }
+        }
+        &__phone{
+          margin: 0 40px 0 0;
+          font-size: 12px;
+          text-align: center;
+          color: #ccc;
+          position: relative;
+          &--ball{
+            @include ball;
+            background: #ccc;
+          }
+          &--left{
+            background: #ccc;
+            position: absolute;
+            right: 42px;
+            bottom: 55px;
+            width: 60%;
+            height: 2px;
+          }
+          &--right{
+            background: #ccc;
+            position: absolute;
+            left: 42px;
+            bottom: 55px;
+            width: 80%;
+            height: 2px;
+          }
+        }
+        &__address{
+          margin: 0 40px 0 0;
+          font-size: 12px;
+          text-align: center;
+          color: #ccc;
+          position: relative;
+          &--ball{
+            @include ball;
+            background: #ccc;
+          }
+          &--left{
+            background: #ccc;
+            position: absolute;
+            right: 54px;
+            bottom: 55px;
+            width: 60%;
+            height: 2px;
+          }
+          &--right{
+            background: #ccc;
+            position: absolute;
+            left: 54px;
+            bottom: 55px;
+            width: 60%;
+            height: 2px;
+          }
+        }
+        &__card{
+          margin: 0 40px 0 0;
+          font-size: 12px;
+          text-align: center;
+          color: #ccc;
+          position: relative;
+          &--ball{
+            @include ball;
+            background: #ccc;
+          }
+          &--left{
+            background: #ccc;
+            position: absolute;
+            right: 35px;
+            bottom: 55px;
+            width: 100%;
+            height: 2px;
+          }
+          &--right{
+            background: #ccc;
+            position: absolute;
+            left: 36px;
+            bottom: 55px;
+            width: 100%;
+            height: 2px;
+          }
+        }
+        &__finish{
+          font-size: 12px;
+          text-align: center;
+          color: #ccc;
+          position: relative;
+          &--ball{
+            @include ball;
+            background: #ccc;
+          }
+          &--left{
+            background: #ccc;
+            position: absolute;
+            right: 15px;
+            bottom: 55px;
+            width: 100%;
+            height: 2px;
+          }
+        }
+      }
     }
   }
   .main{
@@ -94,9 +223,9 @@
         font-size: 14px;
         display: flex;
         margin-top: 10px;
+        display: inline-block;
       }
       &__groupsss4{
-        padding-left: 40px;
       }
     }
     .select-wrap{
@@ -112,12 +241,12 @@
         background: 0;
         font-size: 16px;
         line-height: 1.5;
-        width: 76px;
-        display: inline-block;
+        display: block;
       }
 
       span{
         line-height: 48px;
+        display: block;
       }
     }
     

@@ -124,11 +124,9 @@
                 に同意したことになります。
             .topexhibitionmain__center__form__sell__submission
               = f.hidden_field :status, value:0
-              = f.submit "出品する", class: "topexhibitionmain__center__form__sell__submission--btn" do
-                出品する
+              = f.submit "変更する", class: "topexhibitionmain__center__form__sell__submission--btn" 
             .topexhibitionmain__center__form__sell__return
-              = link_to root_path, class: "topexhibitionmain__center__form__sell__return--btn" do
-                もどる
+              = link_to "キャンセル", root_path, class: "topexhibitionmain__center__form__sell__return--btn" 
     
             
   .single-footer  

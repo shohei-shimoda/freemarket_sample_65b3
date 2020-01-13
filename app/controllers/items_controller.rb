@@ -39,6 +39,17 @@ class ItemsController < ApplicationController
     @item_seller_id = Item.adjust.limit(9).where(seller_id: @item.seller_id)
     #あなたの出品一覧
     @items_seller_id = Item.where(seller_id:current_user.id).adjust.limit(9)
+    @item= Item.find(params[:id])
+
+  def edit
+    @category_parent_array = []
+    parent_origin = [value: 0, name: "---"]
+    @category_parent_array << parent_origin
+
+    Category.where(ancestry: nil).each do |parent|
+      parent = [value: parent.id, name: parent.name]
+      @category_parent_array << parent
+    end
   end
 
   def update
@@ -47,6 +58,18 @@ class ItemsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @item= Item.find(params[:id])
+    if @item.destroy
+      # 削除に成功した時の処理
+      redirect_to root_path
+    else
+      # 削除に失敗した時の処理
+      redirect_to root_path, alert: "削除が失敗しました"
+    end
+    
   end
   
   def edit

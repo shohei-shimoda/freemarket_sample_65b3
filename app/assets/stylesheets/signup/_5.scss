@@ -1,3 +1,4 @@
+@import './variablefile';
 .member-registration{
   height: 100%; 
   background-color: #f5f5f5 ;
@@ -14,11 +15,133 @@
         text-align: center;
       }
     }
-    .progress__bar{
+    .progress-card{
       display: flex;
       padding: 40px 0 0 44px;
       border: 0;
       list-style: none;
+      .signup-list{
+        font-family: $font-family;
+        display: flex;
+        &__information{
+          margin: 0 40px 0 0;
+          font-size: 12px;
+          text-align: center;
+          color: #ccc;
+          position: relative;
+          &--ball{
+            @include ball;
+            background: #ea352d;
+          }
+          &--line{
+            background: #ea352d;
+            position: absolute;
+            left: 30px;
+            bottom: 55px;
+            width: 100%;
+            height: 2px;
+          }
+        }
+        &__phone{
+          margin: 0 40px 0 0;
+          font-size: 12px;
+          text-align: center;
+          color: #ccc;
+          position: relative;
+          &--ball{
+            @include ball;
+            background: #ea352d;
+          }
+          &--left{
+            background: #ea352d;
+            position: absolute;
+            right: 42px;
+            bottom: 55px;
+            width: 60%;
+            height: 2px;
+          }
+          &--right{
+            background: #ea352d;
+            position: absolute;
+            left: 42px;
+            bottom: 55px;
+            width: 80%;
+            height: 2px;
+          }
+        }
+        &__address{
+          margin: 0 40px 0 0;
+          font-size: 12px;
+          text-align: center;
+          color: #ccc;
+          position: relative;
+          &--ball{
+            @include ball;
+            background: #ea352d;
+          }
+          &--left{
+            background: #ea352d;
+            position: absolute;
+            right: 54px;
+            bottom: 55px;
+            width: 60%;
+            height: 2px;
+          }
+          &--right{
+            background: #ea352d;
+            position: absolute;
+            left: 54px;
+            bottom: 55px;
+            width: 60%;
+            height: 2px;
+          }
+        }
+        &__card{
+          margin: 0 40px 0 0;
+          font-size: 12px;
+          text-align: center;
+          color: #ea352d;
+          position: relative;
+          &--ball{
+            @include ball;
+            background: #ea352d;
+          }
+          &--left{
+            background: #ea352d;
+            position: absolute;
+            right: 35px;
+            bottom: 55px;
+            width: 100%;
+            height: 2px;
+          }
+          &--right{
+            background: #ccc;
+            position: absolute;
+            left: 36px;
+            bottom: 55px;
+            width: 100%;
+            height: 2px;
+          }
+        }
+        &__finish{
+          font-size: 12px;
+          text-align: center;
+          color: #ccc;
+          position: relative;
+          &--ball{
+            @include ball;
+            background: #ccc;
+          }
+          &--left{
+            background: #ccc;
+            position: absolute;
+            right: 15px;
+            bottom: 55px;
+            width: 100%;
+            height: 2px;
+          }
+        }
+      }
     }
   }
   .main{

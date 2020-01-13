@@ -15,3 +15,8 @@ crumb :logout do
   link "ログアウト", logout_users_path
   parent :mypage
 end
+
+crumb :update do
+  link "本人情報の登録", edit_address_path(current_user)
+  parent :mypage
+end

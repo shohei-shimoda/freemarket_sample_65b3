@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_01_09_032445) do
     t.string "city", null: false
     t.string "house_num", null: false
     t.string "building_name"
+    t.string "address_phone_num"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
@@ -80,7 +81,7 @@ ActiveRecord::Schema.define(version: 2020_01_09_032445) do
     t.integer "delivery_area", null: false
     t.integer "delivery_days", null: false
     t.integer "price", null: false
-    t.integer "status"
+    t.integer "status", default: 0, null: false
     t.integer "seller_id"
     t.integer "buyer_id"
     t.integer "image_id"
@@ -114,7 +115,7 @@ ActiveRecord::Schema.define(version: 2020_01_09_032445) do
     t.integer "birthday_year", null: false
     t.integer "birthday_month", null: false
     t.integer "birthday_day", null: false
-    t.integer "phone_num", null: false
+    t.string "phone_num", null: false
     t.text "user_img"
     t.text "introduction"
     t.string "encrypted_password", default: "", null: false

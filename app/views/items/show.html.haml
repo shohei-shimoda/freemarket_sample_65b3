@@ -71,6 +71,9 @@
               %font{:color => "black"} 発送日の目安
             %td{:bgcolor => "white", :width => "182", :height => "46"}
               =@item.delivery_days
+
+
+
     .itembox__price
       .itembox__price__bold
         = number_to_currency(@item.price)
@@ -78,9 +81,35 @@
         .itembox__price__shipping
           配送料：
           =@item.delivery_charge
-    .itembox__buy
-      = link_to "#", class: "itembox__buy--btn" do
-        商品購入画面に進む
+    -if user_signed_in?
+      -if @item.seller_id == current_user.id
+        = link_to edit_item_path(@item), data: {turbolinks: false} do
+          .item-edit
+            商品の編集
+          .item-box
+            or
+          .item-stop
+            出品を一旦停止する
+        = link_to item_path(@item), method: :delete, data: {turbolinks: false} do
+          .item-delete
+            この商品を削除する   
+      -else 
+        -if @item.status == 0
+          = link_to "#", data: {turbolinks: false}, class:"itembox__buy--btn" do
+            .itembox__buy
+              商品購入画面に進む
+        -else
+          .item-sold
+            売り切れました
+    -else
+      -if @item.status == 0
+        = link_to signup1_users_path, class:"itembox__buy--btn" do
+          .itembox__buy
+            商品購入画面に進む
+      -else
+        .item-sold
+          売り切れました
+    -unless user_signed_in? && @item.buyer_id == current_user.id
     .itembox__description
       =@item.description
     .itembox__button
@@ -99,6 +128,8 @@
           = icon('fas', 'lock', class: "itembox__button__right__all--btn")
           %span あんしん・あんぜんへの取り組み
 
+
+    
 
 
 

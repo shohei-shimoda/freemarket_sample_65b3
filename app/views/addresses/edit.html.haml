@@ -4,6 +4,7 @@
       = render partial: "/items/header"
       = render partial: "/items/sellbutton"
 .contents
+  - breadcrumb :update
   = render partial: "/users/menu_head"
   .center
     = render partial: "/users/left"
@@ -24,12 +25,14 @@
               %label{class: "addresses-form__list--label"}
                 お名前
               .addresses-form__list--box
-                ユーザー名
+                = current_user.last_name
+                = current_user.first_name
             .addresses-form__list
               %label{class: "addresses-form__list--label"}
                 お名前カナ
               .addresses-form__list--box
-                ユーザー名カナ
+                = current_user.last_name_kana
+                = current_user.first_name_kana
             .addresses-form__list
               %label{class: "addresses-form__list--label"}
                 生年月日
