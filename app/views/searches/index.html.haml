@@ -1,0 +1,34 @@
+.main
+  .sub-main
+    .header
+      = render partial: "/items/header"
+      = render partial: "/items/sellbutton"
+.search-content
+  = render partial: "search_left"
+  .search-main
+    .search-headbox
+      .search-head
+        = @search
+        .search-title
+          の検索結果
+    .search-bar
+      ="1-#{@item.count}件表示"
+    .search-items
+      .search-itembox
+        - @item.each do |item|
+          .pic_3
+            .pic_3--img
+              .pic_3--img--a
+                = link_to item_path(@item), data: {"turbolinks" => false} do
+                  =image_tag item.images[0].src.url,class:"pic3",size:"180x200"
+              .pic_3--price
+                ¥
+                = item.price
+            .pic_name_3
+              = item.name
+        
+
+.main
+  .sub-main
+    .footer
+      = render partial: "/items/footer" 

@@ -16,4 +16,8 @@ class Item < ApplicationRecord
   scope :active, -> (category){where(category_id:category)}
   # トップページの商品呼び出し
 
+  def self.search(search)
+    return Item.all unless search
+    Item.where(['name LIKE ?', "%#{search}%"])
+  end
 end
