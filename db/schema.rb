@@ -75,6 +75,8 @@ ActiveRecord::Schema.define(version: 2020_01_09_032445) do
     t.text "description", null: false
     t.integer "condition", null: false
     t.bigint "category_id", null: false
+    t.integer "child_category"
+    t.integer "grandchild_category"
     t.integer "size"
     t.integer "brand"
     t.integer "delivery_charge", null: false
