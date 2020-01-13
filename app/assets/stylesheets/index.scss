@@ -196,7 +196,7 @@
   }
 }
 .body_item{
-  height: 1400px;
+  overflow: hidden;
   .body_item_all{
     width: 980px;
     margin: 0 auto;
@@ -213,10 +213,11 @@
     }
 
     .body_item_2{
-      color: rgb(0, 149, 238);
-    display: block;
       white-space: nowrap;
-
+      &--btn {
+        color: rgb(0, 149, 238);
+        text-decoration: none;
+      }
 
     }
   }
@@ -320,7 +321,7 @@
     height: 250px;
   }
 
-.overview_1{
+.overview-1{
   display: flex;
   background-color: rgb(34, 34, 34);
   color: #efefef;
@@ -330,32 +331,32 @@
   font-size: 20px;
   font-weight: bold;
 }
-.overview_about{
+.overview-about{
   font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-  .overview_about_1{
+  &__box{
     font-size: 8px;
     color: #efefef;
   }
 }
-.overview_help{
+.overview-help{
   padding-left: 50px;
-  .overview_help_1{
+  &__box{
     font-size: 8px;
   }
 }
-.overview_privacy{
+.overview-privacy{
   padding-left: 50px;
-  .overview_privacy_1{
+  .privacy-box{
     font-size: 8px;
     display: flex;
-    .overview_privacy_3{
+    &__box{
       padding-left: 100px;
     }
   }
 }
-.overview_country{
+.overview-country{
   padding-left: 50px;
-  .overview_country_1{
+  &__box{
     font-size: 8px;
   }
 }

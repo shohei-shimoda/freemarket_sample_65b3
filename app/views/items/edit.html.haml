@@ -1,0 +1,133 @@
+.login-main
+  = render partial: "/users/header"
+  .topexhibitionmain
+    .topexhibitionmain__center
+   
+      .topexhibitionmain__center__head
+        商品の情報を入力
+   
+      .topexhibitionmain__center__form
+        = form_with(model: @item, local: true) do |f| 
+          .topexhibitionmain__center__form__itembox
+            .topexhibitionmain__center__form__itembox__head
+              出品画像
+              %span.compulsory-btn 必須
+            .topexhibitionmain__center__form__itembox__upload
+              最大10枚までアップロードできます
+          = f.fields_for :images do |image| 
+            .topexhibitionmain__center__form__itembox__drop      
+            #image-box
+              #previews
+              = image.label :src, class: "topexhibitionmain__center__form__itembox__dropbox--btn" do
+                .topexhibitionmain__center__form__itembox__dropbox{"data-index" => "#{image.index}"}
+                  = image.file_field :src, class: "topexhibitionmain__center__form__itembox__dropbox--btn1", 'data-image': 0, type: "file", name: "item[images_attributes][0][src]"
+                  %br/
+                  %span.js-remove 削除
+                  .topexhibitionmain__center__form__itembox__dropbox__comment
+                    %p ドラッグアンドドロップ
+                    %p またはクリックしてファイルをアップロード
+
+
+          .topexhibitionmain__center__form__content
+            .topexhibitionmain__center__form__content__head
+              商品名
+              %span.compulsory-btn 必須
+            .topexhibitionmain__center__form__content__name
+              = f.text_field :name, class: "topexhibitionmain__center__form__content__name--size", placeholder: "商品名（必須 40文字まで)", value: ""
+            .topexhibitionmain__center__form__content__middle
+              商品説明
+              %span.compulsory-btn 必須
+            .topexhibitionmain__center__form__content__text
+              = f.text_area :description, class: "topexhibitionmain__center__form__content__text--file", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"
+          .topexhibitionmain__center__form__clearfix
+            .topexhibitionmain__center__form__clearfix__name
+              商品の詳細
+            .topexhibitionmain__center__form__clearfix__group
+              .topexhibitionmain__center__form__clearfix__group__head
+                カテゴリー
+                %span.compulsory-btn 必須
+              .topexhibitionmain__center__form__clearfix__group__genre
+                = icon('fas', 'chevron-down', class:"select-default-icon")
+                = f.select :category_id ,{class: "select-default-all", id: 'parent_category'} do
+                  - @category_parent_array.each do |parent|
+                    %option{value: parent[0][:value]} 
+                      = parent[0][:name]
+              .select-form
+                
+              .topexhibitionmain__center__form__clearfix__group__middle
+                商品の状態
+                %span.compulsory-btn 必須
+              .topexhibitionmain__center__form__clearfix__group__status
+                = f.select :condition, Item.conditions.keys,{prompt: '---'}, class: "select-default-all"
+                = icon('fas', 'chevron-down', class:"select-default-icon")
+          .topexhibitionmain__center__form__plan
+            .topexhibitionmain__center__form__plan__name
+              配送について
+              %a.topexhibitionmain__center__form__plan__name--btn{:href => "#", :target => "_blank"} ?
+            .topexhibitionmain__center__form__plan__group
+              .topexhibitionmain__center__form__plan__group__head
+                配送料の負担
+                %span.compulsory-btn 必須
+              .topexhibitionmain__center__form__plan__group__burden
+                = f.select :delivery_charge, Item.delivery_charges.keys,{prompt: '---'}, class: "select-default-all"
+                = icon('fas', 'chevron-down', class:"select-default-icon")
+              .topexhibitionmain__center__form__plan__group__middle
+                発送元の地域
+                %span.compulsory-btn 必須
+              .topexhibitionmain__center__form__plan__group__area
+                = f.select :delivery_area, Item.delivery_areas.keys,{prompt: '---'}, class: "select-default-all"
+                = icon('fas', 'chevron-down', class:"select-default-icon")
+              .topexhibitionmain__center__form__plan__group__bottom
+                発送までの日数
+                %span.compulsory-btn 必須
+              .topexhibitionmain__center__form__plan__group__date
+                = f.select :delivery_days, Item.delivery_days.keys,{prompt: '---'}, class: "select-default-all"
+                = icon('fas', 'chevron-down', class:"select-default-icon")
+          .topexhibitionmain__center__form__price
+            .topexhibitionmain__center__form__price__name
+              販売価格(300〜9,999,999)
+              %a.topexhibitionmain__center__form__plan__name--btn{:href => "#", :target => "_blank"} ?
+            .topexhibitionmain__center__form__price__group
+              .topexhibitionmain__center__form__price__group__first
+                .topexhibitionmain__center__form__price__group__first__money
+                  価格
+                  %span.compulsory-btn 必須
+                
+                .topexhibitionmain__center__form__price__group__first__prices
+                  ￥
+                  =f.text_field :price, class: "input-default-main", placeholder: "例）300", style: "text-align:right", id: "sell-price", min:300, max:9999999, value: ""
+              .topexhibitionmain__center__form__price__group__second
+                .topexhibitionmain__center__form__price__group__second__change
+                  販売手数料 (10%)
+                .topexhibitionmain__center__form__price__group__second__commission
+                  #mercari_fee
+              .topexhibitionmain__center__form__price__group__third
+                .topexhibitionmain__center__form__price__group__third__bold
+                  販売利益
+                .topexhibitionmain__center__form__price__group__third__total
+                  #seller_gain
+
+          .topexhibitionmain__center__form__sell
+            .topexhibitionmain__center__form__sell__attention
+              %p
+                = link_to '禁止されている出品', '#', class: "attention-property"
+                、
+                = link_to '行為', '#', class: "attention-property" 
+                を必ずご確認ください。
+              %p
+                またブランド品でシリアルナンバー等がある場合はご記載ください。
+                = link_to '偽ブランドの販売', '#', class: "attention-property"
+                は犯罪であり処罰される可能性があります。
+              %p
+                また、出品をもちまして
+                = link_to '加盟店規約', '#', class: "attention-property"
+                に同意したことになります。
+            .topexhibitionmain__center__form__sell__submission
+              = f.hidden_field :status, value:0
+              = f.submit "変更する", class: "topexhibitionmain__center__form__sell__submission--btn" 
+            .topexhibitionmain__center__form__sell__return
+              = link_to "キャンセル", root_path, class: "topexhibitionmain__center__form__sell__return--btn" 
+    
+            
+  .single-footer  
+    = render partial: "/users/footer"

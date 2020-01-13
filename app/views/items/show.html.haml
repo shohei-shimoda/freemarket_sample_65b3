@@ -57,26 +57,54 @@
       %span{:class => "itembox__price__bold"}¥14,200
       %span{:class => "itembox__price__tax"}（税込）
       %span{:class => "itembox__price__shipping"}送料込み
-    .itembox__buy
-      = link_to "#", class: "itembox__buy--btn" do
-        商品購入画面に進む
-    .itembox__description
-      %p ハワイで購入しました。定価は4万近かったと思います。とても可愛いのですが、ギターを使う機会が少ないため出品します。チェーンは外せるのでミニバッグとしても持てます。斜め掛けもできる紐の長さになります。
-    .itembox__button
-      .itembox__button__left
-        .itembox__button__left__like
-          %button{:class => "itembox__button__left__like--btn"}
-            = icon('far', 'heart', class: "itembox__button__left__like--btn")
-          %span いいね!
-          %span.fade-in-down{"data-num" => "like"} 100
-        .itembox__button__left__flag
-          =link_to "#",class: "itembox__button__left__flag--btn" do
-            = icon('far', 'flag', class: "itembox__button__left__flag--btn")
-            %span 不適切な商品の報告
-      .itembox__button__right
-        =link_to "#", class: "itembox__button__right__all" do
-          = icon('fas', 'lock', class: "itembox__button__right__all--btn")
-          %span あんしん・あんぜんへの取り組み
+
+    -if user_signed_in?
+      -if @item.seller_id == current_user.id
+        = link_to edit_item_path(@item), data: {turbolinks: false} do
+          .item-edit
+            商品の編集
+          .item-box
+            or
+          .item-stop
+            出品を一旦停止する
+        = link_to item_path(@item), method: :delete, data: {turbolinks: false} do
+          .item-delete
+            この商品を削除する   
+      -else 
+        -if @item.status == 0
+          = link_to "#", data: {turbolinks: false}, class:"itembox__buy--btn" do
+            .itembox__buy
+              商品購入画面に進む
+        -else
+          .item-sold
+            売り切れました
+    -else
+      -if @item.status == 0
+        = link_to signup1_users_path, class:"itembox__buy--btn" do
+          .itembox__buy
+            商品購入画面に進む
+      -else
+        .item-sold
+          売り切れました
+    -unless user_signed_in? && @item.buyer_id == current_user.id
+    
+      .itembox__description
+        %p ハワイで購入しました。定価は4万近かったと思います。とても可愛いのですが、ギターを使う機会が少ないため出品します。チェーンは外せるのでミニバッグとしても持てます。斜め掛けもできる紐の長さになります。
+      .itembox__button
+        .itembox__button__left
+          .itembox__button__left__like
+            %button{:class => "itembox__button__left__like--btn"}
+              = icon('far', 'heart', class: "itembox__button__left__like--btn")
+            %span いいね!
+            %span.fade-in-down{"data-num" => "like"} 100
+          .itembox__button__left__flag
+            =link_to "#",class: "itembox__button__left__flag--btn" do
+              = icon('far', 'flag', class: "itembox__button__left__flag--btn")
+              %span 不適切な商品の報告
+        .itembox__button__right
+          =link_to "#", class: "itembox__button__right__all" do
+            = icon('fas', 'lock', class: "itembox__button__right__all--btn")
+            %span あんしん・あんぜんへの取り組み
 
 
 

@@ -5,7 +5,7 @@
       = render partial: "sellbutton"      
     .body
       .body_img
-        =image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxYtG4DLzmWmlTGLuY97FwJTfbhhAxhabDBg5dWB8P1mSDqIli&s",:class => "body_img_1"
+        =image_tag "https://pararium.com/wp-content/uploads/imgs/1/6/16dbdcec.gif",:class => "body_img_1"
       .body_category
         .body_category_1
           人気のカテゴリー
@@ -27,93 +27,73 @@
           .body_item_1
             レディース新着アイテム
           .body_item_2
-            もっと見る  ＞
+            = link_to "もっと見る ＞" , "", class:"body_item_2--btn"
         .pict_box_all
-          - @items.each do |item|
+          - @items_ladies.each do |item_ladies|
             .pic_3
               .pic_3--img
                 .pic_3--img--a
-                  =image_tag item.images[0].image,class:"pic3",size:"180x200"
+                  = link_to item_path(item_ladies), data: {"turbolinks" => false} do
+                    =image_tag item_ladies.images[0].src.url,class:"pic3",size:"180x200"
                 .pic_3--price
-                  =item.price
+                  ¥
+                  = item_ladies[:price]
               .pic_name_3
-                =item.name
-        .body_item_all_2
-          .body_item_3
+                = item_ladies[:name]
+      .body_item
+        .body_item_all
+          .body_item_1
             メンズ新着アイテム
-          .body_item_4
-            もっと見る  ＞
-        .pic_box_all--2
-          .pic_3
-            .pic_3--img
-              =image_tag "http://t0.gstatic.com/images?q=tbn%3AANd9GcQCPgwrXfP0QwYw7L82aRy_BVd_F7jFpmEt_wiYgUZOKb9GmY9lzq2UNBuLuMQ&usqp=CAc",class:"pic5",size:"180x200"
-              .pic_3--price
-                ¥9,000
-            .pic_name_3
-              パーカー
-          .pic_3
-            .pic_3--img
-              =image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTFGpKOZ3YyaEP2-XacvCbhWiHDrGMdJIneNWimeuiEsTcQzu5_",class:"pic6",size:"180x200"
-              .pic_3--price
-                ¥9,000
-            .pic_name_3
-              ジャケット
-          .pic_3
-            .pic_3--img
-              =image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSTLFUTY_3VNaHmxcLZXXo6Y-BZKEeGUuKUG1JHnYRfldd4LmmW",class:"pic6",size:"180x200"
-              .pic_3--price
-                ¥9,000
-            .pic_name_3
-              スーツ
-          .pic_3
-            .pic_3--img
-              =image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQaX_5RIceC7t6Q-99iZ0Ycre0QqnGdezddrnX4g2Q4BJNI4VhT",class:"pic6",size:"180x200"
-              .pic_3--price
-                ¥9,000
-            .pic_name_3
-              Tシャツ
-          .pic_3
-            .pic_3--img
-              =image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQFKS1zKEmJQkc_fI0bqTqmoqo_Eu6y2KepJrNFQw--_u6B8Zy7",class:"pic6",size:"180x200"
-              .pic_3--price
-                ¥9,000
-            .pic_name_3
-              サングラス
-          .pic_3
-            .pic_3--img
-              =image_tag "http://t0.gstatic.com/images?q=tbn%3AANd9GcQCPgwrXfP0QwYw7L82aRy_BVd_F7jFpmEt_wiYgUZOKb9GmY9lzq2UNBuLuMQ&usqp=CAc",class:"pic5",size:"180x200"
-              .pic_3--price
-                ¥9,000
-            .pic_name_3
-              パーカー
-          .pic_3
-            .pic_3--img
-              =image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTFGpKOZ3YyaEP2-XacvCbhWiHDrGMdJIneNWimeuiEsTcQzu5_",class:"pic6",size:"180x200"
-              .pic_3--price
-                ¥9,000
-            .pic_name_3
-              ジャケット
-          .pic_3
-            .pic_3--img
-              =image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSTLFUTY_3VNaHmxcLZXXo6Y-BZKEeGUuKUG1JHnYRfldd4LmmW",class:"pic6",size:"180x200"
-              .pic_3--price
-                ¥9,000
-            .pic_name_3
-              スーツ
-          .pic_3
-            .pic_3--img
-              =image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQaX_5RIceC7t6Q-99iZ0Ycre0QqnGdezddrnX4g2Q4BJNI4VhT",class:"pic6",size:"180x200"
-              .pic_3--price
-                ¥9,000
-            .pic_name_3
-              Tシャツ
-          .pic_3
-            .pic_3--img
-              =image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQFKS1zKEmJQkc_fI0bqTqmoqo_Eu6y2KepJrNFQw--_u6B8Zy7",class:"pic6",size:"180x200"
-              .pic_3--price
-                ¥9,000
-            .pic_name_3
-              サングラス
+          .body_item_2
+            = link_to "もっと見る ＞" , "", class:"body_item_2--btn"
+        .pict_box_all
+          - @items_mens.each do |item_mens|
+            .pic_3
+              .pic_3--img
+                .pic_3--img--a
+                  = link_to item_path(item_mens), data: {"turbolinks" => false} do
+                    =image_tag item_mens.images[0].src.url,class:"pic3",size:"180x200"
+                .pic_3--price
+                  ¥
+                  = item_mens[:price]
+              .pic_name_3
+                = item_mens[:name]
+      .body_item
+        .body_item_all
+          .body_item_1
+            おもちゃ・ホビー・グッズ新着アイテム           
+          .body_item_2
+            = link_to "もっと見る ＞" , "", class:"body_item_2--btn"
+        .pict_box_all
+          - @items_toies.each do |item_toies|
+            .pic_3
+              .pic_3--img
+                .pic_3--img--a
+                  = link_to item_path(item_toies), data: {"turbolinks" => false} do
+                    =image_tag item_toies.images[0].src.url,class:"pic3",size:"180x200"
+                .pic_3--price
+                  ¥
+                  = item_toies[:price]
+              .pic_name_3
+                = item_toies[:name]
+      .body_item
+        .body_item_all
+          .body_item_1
+            家電・スマホ・カメラ新着アイテム
+          .body_item_2
+            = link_to "もっと見る ＞" , "", class:"body_item_2--btn"
+        .pict_box_all
+          - @items_electricdevices.each do |item_electricdevices|
+            .pic_3
+              .pic_3--img
+                .pic_3--img--a
+                  = link_to item_path(item_electricdevices), data: {"turbolinks" => false} do
+                    =image_tag item_electricdevices.images[0].src.url,class:"pic3",size:"180x200"
+                .pic_3--price
+                  ¥
+                  = item_electricdevices[:price]
+              .pic_name_3
+                = item_electricdevices[:name]
     .footer
       = render partial: "footer"
 

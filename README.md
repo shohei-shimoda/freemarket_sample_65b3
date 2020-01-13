@@ -64,16 +64,16 @@
 |description|text|null: false|
 |condition|integer|null: false|
 |category_id|references|null: false, foreign_key: true|
-|size|integer|null: false|
+|size|integer||
 |brand|integer||
 |delivery_charge|integer|null: false|
 |delivery_area|integer|null: false|
 |delivery_days|integer|null: false|
 |price|integer|null: false|
-|status|integer|null: false|
-|seller_id|integer|null: false, foreign_key: true|
-|buyer_id|integer|null: false, foreign_key: true|
-|image_id|integer|null: false, foreign_key: true|
+|status|integer||
+|seller_id|integer|foreign_key: true|
+|buyer_id|integer|foreign_key: true|
+|image_id|integer|foreign_key: true|
 
 ### Association
 - belongs_to :seller, class_name: 'User', foreign_key: 'seller_id'
@@ -87,7 +87,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |item_id|references|null: false, foreign_key: true|
-|image|text|null: false|
+|src|string||
 
 ### Association
 - belongs_to :item

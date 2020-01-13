@@ -2,195 +2,133 @@
   = render partial: "/users/header"
   .topexhibitionmain
     .topexhibitionmain__center
+   
       .topexhibitionmain__center__head
         商品の情報を入力
+   
       .topexhibitionmain__center__form
+        = form_with(model: @item, local: true) do |f| 
+          .topexhibitionmain__center__form__itembox
+            .topexhibitionmain__center__form__itembox__head
+              出品画像
+              %span.compulsory-btn 必須
+            .topexhibitionmain__center__form__itembox__upload
+              最大10枚までアップロードできます
+          = f.fields_for :images do |image| 
+            .topexhibitionmain__center__form__itembox__drop      
+            #image-box
+              #previews
+              = image.label :src, class: "topexhibitionmain__center__form__itembox__dropbox--btn" do
+                .topexhibitionmain__center__form__itembox__dropbox{"data-index" => "#{image.index}"}
+                  = image.file_field :src, class: "topexhibitionmain__center__form__itembox__dropbox--btn1", 'data-image': 0, type: "file", name: "item[images_attributes][0][src]"
+                  %br/
+                  %span.js-remove 削除
+                  .topexhibitionmain__center__form__itembox__dropbox__comment
+                    %p ドラッグアンドドロップ
+                    %p またはクリックしてファイルをアップロード
 
-        .topexhibitionmain__center__form__itembox
-          .topexhibitionmain__center__form__itembox__head
-            出品画像
-            %span.compulsory-btn 必須
-          .topexhibitionmain__center__form__itembox__upload
-            最大10枚までアップロードできます
-          .topexhibitionmain__center__form__itembox__drop
-            %label{class: "topexhibitionmain__center__form__itembox__dropbox--btn"}
-              .topexhibitionmain__center__form__itembox__dropbox
-                %input{type: "file", class: "topexhibitionmain__center__form__itembox__dropbox--btn1"}
-            .topexhibitionmain__center__form__itembox__dropbox__comment
-              %p ドラッグアンドドロップ
-              %p またはクリックしてファイルをアップロード
-        .topexhibitionmain__center__form__content
-          .topexhibitionmain__center__form__content__head
-            商品名
-            %span.compulsory-btn 必須
-          .topexhibitionmain__center__form__content__name
-            %input{class: "topexhibitionmain__center__form__content__name--size", placeholder: "商品名（必須 40文字まで)", value: ""}
-          .topexhibitionmain__center__form__content__middle
-            商品説明
-            %span.compulsory-btn 必須
-          .topexhibitionmain__center__form__content__text
-            %textarea{name: "body", type: "text", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", value: "", class: "topexhibitionmain__center__form__content__text--file"}
 
-        .topexhibitionmain__center__form__clearfix
-          .topexhibitionmain__center__form__clearfix__name
-            商品の詳細
-          .topexhibitionmain__center__form__clearfix__group
-            .topexhibitionmain__center__form__clearfix__group__head
-              カテゴリー
+          .topexhibitionmain__center__form__content
+            .topexhibitionmain__center__form__content__head
+              商品名
               %span.compulsory-btn 必須
-            .topexhibitionmain__center__form__clearfix__group__genre
-              %select.select-default-all
-                %option{value: ""} ---
-                %option{value: "1"} レディース
-                %option{value: "2"} メンズ
-                %option{value: "3"} ベビー・キッズ
-                %option{value: "4"} インテリア・住まい・小物
-                %option{value: "5"} 本・音楽・ゲーム
-                %option{value: "6"} おもちゃ・ホビー・グッズ
-                %option{value: "7"} コスメ・香水・美容
-                %option{value: "8"} 家電・スマホ・カメラ
-                %option{value: "10"} スポーツ・レジャー
-                %option{value: "11"} ハンドメイド
-                %option{value: "12"} チケット
-                %option{value: "13"} 自動車・オートバイ
-                %option{value: "14"} その他
-              = icon('fas', 'chevron-down', class:"select-default-icon")
-            .topexhibitionmain__center__form__clearfix__group__middle
-              商品の状態
+            .topexhibitionmain__center__form__content__name
+              = f.text_field :name, class: "topexhibitionmain__center__form__content__name--size", placeholder: "商品名（必須 40文字まで)", value: ""
+            .topexhibitionmain__center__form__content__middle
+              商品説明
               %span.compulsory-btn 必須
-            .topexhibitionmain__center__form__clearfix__group__status
-              %select.select-default-all
-                %option{value: ""} ---
-                %option{value: "1"} 新品、未使用
-                %option{value: "2"} 未使用に近い
-                %option{value: "3"} 目立った傷や汚れなし
-                %option{value: "4"} やや傷や汚れあり
-                %option{value: "5"} 傷や汚れあり
-                %option{value: "6"} 全体的に状態が悪い
-              = icon('fas', 'chevron-down', class:"select-default-icon")
-        .topexhibitionmain__center__form__plan
-          .topexhibitionmain__center__form__plan__name
-            配送について
-            %a.topexhibitionmain__center__form__plan__name--btn{:href => "#", :target => "_blank"} ?
-          .topexhibitionmain__center__form__plan__group
-            .topexhibitionmain__center__form__plan__group__head
-              配送料の負担
-              %span.compulsory-btn 必須
-            .topexhibitionmain__center__form__plan__group__burden
-              %select.select-default-all
-                %option{value: ""} ---
-                %option{value: "2"} 送料込み(出品者負担)
-                %option{value: "1"} 着払い(購入者負担)
-              = icon('fas', 'chevron-down', class:"select-default-icon")
-            .topexhibitionmain__center__form__plan__group__middle
-              発送元の地域
-              %span.compulsory-btn 必須
-            .topexhibitionmain__center__form__plan__group__area
-              %select.select-default-all
-                %option{value: ""} ---
-                %option{value: "1"} 北海道
-                %option{value: "2"} 青森県
-                %option{value: "3"} 岩手県
-                %option{value: "4"} 宮城県
-                %option{value: "5"} 秋田県
-                %option{value: "6"} 山形県
-                %option{value: "7"} 福島県
-                %option{value: "8"} 茨城県
-                %option{value: "9"} 栃木県
-                %option{value: "10"} 群馬県
-                %option{value: "11"} 埼玉県
-                %option{value: "12"} 千葉県
-                %option{value: "13"} 東京都
-                %option{value: "14"} 神奈川県
-                %option{value: "15"} 新潟県
-                %option{value: "16"} 富山県
-                %option{value: "17"} 石川県
-                %option{value: "18"} 福井県
-                %option{value: "19"} 山梨県
-                %option{value: "20"} 長野県
-                %option{value: "21"} 岐阜県
-                %option{value: "22"} 静岡県
-                %option{value: "23"} 愛知県
-                %option{value: "24"} 三重県
-                %option{value: "25"} 滋賀県
-                %option{value: "26"} 京都府
-                %option{value: "27"} 大阪府
-                %option{value: "28"} 兵庫県
-                %option{value: "29"} 奈良県
-                %option{value: "30"} 和歌山県
-                %option{value: "31"} 鳥取県
-                %option{value: "32"} 島根県
-                %option{value: "33"} 岡山県
-                %option{value: "34"} 広島県
-                %option{value: "35"} 山口県
-                %option{value: "36"} 徳島県
-                %option{value: "37"} 香川県
-                %option{value: "38"} 愛媛県
-                %option{value: "39"} 高知県
-                %option{value: "40"} 福岡県
-                %option{value: "41"} 佐賀県
-                %option{value: "42"} 長崎県
-                %option{value: "43"} 熊本県
-                %option{value: "44"} 大分県
-                %option{value: "45"} 宮崎県
-                %option{value: "46"} 鹿児島県
-                %option{value: "47"} 沖縄県
-                %option{value: "99"} 未定
-              = icon('fas', 'chevron-down', class:"select-default-icon")
-            .topexhibitionmain__center__form__plan__group__bottom
-              発送までの日数
-              %span.compulsory-btn 必須
-            .topexhibitionmain__center__form__plan__group__date
-              %select.select-default-all
-                %option{value: ""} ---
-                %option{value: "1"} 1~2日で発送
-                %option{value: "2"} 2~3日で発送
-                %option{value: "3"} 4~7日で発送
-              = icon('fas', 'chevron-down', class:"select-default-icon")
-        .topexhibitionmain__center__form__price
-          .topexhibitionmain__center__form__price__name
-            販売価格(300〜9,999,999)
-            %a.topexhibitionmain__center__form__plan__name--btn{:href => "#", :target => "_blank"} ?
-          .topexhibitionmain__center__form__price__group
-            .topexhibitionmain__center__form__price__group__first
-              .topexhibitionmain__center__form__price__group__first__money
-                価格
+            .topexhibitionmain__center__form__content__text
+              = f.text_area :description, class: "topexhibitionmain__center__form__content__text--file", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"
+          .topexhibitionmain__center__form__clearfix
+            .topexhibitionmain__center__form__clearfix__name
+              商品の詳細
+            .topexhibitionmain__center__form__clearfix__group
+              .topexhibitionmain__center__form__clearfix__group__head
+                カテゴリー
                 %span.compulsory-btn 必須
-              .topexhibitionmain__center__form__price__group__first__prices
-                ￥
-                %input.input-default-main{:placeholder => "例）300", :value => "", :style => "text-align:right"}
-            .topexhibitionmain__center__form__price__group__second
-              .topexhibitionmain__center__form__price__group__second__change
-                販売手数料 (10%)
-              .topexhibitionmain__center__form__price__group__second__commission
-                ー
-            .topexhibitionmain__center__form__price__group__third
-              .topexhibitionmain__center__form__price__group__third__bold
-                販売利益
-              .topexhibitionmain__center__form__price__group__third__total
-                ー
+              .topexhibitionmain__center__form__clearfix__group__genre
+                = icon('fas', 'chevron-down', class:"select-default-icon")
+                = f.select :category_id ,{class: "select-default-all", id: 'parent_category'} do
+                  - @category_parent_array.each do |parent|
+                    %option{value: parent[0][:value]} 
+                      = parent[0][:name]
+              .select-form
+                
+              .topexhibitionmain__center__form__clearfix__group__middle
+                商品の状態
+                %span.compulsory-btn 必須
+              .topexhibitionmain__center__form__clearfix__group__status
+                = f.select :condition, Item.conditions.keys,{prompt: '---'}, class: "select-default-all"
+                = icon('fas', 'chevron-down', class:"select-default-icon")
+          .topexhibitionmain__center__form__plan
+            .topexhibitionmain__center__form__plan__name
+              配送について
+              %a.topexhibitionmain__center__form__plan__name--btn{:href => "#", :target => "_blank"} ?
+            .topexhibitionmain__center__form__plan__group
+              .topexhibitionmain__center__form__plan__group__head
+                配送料の負担
+                %span.compulsory-btn 必須
+              .topexhibitionmain__center__form__plan__group__burden
+                = f.select :delivery_charge, Item.delivery_charges.keys,{prompt: '---'}, class: "select-default-all"
+                = icon('fas', 'chevron-down', class:"select-default-icon")
+              .topexhibitionmain__center__form__plan__group__middle
+                発送元の地域
+                %span.compulsory-btn 必須
+              .topexhibitionmain__center__form__plan__group__area
+                = f.select :delivery_area, Item.delivery_areas.keys,{prompt: '---'}, class: "select-default-all"
+                = icon('fas', 'chevron-down', class:"select-default-icon")
+              .topexhibitionmain__center__form__plan__group__bottom
+                発送までの日数
+                %span.compulsory-btn 必須
+              .topexhibitionmain__center__form__plan__group__date
+                = f.select :delivery_days, Item.delivery_days.keys,{prompt: '---'}, class: "select-default-all"
+                = icon('fas', 'chevron-down', class:"select-default-icon")
+          .topexhibitionmain__center__form__price
+            .topexhibitionmain__center__form__price__name
+              販売価格(300〜9,999,999)
+              %a.topexhibitionmain__center__form__plan__name--btn{:href => "#", :target => "_blank"} ?
+            .topexhibitionmain__center__form__price__group
+              .topexhibitionmain__center__form__price__group__first
+                .topexhibitionmain__center__form__price__group__first__money
+                  価格
+                  %span.compulsory-btn 必須
+                
+                .topexhibitionmain__center__form__price__group__first__prices
+                  ￥
+                  =f.text_field :price, class: "input-default-main", placeholder: "例）300", style: "text-align:right", id: "sell-price", min:300, max:9999999, value: ""
+              .topexhibitionmain__center__form__price__group__second
+                .topexhibitionmain__center__form__price__group__second__change
+                  販売手数料 (10%)
+                .topexhibitionmain__center__form__price__group__second__commission
+                  #mercari_fee
+              .topexhibitionmain__center__form__price__group__third
+                .topexhibitionmain__center__form__price__group__third__bold
+                  販売利益
+                .topexhibitionmain__center__form__price__group__third__total
+                  #seller_gain
 
-        .topexhibitionmain__center__form__sell
-          .topexhibitionmain__center__form__sell__attention
-            %p
-              = link_to '禁止されている出品', '#', class: "attention-property"
-              、
-              = link_to '行為', '#', class: "attention-property" 
-              を必ずご確認ください。
-            %p
-              またブランド品でシリアルナンバー等がある場合はご記載ください。
-              = link_to '偽ブランドの販売', '#', class: "attention-property"
-              は犯罪であり処罰される可能性があります。
-            %p
-              また、出品をもちまして
-              = link_to '加盟店規約', '#', class: "attention-property"
-              に同意したことになります。
-          .topexhibitionmain__center__form__sell__submission
-            = link_to "#", class: "topexhibitionmain__center__form__sell__submission--btn" do
-              出品する
-          .topexhibitionmain__center__form__sell__return
-            = link_to root_path, class: "topexhibitionmain__center__form__sell__return--btn" do
-              もどる
+          .topexhibitionmain__center__form__sell
+            .topexhibitionmain__center__form__sell__attention
+              %p
+                = link_to '禁止されている出品', '#', class: "attention-property"
+                、
+                = link_to '行為', '#', class: "attention-property" 
+                を必ずご確認ください。
+              %p
+                またブランド品でシリアルナンバー等がある場合はご記載ください。
+                = link_to '偽ブランドの販売', '#', class: "attention-property"
+                は犯罪であり処罰される可能性があります。
+              %p
+                また、出品をもちまして
+                = link_to '加盟店規約', '#', class: "attention-property"
+                に同意したことになります。
+            .topexhibitionmain__center__form__sell__submission
+              = f.hidden_field :status, value:0
+              = f.submit "出品する", class: "topexhibitionmain__center__form__sell__submission--btn" do
+                出品する
+            .topexhibitionmain__center__form__sell__return
+              = link_to root_path, class: "topexhibitionmain__center__form__sell__return--btn" do
+                もどる
     
             
   .single-footer  

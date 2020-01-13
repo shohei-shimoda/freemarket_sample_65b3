@@ -1,12 +1,4 @@
 @import './variablefile';
-@mixin box {
-  text-align: center;
-  width: 50%;
-  border-top: 2px solid #ea352d;
-  font-size: 16px;
-  font-family: $font-family;
-  font-weight: 600;
-}
 
 * {
   box-sizing: border-box;
@@ -27,22 +19,22 @@
       display: flex;
       padding: 16px 0;
       &__home {
-        margin-right: 10px;
-        text-decoration: none;
-        color: $font-color;
-        display: inline-block;
-      }
-      &__icon {
-        display: inline-block;
-        color: #888;
-        &--tab {
+        a {
+          margin: 0 10px 0 10px;
+          text-decoration: none;
+          color: $font-color;
+          display: inline-block;
+        }
+        #text {
+          color: #888;
+          font-size: 20px;
           margin-right: 10px;
         }
-      }
-      &__mypage {
-        display: inline-block;
-        font-family: $font-family;
-        font-weight: 600;
+        span.current {
+          font-family: $font-family;
+          font-weight: 600;
+          margin-left: 10px;
+        }
       }
     }
   }

@@ -1,8 +1,7 @@
 .left
   .left-container
     .left-container__list
-      = link_to "#", class: "left-container__list--tag" do
-        マイページ
+      = link_to "マイページ", user_path(current_user), class: "left-container__list--tag"
       = icon('fas', 'chevron-right', class:"left-container__list--icon") 
     .left-container__list
       = link_to "#", class: "left-container__list--tag" do
@@ -67,8 +66,7 @@
     .left-container__setting
       設定
     .left-container__list
-      = link_to "#", class: "left-container__list--tag" do
-        プロフィール
+      = link_to "プロフィール", edit_user_path(current_user), class: "left-container__list--tag"
       = icon('fas', 'chevron-right', class:"left-container__list--icon")
     .left-container__list
       = link_to "#", class: "left-container__list--tag" do
@@ -82,8 +80,7 @@
         メール/パスワード
       = icon('fas', 'chevron-right', class:"left-container__list--icon")
     .left-container__list
-      = link_to "#", class: "left-container__list--tag" do
-        本人情報
+      = link_to "本人情報", edit_address_path(current_user), class: "left-container__list--tag" 
       = icon('fas', 'chevron-right', class:"left-container__list--icon")
     .left-container__list
       = link_to "#", class: "left-container__list--tag" do

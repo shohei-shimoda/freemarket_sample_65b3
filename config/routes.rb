@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users
-  
-
-
+  devise_for :users,
+  controllers: {
+    registrations: "users/registrations",
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'items#index'
-  resources :items, only: [:index, :new, :show]
+
+ 
   resources :addresses, only: [:index]
   resources :cards, only: [:new, :show] do
     collection do
@@ -14,6 +16,18 @@ Rails.application.routes.draw do
       post 'delete', to: 'cards#delete'
     end
   end
+
+  resources :items do
+    collection do
+      get 'get_category_children', defaults:{ format: 'json'}
+      get 'get_category_grandchildren', defaults:{ format:'json'}
+      get 'error'
+      get 'search'
+    end
+    resources :categories, only: [:create]
+  end
+  resources :addresses, only: [:edit]
+
   resources :signup, only: [:new, :create] do
     collection do
       get 'signup3'
