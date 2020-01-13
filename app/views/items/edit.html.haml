@@ -33,7 +33,7 @@
               商品名
               %span.compulsory-btn 必須
             .topexhibitionmain__center__form__content__name
-              = f.text_field :name, class: "topexhibitionmain__center__form__content__name--size", placeholder: "商品名（必須 40文字まで)", value: ""
+              = f.text_field :name, class: "topexhibitionmain__center__form__content__name--size", placeholder: "商品名（必須 40文字まで)"
             .topexhibitionmain__center__form__content__middle
               商品説明
               %span.compulsory-btn 必須
@@ -95,7 +95,7 @@
                 
                 .topexhibitionmain__center__form__price__group__first__prices
                   ￥
-                  =f.text_field :price, class: "input-default-main", placeholder: "例）300", style: "text-align:right", id: "sell-price", min:300, max:9999999, value: ""
+                  =f.text_field :price, class: "input-default-main", placeholder: "例）300", style: "text-align:right", id: "sell-price", min:300, max:9999999
               .topexhibitionmain__center__form__price__group__second
                 .topexhibitionmain__center__form__price__group__second__change
                   販売手数料 (10%)
@@ -124,11 +124,9 @@
                 に同意したことになります。
             .topexhibitionmain__center__form__sell__submission
               = f.hidden_field :status, value:0
-              = f.submit "変更する", class: "topexhibitionmain__center__form__sell__submission--btn" do
-                出品する
+              = f.submit "変更する", class: "topexhibitionmain__center__form__sell__submission--btn" 
             .topexhibitionmain__center__form__sell__return
-              = link_to "キャンセル"root_path, class: "topexhibitionmain__center__form__sell__return--btn" do
-                もどる
+              = link_to "キャンセル", root_path, class: "topexhibitionmain__center__form__sell__return--btn" 
     
             
   .single-footer  

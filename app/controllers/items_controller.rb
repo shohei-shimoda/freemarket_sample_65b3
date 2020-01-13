@@ -36,18 +36,17 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    # @item= Item.find(params[:id])
+    @item= Item.find(params[:id])
     @category_parent_array = []
-    parent_origin = [value: 0, name: "---"]
-    @category_parent_array << parent_origin
-
-    Category.where(ancestry: nil).each do |parent|
+    
+    Category.where(ancestry: @item.category_id).each do |parent|
       parent = [value: parent.id, name: parent.name]
       @category_parent_array << parent
     end
   end
 
   def update
+    @item= Item.find(params[:id])
     if @item.update(item_params)
       redirect_to root_path
     else
