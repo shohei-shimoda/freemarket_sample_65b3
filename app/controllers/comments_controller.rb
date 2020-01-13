@@ -1,8 +1,14 @@
 class CommentsController < ApplicationController
 
   def create
-    comment = Comment.create(comment_params)
-    redirect_to "/items/#{comment.item.id}" 
+    @comment = Comment.create(comment_params)
+    if @comment.save
+      # 戻り値がtrueなので成功
+      redirect_to item_url(@comment.item.id)
+    else
+      # 戻り値がfalseなので失敗
+      render :new
+    end  
   end
 
   private
