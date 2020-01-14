@@ -80,10 +80,11 @@ gem 'fog-aws'
 gem 'kaminari'
 gem 'ancestry'
 gem 'active_hash'
-gem 'jquery-rails'
 gem 'payjp'
+gem 'jquery-rails'
 gem "gretel"
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
+
