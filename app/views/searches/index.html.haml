@@ -1,34 +1,37 @@
 .main
   .sub-main
     .header
-      = render partial: "/items/header"
-      = render partial: "/items/sellbutton"
+      = render partial: "items/header"
+      = render partial: "items/sellbutton"
 .search-content
   = render partial: "search_left"
   .search-main
     .search-headbox
-      .search-head
-        = @search
-        .search-title
-          の検索結果
-    .search-bar
-      ="1-#{@item.count}件表示"
+      -if @search.present?
+        .search-head
+          = @search
+          .search-title
+            の検索結果
+        .search-bar
+          ="1-#{@item.count}件表示"
+      -else
+        .search-head
+          新着商品
     .search-items
       .search-itembox
         - @item.each do |item|
-          .pic_3
-            .pic_3--img
-              .pic_3--img--a
-                = link_to item_path(@item), data: {"turbolinks" => false} do
-                  =image_tag item.images[0].src.url,class:"pic3",size:"180x200"
-              .pic_3--price
-                ¥
-                = item.price
-            .pic_name_3
+          .pic-3
+            .pic-img
+              .pic-img__box
+                = link_to item_path(item.id), method: :get, data: {"turbolinks" => false} do
+                  =image_tag item.images[0].src.url,class:"pic-img__box--img"
+              .pic-img__price
+                = number_to_currency(item.price)
+            .pic-name
               = item.name
         
 
 .main
   .sub-main
     .footer
-      = render partial: "/items/footer" 
+      = render partial: "items/footer" 
