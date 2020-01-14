@@ -1,0 +1,116 @@
+.search-left
+  .search-box
+    = icon('fas', 'chevron-down', class:"search-box__icon")
+    %select{name: "soft_order", class: "search-box__select"}
+      %option{value: ""}並び替え
+      %option{value: "price_asc"}価格の安い順
+      %option{value: "price_desc"}価格の高い順
+      %option{value: "created_desc"}出品の新しい順
+      %option{value: "like_desc"}いいね！の多い順
+  .search-block
+    .search-show
+      詳細検索
+    .search-group
+      .search-group__box
+        = icon('fas', 'plus', class: "search-group__box--icon")
+        .search-group__box--font
+          キーワードを追加する
+        %input{type:"text", name: "search", class: "search-group__box--text", placeholder: "例)値下げ"}
+    .search-group
+      .search-group__box
+        = icon('fas', 'bars', class: "search-group__box--icon")
+        .search-group__box--font
+          カテゴリーを選択する
+      .search-group__select
+        = icon('fas', 'chevron-down', class: "search-group__select--icon")
+        %select{name: "categories", class: "search-group__select--select"}
+          %option{value: ""}すべて
+    .search-group
+      .search-group__box
+        = icon('fas', 'tags', class: "search-group__box--icon")
+        .search-group__box--font
+          ブランド名から探す
+        %input{type:"text", name: "search", class: "search-group__box--text", placeholder: "例)シャネル"}
+    .search-group
+      .search-group__box
+        = icon('fas', 'expand', class: "search-group__box--icon")
+        .search-group__box--font
+          サイズを指定する
+      .search-group__select
+        = icon('fas', 'chevron-down', class: "search-group__select--icon")
+        %select{name: "size", class: "search-group__select--select"}
+          %option{value: ""}すべて
+    .search-group
+      .search-group__box
+        = icon('fas', 'coins', class: "search-group__box--icon")
+        .search-group__box--font
+          価格
+      .search-group__select
+        = icon('fas', 'chevron-down', class: "search-group__select--icon")
+        %select{name: "price", class: "search-group__select--select"}
+          %option{value: ""}選択してください
+      .search-group__block
+        %input{type:"text", name: "price_min", class: "search-group__block--text", placeholder: "¥ Min"}
+        .search-group__block--line
+          ~
+        %input{type:"text", name: "price_max", class: "search-group__block--text", placeholder: "¥ Max"}
+    .search-group
+      .search-group__box
+        = icon('fas', 'star', class: "search-group__box--icon")
+        .search-group__box--font
+          商品の状態
+      .search-checkbox
+        .search-check
+          %input{type:"checkbox", name: "condition_all", id: "condition_all", class: "search-cheack__checkbox"}
+          %label{for: "condition_all"}すべて
+        .search-check
+          %input{type:"checkbox", name: "condition_all", id: "condition_all", class: "search-cheack__checkbox"}
+          %label{for: "condition_all"}新品、未使用
+        .search-check
+          %input{type:"checkbox", name: "condition_all", id: "condition_all", class: "search-cheack__checkbox"}
+          %label{for: "condition_all"}未使用に近い
+        .search-check
+          %input{type:"checkbox", name: "condition_all", id: "condition_all", class: "search-cheack__checkbox"}
+          %label{for: "condition_all", class: "search-cheack__label"}目立った傷や汚れなし
+        .search-check
+          %input{type:"checkbox", name: "condition_all", id: "condition_all", class: "search-cheack__checkbox"}
+          %label{for: "condition_all"}やや傷や汚れあり
+        .search-check
+          %input{type:"checkbox", name: "condition_all", id: "condition_all", class: "search-cheack__checkbox"}
+          %label{for: "condition_all"}傷や汚れあり
+        .search-check
+          %input{type:"checkbox", name: "condition_all", id: "condition_all", class: "search-cheack__checkbox"}
+          %label{for: "condition_all"}全体的に状態が悪い
+    .search-group
+      .search-group__box
+        = icon('fas', 'truck', class: "search-group__box--icon")
+        .search-group__box--font
+          商品の状態
+      .search-checkbox
+        .search-check
+          %input{type:"checkbox", name: "condition_all", id: "condition_all", class: "seach-check__box--checkbox"}
+          %label{for: "condition_all"}すべて
+        .search-check
+          %input{type:"checkbox", name: "condition_all", id: "condition_all", class: "seach-cheack__box--checkbox"}
+          %label{for: "condition_all"}着払い(購入者負担)
+        .search-check
+          %input{type:"checkbox", name: "condition_all", id: "condition_all", class: "seach-cheack__box--checkbox"}
+          %label{for: "condition_all"}送料込み(出品者負担)
+    .search-group
+      .search-group__box
+        = icon('fas', 'shopping-cart', class: "search-group__box--icon")
+        .search-group__box--font
+          商品の状態
+      .search-checkbox
+        .search-check
+          %input{type:"checkbox", name: "condition_all", id: "condition_all", class: "seach-check__box--checkbox"}
+          %label{for: "condition_all"}すべて
+        .search-check
+          %input{type:"checkbox", name: "condition_all", id: "condition_all", class: "seach-cheack__box--checkbox"}
+          %label{for: "condition_all"}販売中
+        .search-check
+          %input{type:"checkbox", name: "condition_all", id: "condition_all", class: "seach-cheack__box--checkbox"}
+          %label{for: "condition_all"}売り切れ
+    .search-btn
+      %input{type: "reset", value: "クリア", class: "search-btn__reset"}
+      %input{type: "submit", value: "完了", class: "search-btn__submit"}

@@ -23,6 +23,7 @@ class ItemsController < ApplicationController
   end
 
 
+
   def create
     @item = Item.new(item_params)
     @item.seller_id = current_user.id
@@ -42,6 +43,7 @@ class ItemsController < ApplicationController
     @items_seller_id = Item.where(seller_id:current_user.id).adjust.limit(9)
     @item= Item.find(params[:id])
   end
+
 
   def edit
     @item.images.new
@@ -100,4 +102,21 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def pay
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    charge = Payjp::Charge.create(
+    amount: @item.price,
+    card: params['payjp-token'],
+    currency: 'jpy'
+    )
+  end
+
+  def item_param
+    params.require(:item).permit(
+      :name,
+      :text,
+      :price,
+      #この辺の他コードは関係ない部分なので省略してます
+    ).merge(user_id: current_user.id)
+  end
 end

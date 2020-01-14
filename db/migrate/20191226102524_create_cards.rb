@@ -1,12 +1,9 @@
 class CreateCards < ActiveRecord::Migration[5.2]
   def change
     create_table :cards do |t|
-      t.references :user,               null: false
-      t.integer :card_num,              null: false
-      t.integer :limit_mouth,           null: false
-      t.integer :limit_year,            null: false
-      t.integer :security_code,         null: false
-
+      t.references :user ,foreign_key: true, null: false
+      t.string :customer_id, null: false
+      t.string :card_id, null: false
       t.timestamps
     end
   end

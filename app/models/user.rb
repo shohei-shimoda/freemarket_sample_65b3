@@ -7,11 +7,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook google_oauth2]
-
+  has_many :cards
   has_one :address, dependent: :destroy
   has_many :items,dependent: :destroy
   accepts_nested_attributes_for :address
-
+  has_many :items
+  
   VALID_PHONE = /\A\d{10,11}\z/
   VALID_postal = /\A[0-9]{3}-[0-9]{4}\z/
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
