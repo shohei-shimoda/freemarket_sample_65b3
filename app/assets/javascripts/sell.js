@@ -1,4 +1,5 @@
 $(function() {
+  
 //価格表示
 $('#sell-price').on('keyup', function(){
   var price = $(this).val();

@@ -82,23 +82,24 @@
           =@item.delivery_charge
     -if user_signed_in?
       -if @item.seller_id == current_user.id
-        = link_to edit_item_path(@item), data: {turbolinks: false} do
-          .item-edit
+        = link_to edit_item_path(@item) ,data:{turbolinks: false} ,class: "itembox__a" do
+          .itembox__edit
             商品の編集
-          .item-box
+          .itembox__box
             or
-          .item-stop
+          .itembox__stop
             出品を一旦停止する
-        = link_to item_path(@item), method: :delete, data: {turbolinks: false} do
-          .item-delete
-            この商品を削除する
+        = link_to item_path(@item),data:{turbolinks: false} , method: :delete, class:"itembox__a" do
+          .itembox__delete
+            この商品を削除する   
       -else 
         -if @item.status == 0
           = link_to buy_items_path, data: {turbolinks: false}, class:"itembox__buy--btn" do
+
             .itembox__buy
               商品購入画面に進む
         -else
-          .item-sold
+          .itembox__sold
             売り切れました
     -else
       -if @item.status == 0
@@ -106,7 +107,7 @@
           .itembox__buy
             商品購入画面に進む
       -else
-        .item-sold
+        .itembox__sold
           売り切れました
     -unless user_signed_in? && @item.buyer_id == current_user.id
       .itembox__description
