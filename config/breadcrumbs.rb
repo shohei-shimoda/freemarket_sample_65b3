@@ -20,3 +20,13 @@ crumb :update do
   link "本人情報の登録", edit_address_path(current_user)
   parent :mypage
 end
+
+crumb :card do
+  link "クレジットカード登録", new_card_path(current_user)
+  parent :mypage
+end
+
+crumb :cards do
+  link "クレジットカード一覧", cards_path(current_user)
+  parent :mypage
+end
