@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :specific_item, only: [:show, :edit]
+  before_action :specific_item, only: [:show, :edit, :update]
+
   def index
     @items_ladies = Item.adjust.active(1)
     @items_mens = Item.adjust.active(212)
@@ -45,15 +46,16 @@ class ItemsController < ApplicationController
   def edit
     @item.images.new
     @category_parent_array = []
-    parent_origin = [value: 0, name: "---"]
-    Category.where(ancestry: nil).each do |parent|
-      parent = [value: parent.id, name: parent.name]
-      @category_parent_array << parent
-    end
+    @addresses = Address.all
+    @root_category = @item.category
+    @child_category = Category.find(@item.child_category)
+    @grandchild_category = Category.find(@item.grandchild_category)
+ 
+
   end
 
   def update
-    @item= Item.find(params[:id])
+
     if @item.update(item_params)
       redirect_to root_path
     else
@@ -91,7 +93,8 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :price, :description, :condition, :delivery_charge, :delivery_area, :delivery_days, :category_id, :child_category, :grandchild_category, images_attributes: [:src, :_destroy]).merge(seller_id:current_user.id)
+    # binding.pry
+    params.require(:item).permit(:name, :price, :description, :condition, :delivery_charge, :delivery_area, :delivery_days, :category_id, :child_category, :grandchild_category, images_attributes: [:src, :_destroy, :id]).merge(seller_id:current_user.id)
   end
 
   def specific_item

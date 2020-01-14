@@ -15,18 +15,16 @@
             .topexhibitionmain__center__form__itembox__upload
               最大10枚までアップロードできます
           = f.fields_for :images do |image| 
-            .topexhibitionmain__center__form__itembox__drop      
-            #image-box
+            .edittt   
+            #image-box  
               #previews
-              = image.label :src, class: "topexhibitionmain__center__form__itembox__dropbox--btn" do
-                .topexhibitionmain__center__form__itembox__dropbox{"data-index" => "#{image.index}"}
-                  = image.file_field :src, class: "topexhibitionmain__center__form__itembox__dropbox--btn1", 'data-image': 0, type: "file", name: "item[images_attributes][0][src]"
+              = image.label :src, class: "editu" do
+                .edipii{"data-index" => "#{image.index}"}
+                  = image.file_field :src, class: "ubububu", 'data-image': 0, type: "file"
                   %br/
                   %span.js-remove 削除
-                  .topexhibitionmain__center__form__itembox__dropbox__comment
-                    %p ドラッグアンドドロップ
-                    %p またはクリックしてファイルをアップロード
-
+                  .edittt__commenter
+    
 
           .topexhibitionmain__center__form__content
             .topexhibitionmain__center__form__content__head
@@ -47,11 +45,14 @@
                 カテゴリー
                 %span.compulsory-btn 必須
               .topexhibitionmain__center__form__clearfix__group__genre
-                = icon('fas', 'chevron-down', class:"select-default-icon")
-                = f.select :category_id ,{class: "select-default-all", id: 'parent_category'} do
-                  - @category_parent_array.each do |parent|
-                    %option{value: parent[0][:value]} 
-                      = parent[0][:name]
+                %i.fa.fa-chevron-down
+                = f.collection_select :category_id, Category.roots, :id, :name, {selected: @root_category.id, prompt: '---'}, class: 'list-menu__category', id: 'parent_category'
+              .topexhibitionmain__center__form__clearfix__group__genre
+                %i.fa.fa-chevron-down
+                = f.collection_select :child_category, @child_category.siblings, :id, :name, {selected: @child_category.id, prompt: '---'}
+              .topexhibitionmain__center__form__clearfix__group__genre{id: "displayNoneCategory"}
+                %i.fa.fa-chevron-down
+                = f.collection_select :grandchild_category, @grandchild_category.siblings, :id, :name, {selected: @grandchild_category.id, prompt: '---'}
               .select-form
                 
               .topexhibitionmain__center__form__clearfix__group__middle
