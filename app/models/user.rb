@@ -8,8 +8,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook google_oauth2]
   has_many :cards
-         
-
   has_one :address, dependent: :destroy
   has_many :items,dependent: :destroy
   accepts_nested_attributes_for :address

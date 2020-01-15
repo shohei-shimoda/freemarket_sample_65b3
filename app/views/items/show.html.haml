@@ -8,11 +8,12 @@
       = @item.name
     .itembox__main
       .itembox__main__photo
-        =image_tag @item.images[0].src.url,size:"300x300"
+        #phototo
+          =image_tag @item.images[0].src.url,size:"300x300"
         .mainbox-images-sub
           - @item.images.each do |image|
             .mainbox-image-sub__photo
-              = image_tag image.src.url,class:"sub-image",size:"60x60" 
+              = image_tag image.src.url,class:"image-sub",size:"60x60"
        
       .itembox__main__detailtable
         %table{:border => "1", :bordercolor => "#f0eaea", :cellpadding => "5", :cellspacing => "0", :width => "300"}
@@ -34,13 +35,14 @@
             %td{:bgcolor => "white", :width => "182", :height => "73"}
               =link_to "#", class: "catecate" do
                 = @item.category.name
-              -# %p
-              -#   =link_to "#", class: "catecate" do
-              -#     %i.fa.fa-angle-right
-             
-              -# =link_to "#", class: "catecate" do
-              -#   %i.fa.fa-angle-right
-              -#   = @item.category.children.name
+              %p
+                =link_to "#", class: "catecate" do
+                  %i.fa.fa-angle-right
+                  = Category.find(@item.child_category).name
+              =link_to "#", class: "catecate" do
+                %i.fa.fa-angle-right
+                = Category.find(@item.grandchild_category).name
+            
           %tr
             %th{:bgcolor => "#f5f5f5", :width => "117", :height => "46"}
               %font{:color => "black"} ブランド
@@ -72,8 +74,6 @@
             %td{:bgcolor => "white", :width => "182", :height => "46"}
               =@item.delivery_days
 
-
-
     .itembox__price
       .itembox__price__bold
         = number_to_currency(@item.price)
@@ -83,15 +83,15 @@
           =@item.delivery_charge
     -if user_signed_in?
       -if @item.seller_id == current_user.id
-        = link_to edit_item_path(@item), data: {turbolinks: false} do
-          .item-edit
+        = link_to edit_item_path(@item) ,data:{turbolinks: false} ,class: "itembox__a" do
+          .itembox__edit
             商品の編集
-          .item-box
+          .itembox__box
             or
-          .item-stop
+          .itembox__stop
             出品を一旦停止する
-        = link_to item_path(@item), method: :delete, data: {turbolinks: false} do
-          .item-delete
+        = link_to item_path(@item),data:{turbolinks: false} , method: :delete, class:"itembox__a" do
+          .itembox__delete
             この商品を削除する   
       -else 
         -if @item.status == 0
@@ -99,7 +99,7 @@
             .itembox__buy
               商品購入画面に進む
         -else
-          .item-sold
+          .itembox__sold
             売り切れました
     -else
       -if @item.status == 0
@@ -107,7 +107,7 @@
           .itembox__buy
             商品購入画面に進む
       -else
-        .item-sold
+        .itembox__sold
           売り切れました
     -unless user_signed_in? && @item.buyer_id == current_user.id
       .itembox__description
@@ -137,11 +137,12 @@
     .comment
       - if @comments    
         - @comments.each do |comment|
-          %h4 ＜コメント一覧＞
+          
           %p
             %strong
               = link_to comment.user.nickname, "/users/#{comment.user_id}", class: "comment__name"
-            .comment__content
+
+            .comment__content       
               ：
               = comment.content
     .messagecontent__attention  
@@ -213,26 +214,7 @@
                     = icon('far', 'heart', class: "itembox__button__left__like--btn")
                   %span 0
 
-  .itemsboxperson
-    .itemsboxperson__head
-      =link_to "#", class: "itemsboxperson__head--btn" do
-        あなたの出品一覧
-    .itemsboxperson__content
-      .itemsboxperson__flex
-        - @items_seller_id.each do |item_seller|
-          .itemsboxperson__content__img
-            = link_to item_path(item_seller), data: {"turbolinks" => false} do
-              =image_tag item_seller.images[0].src.url,class:"temsboxperson__content__itembox__photo",size:"220x220"
-            .itemsboxperson__content__body
-              .itemsboxperson__content__body__name
-                = item_seller[:name]
-              .itemsboxperson__content__body__price
-                = number_to_currency(item_seller.price)
-                .itemsboxperson__content__body__price__font           
-                .itemsboxperson__content__body__price__like
-                  %button{:class => "itembox__button__left__like--btn"}
-                    = icon('far', 'heart', class: "itembox__button__left__like--btn")
-                  %span 0
+
 .genrelist
   .genrelist__right
     =link_to "#", class: "genrelist__right__mercari" do
