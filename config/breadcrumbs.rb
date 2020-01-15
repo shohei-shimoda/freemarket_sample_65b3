@@ -30,3 +30,4 @@ crumb :cards do
   link "クレジットカード一覧", cards_path(current_user)
   parent :mypage
 end
+
