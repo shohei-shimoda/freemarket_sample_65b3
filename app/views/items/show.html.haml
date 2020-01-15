@@ -214,26 +214,7 @@
                     = icon('far', 'heart', class: "itembox__button__left__like--btn")
                   %span 0
 
-  .itemsboxperson
-    .itemsboxperson__head
-      =link_to "#", class: "itemsboxperson__head--btn" do
-        あなたの出品一覧
-    .itemsboxperson__content
-      .itemsboxperson__flex
-        - @items_seller_id.each do |item_seller|
-          .itemsboxperson__content__img
-            = link_to item_path(item_seller), data: {"turbolinks" => false} do
-              =image_tag item_seller.images[0].src.url,class:"temsboxperson__content__itembox__photo",size:"220x220"
-            .itemsboxperson__content__body
-              .itemsboxperson__content__body__name
-                = item_seller[:name]
-              .itemsboxperson__content__body__price
-                = number_to_currency(item_seller.price)
-                .itemsboxperson__content__body__price__font           
-                .itemsboxperson__content__body__price__like
-                  %button{:class => "itembox__button__left__like--btn"}
-                    = icon('far', 'heart', class: "itembox__button__left__like--btn")
-                  %span 0
+
 .genrelist
   .genrelist__right
     =link_to "#", class: "genrelist__right__mercari" do

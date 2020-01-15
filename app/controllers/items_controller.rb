@@ -39,8 +39,6 @@ class ItemsController < ApplicationController
     @comments = @item.comments.includes(:user)
     #出品者のその他の出品
     @item_seller_id = Item.adjust.limit(9).where(seller_id: @item.seller_id)
-    #あなたの出品一覧
-    @items_seller_id = Item.where(seller_id:current_user.id).adjust.limit(9)
     @item= Item.find(params[:id])
   end
 
