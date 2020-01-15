@@ -49,4 +49,5 @@ Rails.application.routes.draw do
       get 'signup6'
     end
   end
+  resources :searches, only: [:index]
 end

@@ -64,6 +64,8 @@
 |description|text|null: false|
 |condition|integer|null: false|
 |category_id|references|null: false, foreign_key: true|
+|child_category|integer|
+|grandchild_category|integer|
 |size|integer||
 |brand|integer||
 |delivery_charge|integer|null: false|

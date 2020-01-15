@@ -154,14 +154,6 @@ class SignupController < ApplicationController
     end
 
     def address_params
-      params.require(:user, :addresses).permit(
-        :id,
-        :postcode, 
-        :prefecture_id, 
-        :city, 
-        :house_num, 
-        :building_name,
-        :address_phone_num,
-      )
+      params.require(:user, :addresses).permit(address_attributes:[:id,:postcode,:prefecture_id,:city,:house_num,:building_name,:address_phone_num])
     end
 end

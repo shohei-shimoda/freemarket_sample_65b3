@@ -14,16 +14,30 @@
           padding-top: 10px;
           
           &__2{
-            position: relative;
             margin-left: 45px;
-            input[type="text"]{
-            font-size: 16px;
-            min-height: 2.2em;
-            width: 800px;
-            margin-right: 130px;
-            background-color: rgb(255, 255, 255);
-            border-radius: 4px;
-            
+            display: flex;
+            position: relative;
+            width: 100%;
+            &--text{
+              display: block;
+              font-size: 16px;
+              background-color: #eee;
+              padding: 0px 50px 0px 10px;
+              width: 100%;
+              border-style: 1px solid;
+              border-color: rgb(204, 204, 204);
+              border-radius: 4px;
+            }
+            &--submit {
+              position: absolute;
+              right: 5px;
+              top: 2px;
+              width: 40px;
+              height: 40px;
+              border-style: none;
+              background-color: #eee;
+              border-radius: 0px 4px 4px 0px;
+              font-size: 16px;
             }
           }
         }
@@ -233,7 +247,6 @@
       box-shadow: 0 4px 6px rgba(2,2,2,.18);
       margin: 10px;
       height: 264px;
-      
     }
     .pic_3--img{
       height: 200px;
