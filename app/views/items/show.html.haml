@@ -8,11 +8,12 @@
       = @item.name
     .itembox__main
       .itembox__main__photo
-        =image_tag @item.images[0].src.url,size:"300x300"
+        #phototo
+          =image_tag @item.images[0].src.url,size:"300x300"
         .mainbox-images-sub
           - @item.images.each do |image|
             .mainbox-image-sub__photo
-              = image_tag image.src.url,class:"sub-image",size:"60x60" 
+              = image_tag image.src.url,class:"image-sub",size:"60x60"
        
       .itembox__main__detailtable
         %table{:border => "1", :bordercolor => "#f0eaea", :cellpadding => "5", :cellspacing => "0", :width => "300"}
