@@ -1,12 +1,12 @@
 $(document).on('turbolinks:load', ()=> {
   // 画像用のinputを生成する関数
   const buildFileField = (index)=> {
-    const html = `<label class="topexhibitionmain__center__form__itembox__dropbox--btn" for="item_images_attributes_${index}_src"><div class="topexhibitionmain__center__form__itembox__dropbox">
-                  <div data-index="${index}" class="topexhibitionmain__center__form__itembox__dropbox">
-                    <input class="topexhibitionmain__center__form__itembox__dropbox--btn1" type="file"
+    const html = `<label class="editu" for="item_images_attributes_${index}_src"><div class="edipii">
+                  <div data-index="${index}" class="edipii">
+                    <input class="ubububu" type="file"
                     name="item[images_attributes][${index}][src]"
                     id="item_images_attributes_${index}_src"><br>
-                    <div class="topexhibitionmain__center__form__itembox__dropbox__comment">ドラッグアンドドロップ\nまたはクリックしてファイルをアップロード</div>
+                    <div class="edittt__commenter"></div>
                     <div class="js-remove">削除</div>
                   </div>
                   </label>`;
@@ -19,12 +19,13 @@ $(document).on('turbolinks:load', ()=> {
   }
   // file_fieldのnameに動的なindexをつける為の配列
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
-  lastIndex = $('.topexhibitionmain__center__form__itembox__dropbox:last').data('index');
+  lastIndex = $('.edipii').data('index');
   fileIndex.splice(0, lastIndex);
 
   $('.hidden-destroy').hide();
 
-  $('#image-box').on('change', '.topexhibitionmain__center__form__itembox__dropbox--btn1', function(e) {
+  $('#image-box').on('change', '.ubububu', function(e) {
+  // $('#image-box').on('change', '.topexhibitionmain__center__form__itembox__dropbox--btn1', function(e) {
     const targetIndex = $(this).parent().data('index');
     // ファイルのブラウザ上でのURLを取得する
     const file = e.target.files[0];
@@ -56,6 +57,6 @@ $(document).on('turbolinks:load', ()=> {
     $(`img[data-index="${targetIndex}"]`).remove();
 
     // 画像入力欄が0個にならないようにしておく
-    if ($('.topexhibitionmain__center__form__itembox__dropbox--btn1').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
+    if ($('.ubububu').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
 });
