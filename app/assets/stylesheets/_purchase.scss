@@ -475,8 +475,13 @@ html, body {
   flex-wrap: wrap;
 }
 
+// 画像にマウスを置いた時のいろの変化
 img:hover {
   opacity: 0.75;
 }
 
-
+// 商品詳細のパンくず
+a {
+  text-decoration: none;
+  color: #333;
+}

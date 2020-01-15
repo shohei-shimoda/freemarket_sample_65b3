@@ -217,12 +217,8 @@
 
 
 .genrelist
-  .genrelist__right
-    =link_to "#", class: "genrelist__right__mercari" do
-      %span メルカリ  
-      = icon('fas', 'chevron-right', class: "genrelist__right__mercari")
-  .genrelist__left
-    %p 正規品ギター　ショルダーバッグ　ミニバッグ　ポシェット
+  - breadcrumb :itemname, @item,class:"panthan"
+  = render "items/menu_head"
 
 
 .main

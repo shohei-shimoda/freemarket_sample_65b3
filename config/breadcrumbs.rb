@@ -6,6 +6,10 @@ crumb :mypage do
   link "マイページ", user_path(current_user)
 end
 
+crumb :itemname do |item|
+  link item.name
+end
+
 crumb :profile do
   link "プロフィール", edit_user_path(current_user)
   parent :mypage
