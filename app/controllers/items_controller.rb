@@ -55,6 +55,7 @@ class ItemsController < ApplicationController
     end
   end
 
+
   def update
     if @item.update(item_params)
       redirect_to root_path
@@ -86,6 +87,8 @@ class ItemsController < ApplicationController
     render layout: 'index'
   end
 
+
+
   def get_category_children
     @category_children = Category.find(params[:parent_id]).children
     respond_to do |format|
@@ -100,23 +103,52 @@ class ItemsController < ApplicationController
     end
   end
 
+  def buy
+    @user = User.find(params[:id])
+    @item = Item.find(params[:id])
+    @address = Address.find(params[:id])
+    card = Card.where(user_id: current_user.id).first
+    #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
+    if card.blank?
+      #登録された情報がない場合にカード登録画面に移動
+      redirect_to controller: "card", action: "new"
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      #保管した顧客IDでpayjpから情報取得
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
+  end
+
+  def pay
+    @item= Item.find(params[:id])
+    card = Card.where(user_id: current_user.id).first
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp::Charge.create(
+    :amount => @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
+    :customer => card.customer_id, #顧客ID
+    :currency => 'jpy', #日本円
+  )
+  redirect_to action: 'done' #完了画面に移動
+  end
+
+  def done
+    Item.update(params[:id],status: 1)
+  end
+
+end
+
   private
   def item_params
     params.require(:item).permit(:name, :price, :description, :condition, :delivery_charge, :delivery_area, :delivery_days, :category_id, :child_category, :grandchild_category, images_attributes: [:src, :_destroy]).merge(seller_id:current_user.id)
   end
 
+
   def specific_item
     @item = Item.find(params[:id])
   end
 
-  def pay
-    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-    charge = Payjp::Charge.create(
-    amount: @item.price,
-    card: params['payjp-token'],
-    currency: 'jpy'
-    )
-  end
 
   def item_param
     params.require(:item).permit(
@@ -126,4 +158,4 @@ class ItemsController < ApplicationController
       #この辺の他コードは関係ない部分なので省略してます
     ).merge(user_id: current_user.id)
   end
-end
+

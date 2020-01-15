@@ -5,17 +5,17 @@
   .body-create
     .box_top
       .box_top_a
-        購入内容の確認
+        購入内容の確定
     .box_item
       .box_item_sep
         .box_item_sep--a
-          = image_tag src= "https://static.mercdn.net/thumb/photos/m79610468836_1.jpg?1576362831", size: "80x80"
+          =image_tag @item.images[0].src.url,size:"80x80"
         .box_item_detail
           .box_item_detail--a
-            NIKE AIR
+            = @item.name
             .box_item_detail-2
               .box_item_detail--b
-                ¥11,000
+                = number_to_currency(@item.price)
               .box_item_detail--c
                 (税込) 送料込み
     .box_money
@@ -25,7 +25,7 @@
             .box_money_a-1
               支払い金額
             .box_money_a-2
-              ¥11,000
+              = number_to_currency(@item.price)
           .box_money_b
             .box_money_b--pic
             .box_money_b--point
@@ -33,30 +33,48 @@
           .box_way
             .box_way_a
               支払い方法
-            .box_way_sep
+            - if @default_card_information.blank?
+              .box_way_sep
               .box_way_sep_a
               .box_way_sep_b
                 登録してください
                 .box_way_c
-          .box_5
-            .box_5_sep
-              .box_5_sep--a
-                配送先
-              .box_5_sep--b
-                変更する
-            .box_info_all
-              .box_info_all--a
-                〒123-1234
-              .box_info_all--b
-                名古屋市金山
-              .box_info_all--c
-                山田 太郎
-          .box_buy
-            .box_buy_a
-              購入する
+            - else
+              -#以下カード情報を表示
+            .box_way_a--num
+              クレジットカード
+            .box_way_a--num-a
+              = "**** **** **** " + @default_card_information.last4
+              - exp_month = @default_card_information.exp_month.to_s
+              - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+              = "期限"+exp_month+ " / " + exp_year
+            .box_way_a--num-pic
+              = image_tag src= "https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2091621301", size: "49x15"
+            .box_5
+              .box_5_sep
+                .box_5_sep--a
+                  配送先
+                .box_5_sep--b
+                  変更する
+              .box_info_all
+                .box_info_all--a
+                  〒
+                  = @address.postcode
+                .box_info_all--b
+                  = @address.city + @address.house_num
+                .box_info_all--c
+                  .box_info_all--c-1
+                    = @user.last_name
+                  .box_info_all--c-2
+                    =@user.first_name
+            .box_buy
+              .box_buy_a
+                = form_tag(action: :pay, method: :post) do
+                  %button 購入する
+                  
+
   
-    
 
-                 
+                
 
-                    
+                  
