@@ -39,7 +39,7 @@
           .form-q__groups--a
             会員登録が完了しました。
         .btn-default__p
-          = link_to "メルカリをはじめる", items_path, class: "btn-default__p--red"  
+          = link_to "メルカリをはじめる", items_path, class: "btn-default__p--red", data: {"turbolinks" => false} do
           = image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA-bHFzcc9sjzrAkmi5spWD5tuqHyB6D1LDr_C4_rliH1jwkiT&s", class: 'btn-default__p--icn'
   .single-footer
     = render partial: "users/footer"
