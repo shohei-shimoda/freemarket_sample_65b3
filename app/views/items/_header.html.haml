@@ -1,7 +1,7 @@
 .header-all
   .upper-header
     .upper-header__1
-      =link_to root_path,class:"down-header__a--link" do
+      =link_to root_path,class:"down-header__a--link", data: {"turbolinks" => false} do
         = image_tag "fmarket_logo_red.svg", size: "160x42",class: "upper-img"
     .upper-header__2
       = form_with(url: searches_path, local: true, method: :get, class: 'upper-header__2') do |form|

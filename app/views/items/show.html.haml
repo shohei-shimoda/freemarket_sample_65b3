@@ -151,7 +151,7 @@
       = form_with(model: [@item, @comment], local: true) do |form|
         = form.text_area :content, placeholder: "コメントする", rows: "2", class: "messagecontent__text--file"
         = form.submit "コメントする", class: "messagecontent__submit--btn"
-    - else
+    - else  
       %strong
         %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
 
