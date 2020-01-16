@@ -15,16 +15,16 @@
             .topexhibitionmain__center__form__itembox__upload
               最大10枚までアップロードできます
           = f.fields_for :images do |image| 
-            .edittt   
+            .topexhibitionmain__center__form__itembox__edittt   
             #image-box  
               #previews
               = image.label :src, class: "editu" do
-                .edipii{"data-index" => "#{image.index}"}
+                .topexhibitionmain__center__form__itembox__edipii{"data-index" => "#{image.index}"}
                   = image.file_field :src, class: "ubububu", 'data-image': 0, type: "file"
                   %br/
                   %span.js-remove 削除
                   .edittt__commenter
-    
+
 
           .topexhibitionmain__center__form__content
             .topexhibitionmain__center__form__content__head
