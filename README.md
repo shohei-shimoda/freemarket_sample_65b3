@@ -7,7 +7,7 @@
 |------|----|-------|
 |nickname|string|null: false, unique: true|
 |email|string|null: false, unique: true|
-|password|integer|null: false|
+|password|string|null: false|
 |first_name|string|null: false|
 |last_name|string|null: false|
 |first_name_kana|string|null: false|
@@ -16,8 +16,6 @@
 |birthday_month|integer|null: false|
 |birthday_day|integer|null: false|
 |phone_num|integer|null: false|
-|authentication_num|integer|null: false|
-|address|references|null: false, foreign_key: true|
 |user_img|text||
 |introduction|text||
 
@@ -27,20 +25,22 @@
 - has_many :items
 - has_many :comments
 - has_many :likes
+- has_many :sns_credentials, dependent: :destroy
 
 ## addressesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|postcode|integer|null: false|
-|prefecture|integer|null: false|
+|user_id|references|null: false|
+|postcode|string|null: false|
+|prefecture_id|integer|null: false|
 |city|string|null: false|
-|house_num|integer|null: false|
+|house_num|string|null: false|
 |building_name|string||
+|address_phone_num|string||
 
 ### Association
-- belongs_to :user
+- belongs_to :user, optional: true
 - belongs_to_active_hash :prefecture
 
 ## cardsテーブル
@@ -48,13 +48,11 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|card_num|integer|null: false|
-|limit_month|integer|null: false|
-|limit_year|integer|null: false|
-|security_code|integer|null: false|
+|customer_id|string|null: false|
+|card_id|string|null: false|
 
 ### Association
-- belongs_to :user
+- belongs_to :user, optional: true
 
 ## itemsテーブル
 
@@ -63,7 +61,7 @@
 |name|string|index: true, null: false|
 |description|text|null: false|
 |condition|integer|null: false|
-|category_id|references|null: false, foreign_key: true|
+|category_id|references|null: false|
 |child_category|integer|
 |grandchild_category|integer|
 |size|integer||
@@ -72,17 +70,17 @@
 |delivery_area|integer|null: false|
 |delivery_days|integer|null: false|
 |price|integer|null: false|
-|status|integer||
-|seller_id|integer|foreign_key: true|
-|buyer_id|integer|foreign_key: true|
-|image_id|integer|foreign_key: true|
+|status|integer|null: false,default: 0|
+|seller_id|integer||
+|buyer_id|integer||
+|image_id|integer||
 
 ### Association
-- belongs_to :seller, class_name: 'User', foreign_key: 'seller_id'
-- belongs_to :buyer, class_name: 'User', foreign_key: 'buyer_id'
+- belongs_to :seller, class_name: 'User'
+- belongs_to :buyer, class_name: 'User'
 - belongs_to :category
-- has_many :comments
-- has_many :images
+- has_many :comments, dependent: :destroy
+- has_many :images, dependent: :destroy
 - has_many :likes
 
 ## imagesテーブル
@@ -98,7 +96,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|content|text|null: false|
+|content|text||
 |user_id|references|null: false, foreign_key: true|
 |item_id|references|null: false, foreign_key: true|
 
@@ -125,6 +123,15 @@ Column|Type|Options|
 |ancestry|string||
 
 ### Association
-- has_many :items
+- has_many :items, dependent: :destroy
 
+## sns_credentialsテーブル
 
+Column|Type|Options|
+|------|----|-------|
+|user_id|references|foreign_key: true|
+|provider|string||
+|uid|string||
+
+### Association
+- belongs_to :user, optional: true
