@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :specific_item, only: [:show,:buy]
+  before_action :specific_item, only: [:show, :edit, :update]
   before_action :set_card, only:[:buy,:pay]
   before_action :set_item, only:[:buy,:pay]
   def index
@@ -78,8 +78,6 @@ class ItemsController < ApplicationController
   end
   
   
-
-
 
   def get_category_children
     @category_children = Category.find(params[:parent_id]).children
