@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
     @items_mens = Item.adjust.active(212)
     @items_toies = Item.adjust.active(794)
     @items_electricdevices = Item.adjust.active(907)
+    
   end
 
   def new    
