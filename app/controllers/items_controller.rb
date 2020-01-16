@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
     @items_mens = Item.adjust.active(212)
     @items_toies = Item.adjust.active(794)
     @items_electricdevices = Item.adjust.active(907)
-  
+    
   end
 
   def new    
@@ -51,8 +51,6 @@ class ItemsController < ApplicationController
     @root_category = @item.category
     @child_category = Category.find(@item.child_category)
     @grandchild_category = Category.find(@item.grandchild_category)
- 
-
   end
 
 
@@ -120,6 +118,7 @@ class ItemsController < ApplicationController
 
   def done
     Item.update(params[:id],status: 1)
+    @item= Item.find(params[:id])
   end
 
 end

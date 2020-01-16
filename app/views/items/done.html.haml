@@ -1,6 +1,21 @@
 .login-main
   = render partial: "users/header"
-  .signup-main
-    %h2 購入が完了しました！
-  .buy-box
-    = link_to "フリーマーケットに戻る", root_path ,class: "buy-box__link", data: {"turbolinks" => false}
+  .buy_main
+    .buy_header
+      .buy_header--a
+        取引が完了しました
+    .buy_img
+      .buy_img_box
+        =image_tag @item.images[0].src.url,size:"120x140"
+    .buy_info_box
+      .buy_info_name
+        = @item.name
+    .buy_comment_box
+      .buy_comment
+        この度はフリマのご利用ありがとうございます。
+      .buy_comment_a
+        商品到着まで少々お待ちください...
+    .buy-box
+      .buy-box_a
+        = link_to "フリーマーケットに戻る  ＞", root_path ,class: "buy-box_a" 
+
